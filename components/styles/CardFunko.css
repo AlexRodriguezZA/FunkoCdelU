@@ -1,0 +1,141 @@
+.Card_container{
+    margin-top: 150px;
+    background-color: #ffff;
+    width: 380px;
+    height: 460px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    justify-content: center;
+}
+
+.Card_container:hover{
+    box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+}
+
+.card_img_container{
+    width: 288px;
+    height: 253px;
+}
+.card_img_container .img{
+    width: auto;
+    height: 100%;
+    left: 46px;
+    margin-top: 20px;
+}
+
+.Linea_divisora{
+    margin-top: 20px;
+    background-color: #7B7B7B;
+    height: 1px;
+    width: 329px;
+}
+
+.card_details_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.card_details_container_primeraLinea{
+    display: flex;
+    margin-top: 29px;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+
+.numero_funko{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #000000;
+    
+    
+}
+
+.title_funko{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #000000;
+}
+
+
+.card_details_container_segundaLinea{
+    margin-top: 25px;
+    
+}
+
+
+.categoria_funko{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #7B7B7B;
+
+}
+
+
+.button_addCarrito{
+    width: 280px;
+    height: 40px;
+    background-color: #23856D;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+
+
+}
+
+.button_addCarrito:hover{
+    background-color: #24a081;
+}
+
+.button_addCarrito .cart{
+    padding-left: 44px;
+}
+
+.button_addCarrito .price_funko{
+    color: #ffff;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    padding-left: 45px;
+}
+
+@media all and (max-width: 380px) {
+    .Card_container{
+        min-width: 250px;
+        min-height: 300px;
+
+    }
+    .card_img_container{
+        width: 230px;
+        height: 250px;
+    }
+    .card_img_container .img{
+        width: auto;
+        height: 100%;
+        left: 46px;
+        margin-top: 20px;
+    }
+    .button_addCarrito{
+        margin-bottom: 5px;
+    }
+}

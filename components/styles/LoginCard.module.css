@@ -1,0 +1,198 @@
+.loginContainer{
+    margin-top: 0px;
+    width: 500px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    
+}
+.imageLogoContainer{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imageLogo{
+    width: 100%;
+    height: 100%;
+}
+
+.loginContainer:hover{
+    box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+}
+
+.textoBienvenida{
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 32px;
+    /* or 128% */
+
+    text-align: center;
+    letter-spacing: 0.2px;
+
+    color: #000000;
+}
+.lineaDivisora{
+    margin-top: 15px;
+    width: 100%;
+    height: 4px;
+
+
+    background: #000000;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 80%;
+
+}
+
+
+.ButtonSingup{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    height: 100px;
+  
+    background: #F9D9D9;
+    border-radius: 25px;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.ButtonSingup:hover{
+    background: #ddb4b4;
+}
+.ButtonSingup .textoSignup{
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 32px;
+    /* or 128% */
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #000000;
+}
+
+.ButtonLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 35px;
+    width: 100%;
+    height: 100px;
+ 
+    background: #F9D9D9;
+    border-radius: 25px;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+.ButtonLogin:hover{
+    background: #ddb4b4;
+
+}
+.textoLogin{
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 32px;
+    /* or 128% */
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #000000;
+}
+
+.google{
+    align-items: center;
+    width: 40px;
+    height: 50px;
+    justify-content: center;
+    margin-top: -15px;
+}
+
+
+  
+@media screen and (max-width: 600px) {
+    .loginContainer {
+      width: 100%;
+      justify-content: center;
+      margin-top: 0px;
+    }
+    .buttonContainer{
+        margin-top: 50px;
+        width: 80%;
+    
+    }
+    
+    .ButtonSingup {
+        width: 100%;
+        height: 90px;
+    }
+    .ButtonLogin{
+
+        margin-top: 35px;
+        width: 100%;
+        height: 90px;
+     
+    
+    }
+    .google{
+        align-items: center;
+        width: 40px;
+        height: 40px;
+    }
+    
+  }
+  
+  @media screen and (max-width: 380px) {
+    .loginContainer {
+      width: 100%;
+      justify-content: center;
+    }
+
+
+    .buttonContainer{
+        margin-top: 50px;
+        width: 80%;
+    
+    }
+    .Button-Sing-up {
+        width: 100%;
+        height: 80px;
+    }
+    .Button-login{
+
+        margin-top: 35px;
+        width: 100%;
+        height: 80px;
+     
+    
+    }
+    .google{
+        align-items: center;
+        width: 24px;
+        height: 34px;
+    }
+    .ButtonSingup .textoSignup{
+        font-size: 20px;
+
+    }
+    .textoLogin{
+        font-size: 20px;
+
+    }
+  }
+  
