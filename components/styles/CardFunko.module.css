@@ -22,10 +22,8 @@
     width: 288px;
     height: 253px;
 }
-.card_img_container .img{
-    width: auto;
-    height: 100%;
-    left: 46px;
+.img{
+
     margin-top: 20px;
 }
 
@@ -106,11 +104,10 @@
     background-color: #24a081;
 }
 
-.button_addCarrito .cart{
+.cart{
     padding-left: 44px;
 }
-
-.button_addCarrito .price_funko{
+.price_funko{
     color: #ffff;
     font-style: normal;
     font-weight: 700;

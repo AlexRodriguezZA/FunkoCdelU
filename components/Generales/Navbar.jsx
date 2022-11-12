@@ -15,12 +15,12 @@ function Navbar() {
   const [icon, setIcon] = useState(style.nav__toggler);
   const navToggle = () => {
     if (active === style.nav__menu) {
-      setActive(style.nav__menu);
+      setActive(style.nav__active);
     } else setActive(style.nav__menu);
 
     // Icon Toggler
     if (icon === style.nav__toggler) {
-      setIcon(style.nav__toggler);
+      setIcon(style.toggle);
     } else setIcon(style.nav__toggler);
   };
   return (

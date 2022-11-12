@@ -38,7 +38,21 @@
 .nav__toggler {
   display: none;
 }
-.nav__toggler div {
+.line1 {
+  width: 2.5rem;
+  height: 0.2rem;
+  margin: 0.4rem;
+  background: rgb(255, 255, 255);
+  transition: 0.3s ease-in;
+}
+.line2 {
+  width: 2.5rem;
+  height: 0.2rem;
+  margin: 0.4rem;
+  background: rgb(255, 255, 255);
+  transition: 0.3s ease-in;
+}
+.line3 {
   width: 2.5rem;
   height: 0.2rem;
   margin: 0.4rem;
@@ -88,13 +102,13 @@
 
 /* Toggle Icon Animation */
 
-.toggle .line1 {
+.line1 {
   transform: rotate(-45deg) translate(-4px, 5px);
 }
-.toggle .line2 {
+.line2 {
   opacity: 0;
 }
-.toggle .line3 {
+.line3 {
   transform: rotate(45deg) translate(-4px, -5px);
 }
 
