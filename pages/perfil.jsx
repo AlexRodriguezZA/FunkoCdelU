@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSession } from 'next-auth/react'
+import style from "../styles/perfil.module.css"
 
 const perfil = () => {
   const {data: session} = useSession()
