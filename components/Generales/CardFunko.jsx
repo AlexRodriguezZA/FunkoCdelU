@@ -10,10 +10,13 @@ const CardFunko = ({showAs}) => {
   if (showAs === 'card-Pricipal') {
     return(
         <div className={style.Card_container}>
+
           <a href='#' className={style.card_img_container}>
-            <Image width="auto" height="auto" className='img' src={imagenPrubea} alt="" />
+            <Image className={style.img} src={imagenPrubea} alt="" />
           </a>
-          <div className={style.Linea_divisora}> </div>
+          
+          <div className={style.Linea_divisora}>s</div>
+
           <section className={style.card_details_container}>
             <div className={style.card_details_container_primeraLinea}>
               <span className={style.numero_funko}>#234</span>
@@ -31,8 +34,6 @@ const CardFunko = ({showAs}) => {
               <p className={style.price_funko}>$15.000</p>
               </button>
             </div>
-            
-            
             </section>
          
         </div>

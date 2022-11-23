@@ -7,6 +7,10 @@ const Home = () => {
   return (
       <div className={style.home_container}>
         <Header/> 
+        <div className={style.title_container}>
+          <h1 className={style.title_list_card}>Algunos de nuestros <span className={style.span}>Funkos</span></h1>
+        </div>
+        <ListCardsProd/>
       </div>
       
       

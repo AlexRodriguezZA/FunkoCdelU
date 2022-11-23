@@ -1,5 +1,5 @@
 .Card_container{
-    margin-top: 150px;
+    margin-top: 30px;
     background-color: #ffff;
     width: 380px;
     height: 460px;
@@ -19,12 +19,15 @@
 }
 
 .card_img_container{
-    width: 288px;
-    height: 253px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 200px;
 }
 .img{
-
-    margin-top: 20px;
+    width: auto;
+    height: 100%;
 }
 
 .Linea_divisora{
@@ -69,10 +72,7 @@
 }
 
 
-.card_details_container_segundaLinea{
-    margin-top: 25px;
-    
-}
+
 
 
 .categoria_funko{
@@ -90,6 +90,7 @@
 .button_addCarrito{
     width: 280px;
     height: 40px;
+    margin-bottom: 10px;
     background-color: #23856D;
     border-radius: 10px;
     display: flex;
@@ -126,7 +127,7 @@
         width: 230px;
         height: 250px;
     }
-    .card_img_container .img{
+   .img{
         width: auto;
         height: 100%;
         left: 46px;
