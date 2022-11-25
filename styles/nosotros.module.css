@@ -61,11 +61,24 @@
 }
 
 
+@media screen and (max-width: 1300px) {
+    .seccionUno_container{
+        width: 50%;
+        
+    }
+    .img_container_img-pricipal{
+        width: 280px;
+        height: auto;
+        
+    }
 
+
+
+}
 @media screen and (max-width: 1100px) {
 
     .seccionUno_container{
-        width: 100%;
+        width: 50%;
         
     }
     .seccionUno_container .texto_nosotros{
@@ -102,7 +115,7 @@
        
     } 
 
-    .seccionUno_container .texto_nosotros .texto{
+    .texto{
 
         font-size: 18px;
  

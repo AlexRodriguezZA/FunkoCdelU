@@ -97,11 +97,12 @@
     align-items: center;
     margin-top: 30px;
     transition: all 0.3s ease;
-
+    border-style: none;
 
 }
 
 .button_addCarrito:hover{
+    cursor: pointer;
     background-color: #000000;
 }
 
@@ -119,8 +120,29 @@
 
 @media all and (max-width: 380px) {
     .Card_container{
-        min-width: 250px;
-        min-height: 300px;
+        min-width: 240px;
+        min-height: 290px;
+
+    }
+    .card_img_container{
+        width: 230px;
+        height: 250px;
+    }
+   .img{
+        width: auto;
+        height: 100%;
+        left: 46px;
+        margin-top: 20px;
+    }
+    .button_addCarrito{
+        margin-bottom: 5px;
+    }
+}
+
+@media all and (max-width: 280px) {
+    .Card_container{
+        min-width: 220px;
+        min-height: 270px;
 
     }
     .card_img_container{
