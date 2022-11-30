@@ -31,10 +31,9 @@
 }
 
 .Linea_divisora{
-    margin-top: 20px;
     background-color: #7B7B7B;
     height: 1px;
-    width: 329px;
+    width: 80%;
 }
 
 .card_details_container{
@@ -44,13 +43,18 @@
 
 .card_details_container_primeraLinea{
     display: flex;
-    margin-top: 29px;
+    margin-top: 10px;
     justify-content: space-between;
     align-items: center;
     
 
 }
-
+.Button_corazon_fav{
+    border: 0;
+}
+.Button_corazon_fav:hover{
+    cursor: pointer;
+}
 .numero_funko{
     font-weight: 400;
     font-size: 24px;
@@ -120,21 +124,24 @@
 
 @media all and (max-width: 380px) {
     .Card_container{
-        min-width: 240px;
-        min-height: 290px;
+        margin-left: 15px;
+        width: 90%;
+        height: auto;
 
     }
     .card_img_container{
-        width: 230px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
     }
    .img{
         width: auto;
         height: 100%;
         left: 46px;
-        margin-top: 20px;
+        margin-top: 10px;
     }
+   
     .button_addCarrito{
+        
         margin-bottom: 5px;
     }
 }
@@ -154,6 +161,9 @@
         height: 100%;
         left: 46px;
         margin-top: 20px;
+    }
+    .Linea_divisora{
+        width: 250px;
     }
     .button_addCarrito{
         margin-bottom: 5px;

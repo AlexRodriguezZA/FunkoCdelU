@@ -18,3 +18,14 @@
 .title_list_card{
   font-size: 36px;
 }
+
+@media (max-width: 500px) {
+  .title_list_card{
+    font-size: 30px;
+  }
+}
+@media (max-width: 380px) {
+  .title_list_card{
+    font-size: 24px;
+  }
+}

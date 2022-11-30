@@ -15,14 +15,14 @@ const CardFunko = ({showAs}) => {
             <Image className={style.img} src={imagenPrubea} alt="" />
           </a>
           
-          <div className={style.Linea_divisora}>s</div>
+          <div className={style.Linea_divisora}></div>
 
           <section className={style.card_details_container}>
             <div className={style.card_details_container_primeraLinea}>
               <span className={style.numero_funko}>#234</span>
               <h1 className={style.title_funko}>Dr strange</h1>
               <button className={style.Button_corazon_fav}>
-                <Image className={style.corazon_fav} src={corazon} alt="" /> 
+                <Image className={style.corazon_fav} src={corazon} alt="Corazon de favoritos" /> 
               </button>
             </div>
             <div className={style.card_details_container_segundaLinea}>
