@@ -139,6 +139,9 @@
         left: 46px;
         margin-top: 10px;
     }
+    .Linea_divisora{
+        margin-top: 20px;
+    }
    
     .button_addCarrito{
         
@@ -148,13 +151,13 @@
 
 @media all and (max-width: 280px) {
     .Card_container{
-        min-width: 220px;
-        min-height: 270px;
+        width: 90%;
+        height: auto;
 
     }
     .card_img_container{
-        width: 230px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
     }
    .img{
         width: auto;
@@ -162,10 +165,32 @@
         left: 46px;
         margin-top: 20px;
     }
-    .Linea_divisora{
-        width: 250px;
+    .numero_funko{
+        font-size: 18px;
+           
+        
+    }
+
+    .title_funko{
+        font-size: 20px;
+        
+    }
+    .categoria_funko{
+        font-size: 15px;
     }
     .button_addCarrito{
         margin-bottom: 5px;
+        width: 100%;
     }
+    .cart{
+        padding-left: 25px;
+    }
+    .price_funko{
+        
+        padding-left: 25px;
+
+        font-size: 18px;
+       
+    }
+ 
 }
