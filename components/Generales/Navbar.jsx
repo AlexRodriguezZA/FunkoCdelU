@@ -41,8 +41,8 @@ function Navbar() {
           </Link>
         </li>
         <li className={style.nav__item}>
-          <Link href="/Productos/productos" className={style.nav__link}>
-          Productos
+          <Link href="/Tienda" className={style.nav__link}>
+          Tienda
           </Link>
         </li>
         <div class={style.dropdown}>
