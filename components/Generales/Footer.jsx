@@ -5,7 +5,7 @@ import { BsFacebook,BsInstagram,BsWhatsapp,BsTwitter,BsPinMapFill,BsTelephoneFil
 
 function Footer() {
   return (
-    <div className={style.angry_grid} >
+    <div className={style.grid_footer} >
       <div className={style.item_0}>
         <h2 className={style.titulo_footer}>FUNKO C del U</h2>
       </div>
@@ -13,7 +13,7 @@ function Footer() {
         <section className={style.item_1_seccion_redes}>
           <h3 className={style.titulo_redes}>Redes sociales</h3>
           <section className={style.seccion_redes_icon}>
-  
+            {/*HACER ESTA SECCIONDE LOS ICONOS */}
           </section>
           
 

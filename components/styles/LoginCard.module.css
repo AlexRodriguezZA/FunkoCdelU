@@ -1,5 +1,4 @@
 .loginContainer{
-    margin-top: 0px;
     width: 500px;
     height: 600px;
     background-color: #fff;
@@ -129,7 +128,6 @@
     .loginContainer {
       width: 100%;
       justify-content: center;
-      margin-top: 0px;
     }
     .buttonContainer{
         margin-top: 50px;

@@ -1,4 +1,4 @@
-.angry_grid {
+.grid_footer {
   display: grid; 
 margin-top: 20px;
   grid-template-rows: 1fr 1fr;
