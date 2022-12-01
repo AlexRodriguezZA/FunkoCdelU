@@ -1,32 +1,37 @@
 import React from "react";
-import "../Styles/Footer.css"
-import { BsFacebook,BsInstagram,BsPinMapFill,BsTelephoneFill } from "react-icons/bs";
+import style from "../styles/Footer.module.css"
+import Image from "next/image";
+import { BsFacebook,BsInstagram,BsWhatsapp,BsTwitter,BsPinMapFill,BsTelephoneFill } from "react-icons/bs";
 
 function Footer() {
   return (
-    <div className="main-footer">
-     <section className="logo-container">
-      <h4 className="titulo-funko">Funko c del u</h4>
-     </section>
-     <section className="enlaces-rapidos-container">
-      <h4 className="Titulo-seccion">Enlaces rapidos</h4>
-      <a href="">Productos</a>
-      <a href="">Nosotros</a>
-      <a href="">Carrito</a>
-     </section>
-     <section className="redes-container">
-     <h4 className="Titulo-seccion">Redes</h4>
+    <div className={style.angry_grid} >
+      <div className={style.item_0}>
+        <h2 className={style.titulo_footer}>FUNKO C del U</h2>
+      </div>
+      <div className={style.item_1}>
+        <section className={style.item_1_seccion_redes}>
+          <h3 className={style.titulo_redes}>Redes sociales</h3>
+          <section className={style.seccion_redes_icon}>
+  
+          </section>
+          
 
-      <a href=""> <BsFacebook/> Facebook</a>
-      <a href=""><BsInstagram/> Instagram</a>
-     </section>
-     <section className="contacto-container">
-     <h4 className="Titulo-seccion">Contacto</h4>
-
-      <p href="">FunkoCdelU@gmail.com</p>
-      <p href=""><BsTelephoneFill/> 3442-457689</p>
-      <p href=""><BsPinMapFill/> Mitre 1234</p>
-     </section>
+        </section>
+      </div>
+      <div className={style.item_2}>
+        <h3 className={style.titulo_contacto}>Contacto</h3>
+        <section className={style.item_2_seccion_contacto}>
+          <div>
+            <BsPinMapFill/>
+            <p>Mitre 1234 - Concepción del Uruguay</p>
+          </div>
+          <div className={style.datos_contacto}>
+            <BsTelephoneFill/>
+            <p>+54 3445-346587</p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

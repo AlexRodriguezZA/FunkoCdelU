@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from "../Generales/Navbar"
+import Footer from './Footer'
 import Head from 'next/head'
 import style from "../styles/Layout.module.css"
 
@@ -15,7 +16,7 @@ const Layout = ({children}) => {
       <div className={style.LayoutContent}>
         {children}
       </div>
-      
+      <Footer/>
     </>
   )
 }

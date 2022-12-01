@@ -1,0 +1,79 @@
+.angry_grid {
+  display: grid; 
+margin-top: 20px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px;
+  height: 40vh;
+  width: 100%;
+  margin-bottom: 0%;
+  
+}
+ 
+.item_0 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111217; 
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row-end: 3;
+  grid-column-end: 3;
+  
+}
+
+.titulo_footer{
+  color: #ffff;
+}
+.item_1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #111217; 
+  grid-row-start: 1;
+  grid-column-start: 3;
+  grid-row-end: 3;
+  grid-column-end: 5;
+  color: #ffff;
+  
+}
+
+.item_1_seccion_redes{
+  width: 100%;
+  text-align: center;
+
+}
+.titulo_redes{
+  margin-top: 30px;
+}
+.seccion_redes_icon{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+}
+
+
+
+.item_2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #ffff;
+  background-color: #111217; 
+  grid-row-start: 1;
+  grid-column-start: 5;
+  grid-row-end: 3;
+  grid-column-end: 7;
+  
+}
+
+.item_2_seccion_contacto{
+  color: #c9c9c9;
+}
+
+
+.titulo_contacto{
+  margin-top: 30px;
+}
