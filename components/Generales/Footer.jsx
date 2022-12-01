@@ -1,7 +1,7 @@
 import React from "react";
 import style from "../styles/Footer.module.css"
 import Image from "next/image";
-import { BsFacebook,BsInstagram,BsWhatsapp,BsTwitter,BsPinMapFill,BsTelephoneFill } from "react-icons/bs";
+import { BsFacebook,BsInstagram,BsWhatsapp,BsTwitter,BsPinMapFill,BsTelephoneFill,BsEnvelopeFill } from "react-icons/bs";
 
 function Footer() {
   return (
@@ -26,9 +26,13 @@ function Footer() {
             <BsPinMapFill/>
             <p>Mitre 1234 - Concepción del Uruguay</p>
           </div>
-          <div className={style.datos_contacto}>
+          <div >
             <BsTelephoneFill/>
             <p>+54 3445-346587</p>
+          </div>
+          <div >
+            <BsEnvelopeFill/>
+            <p>FunkoCdelU@gmail.com</p>
           </div>
         </section>
       </div>
