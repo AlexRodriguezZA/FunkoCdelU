@@ -13,7 +13,7 @@ function Footer() {
         <section className={style.item_1_seccion_redes}>
           <h3 className={style.titulo_redes}>Redes sociales</h3>
           <section className={style.seccion_redes_icon}>
-            {/*HACER ESTA SECCIONDE LOS ICONOS */}
+            {/*HACER ESTA SECCION DE LOS ICONOS */}
           </section>
           
 
