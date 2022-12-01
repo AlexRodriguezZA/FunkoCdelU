@@ -32,6 +32,12 @@
 
 .contenedores_inputs{
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs{
+    width: 50%;
 }
 
 .contenedor_button{

@@ -17,12 +17,12 @@ const formulario = () => {
         </section>
         <div className={style.contenedores_inputs}>
           <label htmlFor="">Dni</label>
-          <input placeholder='Ingrese su dni' type="number" name="" id="" />
+          <input className={style.inputs} placeholder='Ingrese su dni' type="number" name="" id="" />
         </div>
         
         <div className={style.contenedores_inputs}>
           <label htmlFor="">Ciudad</label>
-          <select name="" id="">
+          <select name="" id="" className={style.input}>
             <option value="">Concepcion del uruguay</option>
             <option value="">Rosario del tala</option>
     
@@ -31,8 +31,11 @@ const formulario = () => {
         
         <div className={style.contenedores_inputs}>
           <label htmlFor="">Domicilio: </label>
-          <input placeholder='Domicilio' type="text" name="" id="" />
-          <input placeholder='altura/ nro dpto' type="text" name="" id="" />
+          <div>
+            <input placeholder='Domicilio' type="text" name="" id="" />
+            <input placeholder='altura/ nro dpto' type="text" name="" id="" />
+          </div>
+          
         </div>
 
         <div className={style.contenedor_button}>
