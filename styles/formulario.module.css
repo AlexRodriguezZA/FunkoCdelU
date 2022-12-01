@@ -8,11 +8,16 @@
 
 
 .formulario{
-    border:  black 1px solid;
-    width: 50%;
+    width: 40%;
+    border-radius: 15px;
+    box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
+    height: 550px;
 }
 
 .imagen_container{
+    margin-top: 25px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -25,33 +30,109 @@
 
 }
 .leyenda_formulario{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.conteiner_input_dni{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+
+.input_dni{
+    margin-top: 10px;
+    width: 80%;
+    height: 30px;
+    border-radius: 10px;
+    
+}
+
+
+.conteiner_input_ciudad{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+
+}
+
+.input_ciudad{
+    margin-top: 10px;
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+.conteiner_input_domicilio{
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+.container_domicilio{
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.input_domicilio{
+    margin-top: 10px;
+    width: 40%;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
 
-.contenedores_inputs{
-    margin-bottom: 10px;
-    display: flex;
-    flex-direction: column;
 }
-
-.inputs{
-    width: 50%;
-}
-
 .contenedor_button{
-    margin-bottom: 10px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
     height: 30px;
 }
 
 .button_submit{
-    width: 40%;
-    border-radius: 15px;
+    font-size: 18px;
+    width: 80%;
+    height: 30px;
+    border-radius: 10px;
     border: none;
     background-color: #23856D;
     color: #fff ;
     cursor: pointer;
 }
+
+@media (max-width: 950px) {
+    .formulario{
+      width: 60%;
+    }
+  }
+
+@media (max-width: 700px) {
+    .formulario{
+      width: 60%;
+    }
+    .leyenda_formulario{
+        font-size: 12px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .formulario{
+      width: 90%;
+    }
+    .leyenda_formulario{
+        font-size: 11px;
+    }
+  }
