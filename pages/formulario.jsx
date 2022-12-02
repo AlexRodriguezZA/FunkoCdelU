@@ -17,12 +17,12 @@ const formulario = () => {
         </section>
 
         <div className={style.conteiner_input_dni}>
-          <label htmlFor="">DNI</label>
+          <label htmlFor="">DNI:</label>
           <input className={style.input_dni} placeholder='Ingrese su DNI' type="number" name="" id="" />
         </div>
         
         <div className={style.conteiner_input_ciudad}>
-          <label htmlFor="">Ciudad</label>
+          <label htmlFor="">Ciudad:</label>
           <select name="" id="" className={style.input_ciudad}>
             <option value="">Concepcion del uruguay</option>
             <option value="">Rosario del tala</option>

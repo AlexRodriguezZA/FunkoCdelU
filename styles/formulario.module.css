@@ -131,6 +131,7 @@
   @media (max-width: 500px) {
     .formulario{
       width: 90%;
+      height: 500px;
     }
     .leyenda_formulario{
         font-size: 11px;
