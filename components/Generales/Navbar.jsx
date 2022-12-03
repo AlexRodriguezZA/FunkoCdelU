@@ -9,6 +9,7 @@ import { useSession, signOut } from 'next-auth/react'
 
 function Navbar() {
 
+  //TODO: Hacer andar el navbar
   const {data: session} = useSession()
 
   const [active, setActive] = useState(style.nav__menu);

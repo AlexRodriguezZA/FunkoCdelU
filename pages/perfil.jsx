@@ -10,6 +10,7 @@ const perfil = () => {
       <div>
         <p>Nombre: {session.user.name}</p>
         <p>Email: {session.user.email}</p>
+        <img src={session.user.image} alt="" />
       </div>
     )
     

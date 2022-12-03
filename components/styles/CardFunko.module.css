@@ -194,3 +194,145 @@
     }
  
 }
+
+
+
+/*-----------------------------Card detalle funko-------------------------------*/
+
+
+
+.card_detalle_container{
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: -6px 17px 31px -12px rgba(0,0,0,0.75);
+   border-radius: 10px;
+
+}
+
+
+.seccion_1_container{
+    width: 50%;
+
+}
+
+.Imagen_funko_container{
+    width: 100%;
+}
+
+
+.Image_funko{
+    width: 100%;
+    height: auto;
+}
+
+
+.seccion_2_container{
+    width: 50%;
+}
+
+.titulo_container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.titulo_funko{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #000000;
+}
+
+
+.detalle_funko_container{
+    width: 100%;
+
+}
+
+.detalle{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: #000000;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.detalle_valoracion{
+    display: flex;
+    margin-left: 30px;
+    margin-top: 20px;  
+    gap: 20px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: #000000;
+}
+
+.detalle_cantidad{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 20px;  
+    gap: 20px;
+}
+.detalle_cantidad_label{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: #000000;
+    
+}
+.detalle_cantidad_input{
+    width: 105px;
+    height: 25px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.detalle_compra_fav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;   
+
+}
+
+
+.button_compra{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 40px;
+    background: #23856D;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    border: none;
+    color: #FFFFFF;
+    transition: all .2s;
+}
+
+.button_compra:hover{
+    background-color: #000000;
+}

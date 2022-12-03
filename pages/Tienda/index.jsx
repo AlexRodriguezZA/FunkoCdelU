@@ -1,8 +1,15 @@
-import React from 'react'
+//TODO: aca iria lo que es la tienda en sí
 
+
+import CardFunko from "../../components/Generales/CardFunko"
 const index = () => {
   return (
-    <div>index</div>
+    <div>
+
+    <CardFunko showAs="card-DetalleProducto"/>
+
+
+    </div>
   )
 }
 

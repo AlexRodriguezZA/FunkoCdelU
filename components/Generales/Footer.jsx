@@ -1,9 +1,11 @@
 import React from "react";
 import style from "../styles/Footer.module.css"
 import Image from "next/image";
-import { BsFacebook,BsInstagram,BsWhatsapp,BsTwitter,BsPinMapFill,BsTelephoneFill,BsEnvelopeFill } from "react-icons/bs";
+import { BsPinMapFill,BsTelephoneFill,BsEnvelopeFill } from "react-icons/bs";
 
 function Footer() {
+
+  //TODO: COLOCAR los iconos de las redes
   return (
     <div className={style.grid_footer} >
       <div className={style.item_0}>

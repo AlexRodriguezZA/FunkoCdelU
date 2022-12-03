@@ -5,7 +5,7 @@ import marvel_image from "../../assets/Funko_Categorias/marvel.png"
 import peliculas_image from "../../assets/Funko_Categorias/peliculas.png"
 
 
-//ACOMODAR LAS IMAGENES Y PONES OTRAS
+//TODO:ACOMODAR LAS IMAGENES Y PONES OTRAS
 const GridLayourCategorias = () => {
   return (
     <div className={style.angry_grid}>
