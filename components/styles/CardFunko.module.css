@@ -265,6 +265,19 @@
     margin-top: 20px;
 }
 
+
+.detalle_dato{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.2px;
+    color: #777d7e;
+    margin-left: 10px;
+
+}
+
 .detalle_valoracion{
     display: flex;
     margin-left: 30px;
@@ -278,6 +291,34 @@
     color: #000000;
 }
 
+.estrellas_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.estrella{
+    text-decoration: none;
+    float: right;
+    width: 25px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 35px;
+    color: #777d7e;
+    font-weight: 900;
+
+    text-align: center;
+    transition: color .3s;
+    transition: all .3s;
+}
+
+.estrella:hover {
+    color: #F39C12;
+    font-size: 45px;
+
+
+}
 .detalle_cantidad{
     display: flex;
     align-items: center;
@@ -336,3 +377,5 @@
 .button_compra:hover{
     background-color: #000000;
 }
+
+
