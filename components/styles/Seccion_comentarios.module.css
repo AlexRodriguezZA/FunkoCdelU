@@ -1,10 +1,78 @@
 .Seccion_comentario_container{
     margin-top: 50px;
     width: 100%;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comentario_container{
+    width: 100%;
+}
+
+.Seccion_comentario_titulo{
+    font-size: 25px;
+    
+}
+
+.input_comentario_container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.input_comentario{
+    border-radius: 10px;
+
+
 }
 
 
-.Seccion_comentario_tituloñ{
-    font-size: 50px;
+.buttons_container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
+.button_enviar{
+    border: none;
+    width: 80px;
+    height: 30px;
+    background: #23856D;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+
+    color: #F3F3F3;
+}
+
+.button_cancelar{
+    border: none;
+    width: 80px;
+    height: 30px;
+    background: #CD1616;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+
+    color: #F3F3F3;
+}
+
+.seccion_comentarios_totales{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

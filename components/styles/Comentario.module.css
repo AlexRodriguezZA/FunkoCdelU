@@ -1,0 +1,19 @@
+.comentario_container{
+    width: 100%;
+    display: flex;
+    background-color: aqua;
+}
+
+
+.comentario_card{
+    display: flex;
+    flex-direction: column;
+}
+
+.comentario_card_datos_user{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    
+}
+
