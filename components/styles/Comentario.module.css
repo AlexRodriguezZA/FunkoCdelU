@@ -1,4 +1,5 @@
 .comentario_container{
+    height: 80px;
     width: 100%;
     display: flex;
     background-color: aqua;
@@ -6,14 +7,31 @@
 
 
 .comentario_card{
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
+
+.imagen_comentario_container{
+    height: 80px;
+}
+
+.imagen_comentario{
+    width: 100%;
+    height: 100%;
+}
 .comentario_card_datos_user{
     display: flex;
     flex-direction: row;
     gap: 10px;
+    margin-left: 20px;
+    justify-content: flex-start;
+    align-items: center;
     
 }
 
+.comentario_contenido{
+    height: 100%;
+    
+}

@@ -38,6 +38,7 @@
 }
 
 .button_enviar{
+    cursor: pointer;
     border: none;
     width: 80px;
     height: 30px;
@@ -54,6 +55,7 @@
 }
 
 .button_cancelar{
+    cursor: pointer;
     border: none;
     width: 80px;
     height: 30px;
@@ -70,6 +72,7 @@
 }
 
 .seccion_comentarios_totales{
+    
     margin-top: 20px;
     width: 100%;
     display: flex;
