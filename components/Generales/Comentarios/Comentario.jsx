@@ -12,8 +12,8 @@ const Comentario = () => {
       </section>
       <section className={style.comentario_card}>
         <div className={style.comentario_card_datos_user}>
-          <h3>Alex Rodriguez</h3>
-          <h5>1/2/2022</h5>
+          <h3 className={style.comentario_nombre_user}>Alex Rodriguez</h3>
+          <h5 className={style.comentario_fecha}>1/2/2022</h5>
         </div>
 
         <div className={style.comentario_contenido}>

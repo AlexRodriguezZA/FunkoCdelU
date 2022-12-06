@@ -9,7 +9,7 @@ const Seccion_comentarios = () => {
       <h2 className={style.Seccion_comentario_titulo}>Comentarios</h2>
       <section className={style.comentario_container}>
         <div className={style.input_comentario_container}>
-          <textarea className={style.input_comentario} maxLength={90} placeholder="Ingrese un comentario..." name="" id="" cols="100" rows="6"></textarea>
+          <textarea className={style.input_comentario} maxLength={100} placeholder="Ingrese un comentario..." name="" id="" cols="100" rows="6"></textarea>
         </div>
         <div className={style.buttons_container}>
           <button className={style.button_enviar}>Enviar</button>
@@ -21,7 +21,7 @@ const Seccion_comentarios = () => {
         <Comentario/>
         <Comentario/>
         <Comentario/>
-        <Comentario/>
+
       </section>
 
 

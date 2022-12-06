@@ -1,9 +1,13 @@
 .comentario_container{
-    height: 80px;
     width: 100%;
+    height: 100px;
     display: flex;
-    background-color: aqua;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: -2px 5px 14px 0px rgba(0,0,0,0.75);
+
 }
+
 
 
 .comentario_card{
@@ -14,8 +18,11 @@
 
 
 .imagen_comentario_container{
-    height: 80px;
+    border-radius: 20px;
+    height: 100%;
+    width: 20%;
 }
+
 
 .imagen_comentario{
     width: 100%;
@@ -32,6 +39,31 @@
 }
 
 .comentario_contenido{
-    height: 100%;
+    display: flex;
+    align-items: center;
     
+    height: 100%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.comentario_nombre_user{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #000000;
+}
+
+
+.comentario_fecha{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #837F7F;
 }
