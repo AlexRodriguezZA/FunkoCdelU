@@ -1,8 +1,8 @@
 .Card_container{
     margin-top: 30px;
     background-color: #ffff;
-    width: 380px;
-    height: 460px;
+    width: 310px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -10,12 +10,11 @@
     text-decoration: none;
     transition: all 0.3s ease;
     justify-content: center;
+    box-shadow: 1px 3px 6px 1px rgba(0,0,0,0.45);
 }
 
 .Card_container:hover{
     box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
 }
 
 .card_img_container{
@@ -50,6 +49,9 @@
 
 }
 .Button_corazon_fav{
+    width: 30px;
+    height: 40px;
+    background-color: #ffff;
     border: 0;
 }
 .Button_corazon_fav:hover{
@@ -57,7 +59,7 @@
 }
 .numero_funko{
     font-weight: 400;
-    font-size: 24px;
+    font-size: 18px;
     line-height: 16px;
     text-align: center;
     letter-spacing: 0.2px;
@@ -68,33 +70,29 @@
 
 .title_funko{
     font-weight: 700;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 16px;
     text-align: center;
     letter-spacing: 0.2px;
     color: #000000;
 }
 
-
-
-
-
 .categoria_funko{
+    margin-top: 20px;
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 16px;
     text-align: center;
     letter-spacing: 0.2px;
     color: #7B7B7B;
-
 }
 
 
 .button_addCarrito{
-    width: 280px;
+    width: 250px;
     height: 40px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     background-color: #23856D;
     border-radius: 10px;
     display: flex;
@@ -111,7 +109,8 @@
 }
 
 .cart{
-    padding-left: 44px;
+    
+    padding-left: 45px;
 }
 .price_funko{
     color: #ffff;

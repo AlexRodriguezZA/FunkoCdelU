@@ -1,0 +1,19 @@
+.funko_similares_main{
+    margin-top: 50px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+.titulo_container{
+    width: 100%;
+}
+
+.titulo{
+    font-size: 25px;
+}
+
+.seccion_funkos_similares{  
+    display: grid;
+    
+}

@@ -1,12 +1,22 @@
 import imagenPrubea from '../../assets/imagenesPrueba/boba.png'
 import corazon from '../../assets/imagenesPrueba/corazon.svg'
+import corazon2 from '../../assets/imagenesPrueba/corazon2.svg'
 import carrito from '../../assets/imagenesPrueba/cart.svg'
 import Image from 'next/image'
 import style from "../styles/CardFunko.module.css"
 
+import { useState } from 'react'
+
 const CardFunko = ({showAs}) => {
 
+  const [fav, setfav] = useState(false)
+  
+  const handlePressFav = () => {
+    setfav(!fav);
+    console.log(fav)
+  };
   ///TODO:Hacer andar el boton de favoritos
+
 
   if (showAs === 'card-Pricipal') {
     return(
@@ -22,8 +32,10 @@ const CardFunko = ({showAs}) => {
             <div className={style.card_details_container_primeraLinea}>
               <span className={style.numero_funko}>#234</span>
               <h1 className={style.title_funko}>Dr strange</h1>
-              <button className={style.Button_corazon_fav}>
-                <Image className={style.corazon_fav} src={corazon} alt="Corazon de favoritos" /> 
+              <button className={style.Button_corazon_fav} onClick={()=> handlePressFav()}>
+                {
+                  fav ? <Image className={style.corazon_fav} src={corazon2} alt="Corazon de favoritos" /> : <Image className={style.corazon_fav} src={corazon} alt="Corazon de favoritos" />  
+                }
               </button>
             </div>
             <div className={style.card_details_container_segundaLinea}>
