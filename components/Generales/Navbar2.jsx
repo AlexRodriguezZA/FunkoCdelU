@@ -63,7 +63,7 @@ function Navbar2() {
         </div> 
         <li className="nav__item">
           <Link href="/carrito" className="nav__link">
-            <Image src={cart}/>
+            <Image src={cart} alt="Carrito"/>
           </Link>
         </li>
       </ul>

@@ -11,7 +11,9 @@ const CardFunko = ({showAs}) => {
 
   const [fav, setfav] = useState(false)
   
+  
   const handlePressFav = () => {
+    console.log(fav)
     setfav(!fav);
     console.log(fav)
   };
@@ -23,7 +25,7 @@ const CardFunko = ({showAs}) => {
         <div className={style.Card_container}>
 
           <a href='#' className={style.card_img_container}>
-            <Image className={style.img} src={imagenPrubea} alt="" />
+            <Image className={style.img} src={imagenPrubea} alt="Imagen de funko" />
           </a>
           
           <div className={style.Linea_divisora}></div>
@@ -34,7 +36,8 @@ const CardFunko = ({showAs}) => {
               <h1 className={style.title_funko}>Dr strange</h1>
               <button className={style.Button_corazon_fav} onClick={()=> handlePressFav()}>
                 {
-                  fav ? <Image className={style.corazon_fav} src={corazon2} alt="Corazon de favoritos" /> : <Image className={style.corazon_fav} src={corazon} alt="Corazon de favoritos" />  
+                  fav ? <Image className={style.corazon_fav} src={corazon2} alt="Corazon de favoritos" /> 
+                  : <Image className={style.corazon_fav} src={corazon} alt="Corazon de favoritos" />  
                 }
               </button>
             </div>

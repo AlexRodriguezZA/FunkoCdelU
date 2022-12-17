@@ -15,26 +15,26 @@ const GridLayourCategorias = () => {
         <div className={style.item_1} >
           <h3 className={style.titulo}>Marvel</h3>
           <div className={style.image_container}>
-            <Image src={marvel_image} className={style.img_marvel}/>
+            <Image src={marvel_image} className={style.img_marvel} alt="Imagen categoria"/>
           </div>
         </div>
         <div className={style.item_2} >
         <h3 className={style.titulo}>Películas</h3>
 
             <div className={style.image_container_peliculas}>
-              <Image src={peliculas_image} className={style.img_peliculas}/>
+              <Image src={peliculas_image} className={style.img_peliculas} alt="Imagen categoria"/>
             </div>
         </div>
         <div className={style.item_3} >
           <h3 className={style.titulo}>Dc comics</h3>
           <div className={style.image_container_dc}>
-              <Image src={peliculas_image} className={style.img_dc}/>
+              <Image src={peliculas_image} className={style.img_dc} alt="Imagen categoria"/>
             </div>
         </div>
         <div className={style.item_4}>
         <h3 className={style.titulo}>Deportes</h3>
           <div className={style.image_container_deportes}>
-              <Image src={peliculas_image} className={style.img_deportes}/>
+              <Image src={peliculas_image} className={style.img_deportes} alt="Imagen categoria"/>
             </div>
         </div>
     </div>
