@@ -52,7 +52,7 @@ function Navbar2() {
                 !session && <Link href="/loginPage" className="link">Ingresar</Link>
               }
               {
-                session &&  <Link href="/perfil" className="link">Perfil</Link>
+                session &&  <Link href="/Perfil/user" className="link">Perfil</Link>
               }
               {
                 session && <Link href="#" className="link" onClick={ ()=> signOut(undefined, { callbackUrl: '/' })}>Cerrar sesion</Link>

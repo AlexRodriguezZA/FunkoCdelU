@@ -5,8 +5,8 @@ import style from "../styles/CardCarrito.module.css"
 const CardCarrito = () => {
   return (
     <div className={style.card_carrito_container}>
-        <section>
-          <Image width={150} height={150} src={imagenPrubea} alt="Imagen del funko"/>
+        <section className={style.seccion_carrito}>
+          <Image width={90} height={90} src={imagenPrubea} alt="Imagen del funko"/>
         </section>
         
         <section>
@@ -26,7 +26,7 @@ const CardCarrito = () => {
         </section>
         
         <section>
-          <button>Eliminar</button>
+          <button className={style.button_eliminar}>Eliminar</button>
           <p>sub: $15.000</p>
         </section>
     </div>

@@ -71,8 +71,12 @@ margin-top: 20px;
 
 .item_2_seccion_contacto{
   color: #c9c9c9;
+  margin-bottom: 10px;
 }
 
+.item_2_icon{
+  margin-top: 30px;
+}
 
 .titulo_contacto{
   margin-top: 30px;

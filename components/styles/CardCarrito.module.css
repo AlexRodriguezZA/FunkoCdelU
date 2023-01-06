@@ -1,5 +1,13 @@
 .card_carrito_container{
-    width: 750px;
-    height: 150px;
+    width: 400px;
+    height: 90px;
     display: flex;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+
+}
+
+.seccion_carrito{
+    width: 90px;
+    height: 90px;
 }

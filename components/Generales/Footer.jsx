@@ -24,15 +24,15 @@ function Footer() {
       <div className={style.item_2}>
         <h3 className={style.titulo_contacto}>Contacto</h3>
         <section className={style.item_2_seccion_contacto}>
-          <div>
+          <div className={style.item_2_icon}>
             <BsPinMapFill/>
             <p>Mitre 1234 - Concepción del Uruguay</p>
           </div>
-          <div >
+          <div className={style.item_2_icon}>
             <BsTelephoneFill/>
             <p>+54 3445-346587</p>
           </div>
-          <div >
+          <div className={style.item_2_icon}>
             <BsEnvelopeFill/>
             <p>FunkoCdelU@gmail.com</p>
           </div>

@@ -17,7 +17,6 @@ const CardFunko = ({showAs}) => {
     setfav(!fav);
     console.log(fav)
   };
-  ///TODO:Hacer andar el boton de favoritos
 
 
   if (showAs === 'card-Pricipal') {
