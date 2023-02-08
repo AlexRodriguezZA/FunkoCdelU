@@ -7,7 +7,6 @@
 }
 .card_principal{
     width: 70%;
-    border: 1px solid black;
     height: 400px;
 }
 .data_seccion{
@@ -18,12 +17,13 @@
 }
 
 .seccion_1{
-    border: 1px solid black;
     width: 50%;
     height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 30px;
 }
 
 .img_container{
@@ -42,27 +42,40 @@
 }
 
 .name_user{
-margin-top: 10px;
-font-weight: 700;
-font-size: 30px;
-line-height: 24px;
-/* or 53% */
-
-text-align: center;
-letter-spacing: 0.2px;
-
-color: #000000;
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #000000;
 }
+
 .seccion_2{
-    border: 1px solid black;
     width: 50%;
     height: 350px;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    justify-content: space-around;  
 }
 
+.data_user{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;    
+    color: #000000;
 
+}
+.data_user_info{
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #918D8D;
+    margin-left: 10px;
+
+}
 .seccion_3{
     display: flex;
     justify-content: flex-end;
@@ -85,4 +98,22 @@ color: #000000;
     letter-spacing: 0.2px;
     color: #FFFFFF;
 
+}
+
+.button_compras{
+    
+    cursor: pointer;
+    border-radius: 20px;
+    border-style: none;
+    width: 120px;
+    height: 30px;
+    margin-right: 30px;
+    background-color: #23856D;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #FFFFFF;
 }
