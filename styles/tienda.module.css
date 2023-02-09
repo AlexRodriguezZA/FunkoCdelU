@@ -1,0 +1,23 @@
+.tienda_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.seccion_fitro{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-top: 50px;
+
+
+}
+
+.filtro_orden{
+    display: flex;
+
+
+}
+

@@ -17,7 +17,7 @@ const LoginCard = () => {
         <section className={style.buttonContainer}>
             <button className={style.ButtonSingup} onClick={()=>signIn( "google", { callbackUrl: '/' })}>
                 <p className={style.textoSignup}>Sign in with google</p>
-                <Image className={style.google} src={google} alt="" />
+                <Image className={style.google} src={google} alt="Google imagen" />
             </button>
 
         </section>

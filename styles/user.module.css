@@ -101,7 +101,7 @@
 }
 
 .button_compras{
-    
+    text-decoration: none;
     cursor: pointer;
     border-radius: 20px;
     border-style: none;
@@ -111,7 +111,7 @@
     background-color: #23856D;
     font-style: normal;
     font-weight: 900;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 24px;
     text-align: center;
     letter-spacing: 0.2px;

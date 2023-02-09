@@ -41,7 +41,7 @@ function Navbar2() {
           </Link>
         </li>
         <li className="nav__item">
-          <Link href="/Tienda" className="nav__link">
+          <Link href="/Tienda/tienda" className="nav__link">
             Tienda
           </Link>
         </li>

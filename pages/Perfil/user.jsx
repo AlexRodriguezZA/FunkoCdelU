@@ -28,7 +28,6 @@ const user = () => {
           <div className={style.seccion_3}>
             <button className={style.button_editar}>Editar</button>
             <Link href="/Perfil/compras" className={style.button_compras}>Mis compras</Link>
-
           </div>
         </div>
         
