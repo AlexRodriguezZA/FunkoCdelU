@@ -1,10 +1,10 @@
 .grid_footer {
   display: grid; 
-margin-top: 20px;
+  margin-top: 20px;
   grid-template-rows: 1fr 1fr ;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 0px;
-  height: 50vh;
+  height: 300px;
   width: 100%;
   margin-bottom: 0%;
   
@@ -117,7 +117,6 @@ margin-top: 20px;
 }
 @media (max-width: 550px) {
   .grid_footer{
-    height: 100%;
 
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
     grid-template-columns: 1fr 1fr 1fr ;

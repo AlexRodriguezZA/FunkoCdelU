@@ -1,17 +1,14 @@
 import React from 'react'
 import CardFunko from './CardFunko'
-
 import style from "../styles/ListCardsProd.module.css"
 
-const ListCardsProd = () => {
+const ListCardsProd = ({productos}) => {
+
   return (
     <div className={style.CardsList_container}>
-      <CardFunko showAs="card-Pricipal"/>
-      <CardFunko showAs="card-Pricipal"/>
-      <CardFunko showAs="card-Pricipal"/>
-      <CardFunko showAs="card-Pricipal"/>
-      <CardFunko showAs="card-Pricipal"/>
-      <CardFunko showAs="card-Pricipal"/>
+      {productos.map( (producto) => 
+      <CardFunko 
+        producto={producto}/>)}
 
     </div>
   )

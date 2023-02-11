@@ -201,12 +201,12 @@
 
 
 .card_detalle_container{
-    width: 100%;
+    width: 70%;
     display: flex;
     margin-top: 30px;
     margin-bottom: 30px;
     box-shadow: -6px 17px 31px -12px rgba(0,0,0,0.75);
-   border-radius: 10px;
+    border-radius: 10px;
 
 }
 
@@ -250,6 +250,7 @@
 
 .detalle_funko_container{
     width: 100%;
+    margin-top: 50px;
 
 }
 
@@ -357,8 +358,8 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
+    margin-top: 30px;
     cursor: pointer;
-    margin-bottom: 20px;
     width: 70%;
     height: 40px;
     background: #23856D;

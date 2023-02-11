@@ -12,7 +12,7 @@ const Favoritos = () => {
         <div className={style.title_favoritos_container}>
           <h2 className={style.titulo_favoritos}>Tus favoritos</h2>
         </div>
-        <section>
+        <section className={style.funko_container}>
             <ListCardsProd/>
         </section>
       </div>

@@ -1,7 +1,9 @@
 import React from 'react'
+import Link from 'next/link';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import style from "../../styles/compras.module.css"
+
 const compras = () => {
   return (
       <div className={style.compras_container}>
@@ -46,6 +48,9 @@ const compras = () => {
           </Tr>
         </Tbody>
       </Table>
+        <section className={style.seccion_button}>
+          <Link href="/Perfil/user">Volver</Link>
+        </section>
       </div>
 
   )
