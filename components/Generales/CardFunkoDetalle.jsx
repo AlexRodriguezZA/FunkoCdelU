@@ -9,7 +9,7 @@ const CardFunkoDetalle = () => {
     <div className={style.card_detalle_container}>
     <section className={style.seccion_1_container}>
       <div className={style.Imagen_funko_container}>
-        <Image className={style.Image_funko} src={imagenPrubea}/>
+        <Image  alt='Imagen del funkopop' className={style.Image_funko} src={imagenPrubea}/>
       </div>
     </section>
 

@@ -378,4 +378,180 @@
     background-color: #000000;
 }
 
+@media screen and (max-width: 768px) {
+    .card_detalle_container{
+        width: 90%;
+        height: 300px;
+    }
+   
+    .Imagen_funko_container{
+        width: 100%;
+    }
+    
+    
+    .Image_funko{
+        width: auto;
+        height: 100%;
+    }
+    
+    
+    .titulo_funko{
+        font-size: 30px;
+    }
+    .detalle_funko_container{
+        width: 100%;
+        margin-top: 20px
+    
+    }
+    .detalle{
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    
+    
+    .detalle_dato{
+        font-size: 14px;
+    }
+    
+    .detalle_valoracion{
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    
+    .estrellas_container{
+        margin-top: 5px;
+    
+    }
+    
+    .estrella{
+        font-size: 24px;
+        
+    }
+    
+    .estrella:hover {
+        color: #F39C12;
+        font-size: 35px;
+    
+    
+    }
+    .detalle_cantidad{
+        margin-top: 10px;
+        gap: 10px;
+    }
+    .detalle_cantidad_label{
+        font-size: 14px;
+        
+        
+    }
+    .detalle_cantidad_input{
+        width: 100px;
+        height: 20px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 14px;
+    }
+    
+   
+    .detalle_compra_fav{
+        margin-top: 10px;
+    }
+    
+    .button_compra{
+        gap: 10px;
+        margin-top: 10px;
+        width: 60%;
+        height: 40px;
+        
+        font-size: 14px;
+      
+    }
+}
 
+@media screen and (max-width: 580px) {
+    .card_detalle_container{
+        width: 90%;
+        height: 300px;
+    }
+   
+    .Imagen_funko_container{
+        width: 100%;
+    }
+    
+    
+    .Image_funko{
+        width: auto;
+        height: 100%;
+    }
+    
+    
+    .titulo_funko{
+        font-size: 20px;
+    }
+    .detalle_funko_container{
+        width: 100%;
+        margin-top: 20px
+    
+    }
+    .detalle{
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    
+    
+    .detalle_dato{
+        font-size: 14px;
+    }
+    
+    .detalle_valoracion{
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    
+    .estrellas_container{
+        margin-top: 5px;
+    
+    }
+    
+    .estrella{
+        font-size: 24px;
+        
+    }
+    
+    .estrella:hover {
+        color: #F39C12;
+        font-size: 35px;
+    
+    
+    }
+    .detalle_cantidad{
+        margin-top: 10px;
+        gap: 10px;
+    }
+    .detalle_cantidad_label{
+        font-size: 14px;
+        
+        
+    }
+    .detalle_cantidad_input{
+        width: 100px;
+        height: 20px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 14px;
+    }
+    
+   
+    .detalle_compra_fav{
+        margin-top: 10px;
+    }
+    
+    .button_compra{
+        gap: 10px;
+        margin-top: 10px;
+        width: 70%;
+        height: 40px;
+        
+        font-size: 14px;
+      
+    }
+}

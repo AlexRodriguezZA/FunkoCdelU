@@ -31,6 +31,7 @@
 
 
 .buttons_container{
+    width: 80%;
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
@@ -74,8 +75,9 @@
 .seccion_comentarios_totales{
     
     margin-top: 20px;
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
+
