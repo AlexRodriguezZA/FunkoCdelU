@@ -115,6 +115,55 @@
     text-align: center;
     letter-spacing: 0.2px;
     color: #FFFFFF;
+    padding-top: 3px;
+}
+
+
+
+.modal_formulario_container{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.leyenda{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.input_container{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.label_input{
+    font-weight: 500;
+}
+
+.input_ciudad{
+    cursor: pointer;
+    margin-top: 10px;
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.button_actualizar{
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #23A6F0;
+    color: #FFFFFF;
+    transition: all .2s;
+}
+.button_actualizar:hover{
+    box-shadow: 0px 4px 12px 0px rgba(0,0,0,0.75);
+
 }
 
 @media (max-width: 600px) {

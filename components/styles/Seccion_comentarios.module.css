@@ -73,7 +73,8 @@
 }
 
 .seccion_comentarios_totales{
-    
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
     width: 70%;
     display: flex;
@@ -81,3 +82,55 @@
     gap: 15px;
 }
 
+@media screen and (max-width: 768px) {
+    .Seccion_comentario_container{
+        margin-top: 20px;
+    
+    }
+    
+    .comentario_container{
+        width: 90%;
+    }
+    
+    .Seccion_comentario_titulo{
+        font-size: 18px;
+        
+    }
+    
+    .input_comentario_container{
+        width: 100%;
+    
+    }
+    
+    .input_comentario{
+        height: 80px;
+        border-radius: 10px;
+
+    }
+    
+    
+    .buttons_container{
+        width: 100%;
+        margin-top: 10px;
+        
+    }
+    
+    .button_enviar{
+        width: 70px;
+        height: 25px;
+        font-size: 12px;
+        }
+    
+    .button_cancelar{
+        width: 70px;
+        height: 25px;        
+        font-size: 12px;
+       
+    }
+    
+    .seccion_comentarios_totales{
+        
+        margin-top: 30px;
+        width: 100%;
+    }
+}

@@ -4,11 +4,8 @@ import Image from "next/image";
 import cart from "../../assets/imagenesPrueba/cart.svg"
 import { useSession, signOut } from 'next-auth/react'
 
-
-
-
 function Navbar2() {
-
+ 
   const {data: session} = useSession()
 
   const [active, setActive] = useState("nav__menu");
@@ -28,7 +25,7 @@ function Navbar2() {
       <Link href="/"  className="nav__brand">
         Funko C del U
       </Link>
-      
+    
       <ul className={active}>
         <li className="nav__item">
           <Link href="/nosotros"  className="nav__link">
@@ -41,7 +38,7 @@ function Navbar2() {
           </Link>
         </li>
         <li className="nav__item">
-          <Link href="/Tienda/tienda" className="nav__link">
+          <Link href="/Tienda" className="nav__link">
             Tienda
           </Link>
         </li>
@@ -52,17 +49,17 @@ function Navbar2() {
                 !session && <Link href="/loginPage" className="link">Ingresar</Link>
               }
               {
-                session &&  <Link href="/Perfil/user" className="link">Perfil</Link>
+                session &&  <Link href="/Perfil" className="link">Perfil</Link>
               }
               {
-                session && <Link href="#" className="link" onClick={ ()=> signOut(undefined, { callbackUrl: '/' })}>Cerrar sesion</Link>
+                session && <Link href="#" className="link" onClick={ ()=> signOut("google", { callbackUrl: '/' })}>Cerrar sesion</Link>
               }
             
             </div>
             
         </div> 
         <li className="nav__item">
-          <Link href="/carrito" className="nav__link">
+          <Link className="nav__link" href="/carrito">
             <Image src={cart} alt="Carrito"/>
           </Link>
         </li>
@@ -72,6 +69,8 @@ function Navbar2() {
         <div className="line2"></div>
         <div className="line3"></div>
       </div>
+
+      
     </nav>
   );
 }

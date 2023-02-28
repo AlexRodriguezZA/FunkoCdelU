@@ -1,13 +1,131 @@
-.card_carrito_container{
-    width: 400px;
-    height: 90px;
+.Card_carrito_container{
+    height: 100px;
+    width: 100%;
     display: flex;
-    border-radius: 10px;
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    justify-content: space-around;
+    align-items: center;
+    
+
 
 }
 
-.seccion_carrito{
-    width: 90px;
-    height: 90px;
+
+
+
+.button_remove{
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #ffff;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all .2s;
+    color: #969696;
+
+}
+
+.button_remove:hover{
+    background-color: #e68484;
+    color: black;
+
+}
+.seccion_imagen{
+    width: 100px;
+    height: 100px;
+}
+
+
+
+.imagen{
+    width: 90%;
+    height: auto;
+}
+
+.seccion_data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.seccion_data_price{
+    color: #2c7715;
+    font-weight: 500;
+}
+
+.seccion_data_categoria{
+    color: #585858;
+}
+.seccion_buttons{
+    width: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button{
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #bfd0db;
+    font-size: 24px;
+    color: #969696;
+}
+
+.seccion_subtotal{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 500px) {
+    .button_remove{
+        width: 25px;
+        height: 25px;
+        font-size: 18px;
+       
+    
+    }
+
+    .seccion_imagen{
+        width: 90px;
+        height: 100px;
+    }
+    
+    .seccion_data{
+
+        gap: 8px;
+    }
+    .seccion_data_price{
+        font-size: 12px;
+    }
+    
+    .seccion_data_categoria{
+        font-size: 12px;
+    }
+
+    .seccion_buttons{
+        width: 100px;
+        flex-direction: row;
+    }
+    
+    .button{
+        width: 25px;
+        height: 25px;
+        font-size: 18px;
+    }
+    .total_producto{
+        font-size: 18px;
+    }
+    
+    .seccion_subtotal{
+        width: 100px;
+
+    }
+   
 }

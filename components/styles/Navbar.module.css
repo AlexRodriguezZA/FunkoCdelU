@@ -83,6 +83,7 @@
   .nav__toggler {
     display: block;
     cursor: pointer;
+    
   }
   .nav__menu {
     position: fixed;
@@ -95,6 +96,8 @@
     transform: translateX(100%);
     transition: 0.5s ease-in;
   }
+ 
+
 }
 /* Active Class */
 .nav__active {

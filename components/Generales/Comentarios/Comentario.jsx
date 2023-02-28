@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import perfil_comentario from "../../../assets/imagenesPrueba/perfil_comentario.jpg"
 
-const Comentario = () => {
+const Comentario = ({comentarioData}) => {
   return (
     <div className={style.comentario_container}>
       <section className={style.imagen_comentario_container}>
@@ -12,12 +12,12 @@ const Comentario = () => {
       </section>
       <section className={style.comentario_card}>
         <div className={style.comentario_card_datos_user}>
-          <h3 className={style.comentario_nombre_user}>Alex Rodriguez</h3>
-          <h5 className={style.comentario_fecha}>1/2/2022</h5>
+          <h3 className={style.comentario_nombre_user}>{comentarioData.usuarioByDni.nombre}  {comentarioData.usuarioByDni.apellido}</h3>
+          <h5 className={style.comentario_fecha}>{comentarioData.fecha}</h5>
         </div>
 
         <div className={style.comentario_contenido}>
-          <p>Contenido</p>
+          <p className={style.contenido}>{comentarioData.contenido}</p>
         </div>
       </section>
     </div>

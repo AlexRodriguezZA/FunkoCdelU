@@ -6,6 +6,16 @@ import { useSession } from 'next-auth/react'
 const Favoritos = () => {
   const {data: session} = useSession()
 
+  /*if (!session){
+    return{
+      redirect:{
+        destination: '/loginPage',
+        permanent: false,
+      }
+    }
+  }*/
+  //VER ESTE CODIGO SI ANDA
+
   if (session) {
     return (
       <div className={style.favoritos_container}>
@@ -17,13 +27,6 @@ const Favoritos = () => {
         </section>
       </div>
     ) 
-  }
-  else{
-    return(
-    <div>
-      Ingrese a su Cuenta
-    </div>
-    )
   }
   
 }

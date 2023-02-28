@@ -1,33 +1,33 @@
 import React from 'react'
 import Image from 'next/image'
-import imagenPrubea from '../../assets/imagenesPrueba/boba.png'
+import imagenPrueba from '../../assets/imagenesPrueba/boba.png'
 import style from "../styles/CardCarrito.module.css"
+
 const CardCarrito = () => {
   return (
-    <div className={style.card_carrito_container}>
-        <section className={style.seccion_carrito}>
-          <Image width={90} height={90} src={imagenPrubea} alt="Imagen del funko"/>
+    <div className={style.Card_carrito_container}>
+        <section >
+          <button className={style.button_remove}>x</button>
         </section>
-        
-        <section>
-          <div>
-            <h2>Dr strange</h2>
-            <div>
-              <p>c/u: $<span>15.000</span> </p>
-              <p>#456</p>
-            </div>
 
-            <div>
-              <label htmlFor="">Cantidad</label>
-              <input type="number" />
-            </div>
-          </div>
-
+        <section className={style.seccion_imagen}>
+            <Image alt="Imagen funko" className={style.imagen} src={imagenPrueba}/>
         </section>
-        
-        <section>
-          <button className={style.button_eliminar}>Eliminar</button>
-          <p>sub: $15.000</p>
+
+        <section className={style.seccion_data}>
+          <h3>Hulk</h3>
+          <p className={style.seccion_data_price}>$3000</p>
+          <p className={style.seccion_data_categoria}>Marvel</p>
+        </section>
+
+        <section className={style.seccion_buttons}>
+          <button className={style.button}>+</button>
+          <span className={style.total_producto}>4</span>
+          <button className={style.button}>-</button>
+        </section>
+
+        <section className={style.seccion_subtotal}>
+          <p>$12000</p>
         </section>
     </div>
   )

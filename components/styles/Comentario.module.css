@@ -18,7 +18,7 @@
 
 
 .imagen_comentario_container{
-    border-radius: 20px;
+    border-radius: 50%;
     height: 100%;
     width: 20%;
 }
@@ -66,4 +66,94 @@
     text-align: center;
     letter-spacing: 0.2px;
     color: #837F7F;
+}
+
+
+@media screen and (max-width: 768px) {
+    .comentario_container{
+        width: 80%;
+        height: 70px;
+    
+    
+    }
+    
+    
+    
+    .comentario_card{
+        width: 100%;
+    }
+    
+    
+    .imagen_comentario_container{
+        border-radius: 50%;
+        height: 100%;
+        width: 20%;
+    }
+    
+    
+    .imagen_comentario{
+        width: 100%;
+        height: 100%;
+    }
+ 
+
+    .comentario_nombre_user{
+        font-size: 14px;
+      
+    }
+    
+    
+    .comentario_fecha{
+    
+        font-size: 10px;
+       
+    }
+    .contenido{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .comentario_container{
+        width: 90%;
+        height: 60px;
+    
+    
+    }
+    
+    
+    
+    .comentario_card{
+        width: 100%;
+        
+    }
+    
+    
+    .imagen_comentario_container{
+        border-radius: 50%;
+        height: 100%;
+        width: 20%;
+    }
+    
+    
+    .imagen_comentario{
+        width: 100%;
+        height: 100%;
+    }
+ 
+
+    .comentario_nombre_user{
+        font-size: 14px;
+      
+    }
+    
+    
+    .comentario_fecha{
+    
+        font-size: 10px;
+       
+    }
+    .contenido{
+        font-size: 12px;
+    }
 }

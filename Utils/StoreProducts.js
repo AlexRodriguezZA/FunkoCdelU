@@ -1,5 +1,5 @@
 
-//TODO: ojo con el puerto, verificar bien el puerto
+//TODO: ojo con el puerto, verificar bien el puerto del backend
 
 async function getAllProducts() {
     const response = await fetch('http://localhost:5000/graphql', {

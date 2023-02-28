@@ -1,6 +1,6 @@
 import Header from "../../components/Generales/Header"
 import ListCardsProd from "../../components/Generales/ListCardsProd";
-import getAllProducts from "../../Services/StoreProducts";
+import getAllProducts from "../../Utils/StoreProducts";
 
 import style from "../../styles/tienda.module.css"
 
@@ -38,7 +38,9 @@ export default tienda;
 
 export async function getServerSideProps() {
   const productos = await getAllProducts()
+ 
   return {
     props: {productos}, 
   }
 } 
+

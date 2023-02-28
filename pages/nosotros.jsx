@@ -18,7 +18,7 @@ const Nosotros = () => {
                 </p>
                 
             </article>
-            <Link href="/Tienda/tienda" className={style.button_tienda}>Ir la tienda</Link>  
+            <Link href="/Tienda" className={style.button_tienda}>Ir la tienda</Link>  
         </section>
 
         <section className={style.seccionDos_container}>

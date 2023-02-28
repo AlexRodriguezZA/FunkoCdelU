@@ -2,6 +2,7 @@ import imagenPrubea from '../../assets/imagenesPrueba/boba.png'
 import corazon from '../../assets/imagenesPrueba/corazon.svg'
 import corazon2 from '../../assets/imagenesPrueba/corazon2.svg'
 import carrito from '../../assets/imagenesPrueba/cart.svg'
+import Link from 'next/link'
 import Image from 'next/image'
 import style from "../styles/CardFunko.module.css"
 
@@ -20,9 +21,12 @@ const CardFunko = ({producto}) => {
   return (
     <div className={style.Card_container}>
 
-          <a href='#' className={style.card_img_container}>
-            <Image className={style.img} src={imagenPrubea} alt="Imagen de funko" />
-          </a>
+        <Link href={`/Tienda/${producto.idprod}`}>
+          <div href='#' className={style.card_img_container}>
+              <Image className={style.img} src={imagenPrubea} alt="Imagen de funko" />
+          </div>
+        </Link>
+          
           
           <div className={style.Linea_divisora}></div>
 

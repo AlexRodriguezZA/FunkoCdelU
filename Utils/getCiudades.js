@@ -1,5 +1,4 @@
-
-async function getAllUsers() {
+async function getAllCiudades() {
     const response = await fetch('http://localhost:5000/graphql', {
         method: 'POST',
         headers: {
@@ -7,26 +6,19 @@ async function getAllUsers() {
         },
         body: JSON.stringify({
             query: `query MyQuery {
-                allUsuarios {
+                allCiudads {
                   nodes {
-                    alturadireccion
-                    apellido
-                    direccion
-                    dni
-                    email
-                    nombre
+                    ciudad
                     codigopostal
-                    ciudadByCodigopostal {
-                      ciudad
-                    }
                   }
                 }
               }
+              
               `
         }),
       })
       const result = await response.json();
-      return result.data.allUsuarios.nodes;
+      return result.data.allCiudads.nodes;
 }
 
-getAllUsers()
+export default getAllCiudades;

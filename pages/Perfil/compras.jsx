@@ -49,7 +49,7 @@ const compras = () => {
         </Tbody>
       </Table>
         <section className={style.seccion_button}>
-          <Link href="/Perfil/user">Volver</Link>
+          <Link href="/Perfil">Volver</Link>
         </section>
       </div>
 

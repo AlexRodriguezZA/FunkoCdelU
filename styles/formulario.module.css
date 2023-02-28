@@ -13,7 +13,7 @@
     box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 4px 18px 0px rgba(0,0,0,0.75);
-    height: 550px;
+    height: 600px;
 }
 
 .imagen_container{
@@ -131,7 +131,7 @@
   @media (max-width: 500px) {
     .formulario{
       width: 90%;
-      height: 500px;
+      height: 550px;
     }
     .leyenda_formulario{
         font-size: 11px;

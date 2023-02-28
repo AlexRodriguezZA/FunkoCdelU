@@ -1,0 +1,12 @@
+.error_form{
+    height: 40px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(224, 104, 104);
+    color: #ffff;
+    border-radius: 5px;
+    font-weight: 500;
+    margin: 20px;
+}
