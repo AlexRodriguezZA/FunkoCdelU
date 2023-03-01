@@ -121,11 +121,17 @@
 
 
 .modal_formulario_container{
-    height: 400px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    
+}
+.imagen_container{
+    width: 100%;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 .leyenda{
     text-align: center;

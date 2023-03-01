@@ -15,6 +15,7 @@ async function getDataUser(email) {
                   email
                   ciudadByCodigopostal {
                     ciudad
+                    codigopostal
                   }
                 }
               }
