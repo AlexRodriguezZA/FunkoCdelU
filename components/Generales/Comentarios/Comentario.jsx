@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 import perfil_comentario from "../../../assets/imagenesPrueba/perfil_comentario.jpg"
 
-const Comentario = ({comentarioData}) => {
+const Comentario = ({ comentarioData }) => {
   return (
     <div className={style.comentario_container}>
       <section className={style.imagen_comentario_container}>

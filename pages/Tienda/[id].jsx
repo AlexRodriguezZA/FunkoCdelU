@@ -7,15 +7,15 @@ import getDetalleFunko from "../../Utils/getFunkoDetalle"
 import getAllProducts from "../../Utils/StoreProducts"
 
 
-const index = ({FunkoDetalle}) => {
+const index = ({ FunkoDetalle }) => {
   return (
     <div className={style.Funko_detalle_page}>
 
-    <CardFunkoDetalle FunkoDetalle={FunkoDetalle}/>
-    <Seccion_comentarios ComentariosFunko={FunkoDetalle}/>
+      <CardFunkoDetalle FunkoDetalle={FunkoDetalle} />
+      <Seccion_comentarios ComentariosFunko={FunkoDetalle} />
 
 
-    {/*NO anda el funko similares 
+      {/*NO anda el funko similares 
     <FunkoSimilares FunkosSimilar={FunkoDetalle}/>*/}
     </div>
   )
@@ -23,37 +23,37 @@ const index = ({FunkoDetalle}) => {
 
 export default index
 
- 
+
 //obetenemos todos los id y usamos como path
-export async function getStaticPaths(){
+export async function getStaticPaths() {
   try {
-      const productos = await getAllProducts()
-      const paths = productos.map(({idprod})=> ({params: {id: `${idprod}`}}))
-      return {
-          paths,
-          fallback: false
-      }
-      
+    const productos = await getAllProducts()
+    const paths = productos.map(({ idprod }) => ({ params: { id: `${idprod}` } }))
+    return {
+      paths,
+      fallback: false
+    }
+
   } catch (error) {
-      console.log("aaa",error)
+    console.log("aaa", error)
   }
 }
 
 
 //obetenemos el datos en si del producto y todos sus detalles
 
-export async function getStaticProps({params}) {
-  
+export async function getStaticProps({ params }) {
+
   try {
-      const FunkoDetalle = await getDetalleFunko(params.id)
+    const FunkoDetalle = await getDetalleFunko(params.id)
     return {
       props: {
         FunkoDetalle,
       },
-}; 
+    };
   } catch (error) {
-      console.log(error)
-  } 
+    console.log(error)
+  }
 
 }
 

@@ -4,7 +4,7 @@ import LoginCard from "../components/Generales/LoginCard"
 const LoginPage = () => {
   return (
     <div className='container'>
-        <LoginCard/>
+      <LoginCard />
     </div>
   )
 }

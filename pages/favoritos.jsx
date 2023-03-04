@@ -1,21 +1,47 @@
-import React from 'react'
+//Componentes
 import ListCardsProd from '../components/Generales/ListCardsProd'
 import style from "../styles/favoritos.module.css"
+
+//Funciones
+import { useState,useEffect } from 'react'
+import getDataUser from "../Utils/getDataUser"
+import getFavoritosUser from '../Utils/getFavoritosUser'
+import { getSession } from 'next-auth/react'
 import { useSession } from 'next-auth/react'
 
-const Favoritos = () => {
+//Nota: como el prop de "favoritos" nos llega en un array de objetos de diferente estructura 
+// al que el componente card_funko nos permite procesar, la solución que planteo es la siguiente: 
+//Creamos un objeto de estructura similar a la aceptada por el card funko y luego los datos de "favoritos"
+//lo copiamos en el objeto nuevo para luego poder guardarlos en un array y a ese array poder pasarlo
+//hacia la listcardprod.
+
+const Favoritos = ({favoritos}) => {
   const {data: session} = useSession()
 
-  /*if (!session){
-    return{
-      redirect:{
-        destination: '/loginPage',
-        permanent: false,
+  const [NewArrayFunkosFav, setNewArrayFunkosFav] = useState([])
+  
+  const CrearObjetoNuevo = ()=>{
+    const resultado = favoritos.map((fav) => {
+      const NewObjFunko = {
+        idprod: fav.productoByIdprod.idprod,
+        nombre: fav.productoByIdprod.nombre,
+        numerofunko: fav.productoByIdprod.numerofunko,
+        precio: fav.productoByIdprod.precio,
+        categoriaByIdcat: {
+          nombrecat: fav.productoByIdprod.categoriaByIdcat.nombrecat
+        } 
       }
-    }
-  }*/
-  //VER ESTE CODIGO SI ANDA
+      return NewObjFunko;
+    
+  } );
+  setNewArrayFunkosFav(resultado)
+  }
 
+  useEffect(() => {
+    CrearObjetoNuevo()
+  }, [])
+  
+  
   if (session) {
     return (
       <div className={style.favoritos_container}>
@@ -23,7 +49,13 @@ const Favoritos = () => {
           <h2 className={style.titulo_favoritos}>Tus favoritos</h2>
         </div>
         <section className={style.funko_container}>
-            <ListCardsProd/>
+          
+          {
+            NewArrayFunkosFav.length > 0 ? <ListCardsProd productos={NewArrayFunkosFav}/> 
+            : <div>No hay favoritos aun</div>
+
+          }
+            
         </section>
       </div>
     ) 
@@ -32,3 +64,21 @@ const Favoritos = () => {
 }
 
 export default Favoritos
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context)
+  const dataUser = await getDataUser(session.user.email)
+  const favoritos = await getFavoritosUser(dataUser.dni)
+  return {
+    props: {favoritos}, 
+  }
+} 
+ /*if (!session){
+    return{
+      redirect:{
+        destination: '/loginPage',
+        permanent: false,
+      }
+    }
+  }*/
+  //VER ESTE CODIGO SI ANDA

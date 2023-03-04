@@ -5,19 +5,19 @@ import getAllProducts from "../../Utils/StoreProducts";
 import style from "../../styles/tienda.module.css"
 
 
-const tienda = ({productos}) => {
+const tienda = ({ productos }) => {
   return (
     <div className={style.tienda_container}>
-      <Header/>
+      <Header />
       <div className={style.seccion_fitro}>
         <section className={style.filtro_orden}>
           <p className={style.texto}>Ordenar por: </p>
-            <section className={style.button_seccion}>
-              <button className={style.button_orden}>Low price</button>
-              <button className={style.button_orden}>High price</button>
-              <button className={style.button_orden}>More recent</button> 
-            </section>
-            
+          <section className={style.button_seccion}>
+            <button className={style.button_orden}>Low price</button>
+            <button className={style.button_orden}>High price</button>
+            <button className={style.button_orden}>More recent</button>
+          </section>
+
         </section>
         <section className={style.filtro_order_select}>
           <select className={style.select_order}>
@@ -26,21 +26,30 @@ const tienda = ({productos}) => {
             <option>High price</option>
             <option>More recent</option>
           </select>
-            
+
         </section>
       </div>
-      <ListCardsProd productos={productos}/>
+      <ListCardsProd productos={productos} />
 
     </div>
   )
 }
 export default tienda;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const productos = await getAllProducts()
- 
-  return {
-    props: {productos}, 
+
+  if (!productos) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
   }
-} 
+  return {
+    props: { productos },
+    revalidate: 20,
+  }
+}
 

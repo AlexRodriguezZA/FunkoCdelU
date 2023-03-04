@@ -5,7 +5,6 @@ import style from "../styles/carrito.module.css"
 const Carrito = () => {
   return (
     <div className={style.carrito_page}>
-
       <div className={style.carrito_box}>
         <div className={style.header_carrito}>
           <h2>Tú carrito</h2>
@@ -13,11 +12,11 @@ const Carrito = () => {
         </div>
         <div className={style.linea_divisora}></div>
         <section className={style.cards_carrito_container}>
-          <CardCarrito/>
-          <CardCarrito/>
-          <CardCarrito/>
-          <CardCarrito/>
-          </section>
+          <CardCarrito />
+          <CardCarrito />
+          <CardCarrito />
+          <CardCarrito />
+        </section>
         <div className={style.linea_divisora}></div>
 
         <section className={style.seccion_carrito_total}>
