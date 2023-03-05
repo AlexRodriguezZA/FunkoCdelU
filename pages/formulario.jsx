@@ -1,10 +1,12 @@
-import React from 'react'
+//Componentes
 import style from "../styles/formulario.module.css"
 import Image from 'next/image'
 import imagen_logo from "../assets/logo.png"
+import Error_formulario from '../components/Generales/Error_formulario'
+
+//Funciones
 import getAllCiudades from '../Utils/getCiudades'
 import setUsers from "../Utils/setUsers"
-import Error_formulario from '../components/Generales/Error_formulario'
 import { useState } from 'react';
 import { useSession } from 'next-auth/react'
 

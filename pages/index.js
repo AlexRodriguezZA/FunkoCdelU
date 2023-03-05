@@ -1,25 +1,31 @@
-import React from 'react'
+//Componentes 
 import style from "../styles/Home.module.css"
 import Header from '../components/Generales/Header'
 import ListCardsProd from '../components/Generales/ListCardsProd'
 import GridLayourCategorias from '../components/Generales/GridLayourCategorias'
+import Layout from '../components/Generales/Layout'
+
+//Funciones
 import getAllProducts from '../Utils/StoreProducts'
 import getEmailsUsers from "../Utils/getEmailsUsers"
 import { getSession } from 'next-auth/react'
 
 
-
 const Home = ({ productos }) => {
+
   const sixProducts = productos.slice(0, 6)
   return (
-    <div className={style.home_container}>
+    <Layout>
+     <div className={style.home_container}>
       <Header />
       <div className={style.title_container}>
         <h1 className={style.title_list_card}>Algunos de nuestros <span className={style.span}>Funkos</span></h1>
       </div>
       <ListCardsProd productos={sixProducts} />
       <GridLayourCategorias />
-    </div>
+    </div> 
+    </Layout>
+    
 
 
   )
@@ -34,7 +40,7 @@ export async function getServerSideProps(context) {
 
   if (session) {
     const emailEncontrado = emails.find((e) => e.email === session.user.email)
-    //Una ves evaluado si el usuario inicío sesión verificamos si está cargado en la BBDD
+    //Una vez evaluado si el usuario inicío sesión verificamos si está cargado en la BBDD
     if (emailEncontrado) {
       console.log("Logead@")
     }

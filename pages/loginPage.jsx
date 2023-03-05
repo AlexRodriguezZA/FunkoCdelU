@@ -1,12 +1,14 @@
-import React from 'react'
-import LoginCard from "../components/Generales/LoginCard"
+import LoginCard from "../components/Generales/LoginCard";
+import Layout from "../components/Generales/Layout";
 
 const LoginPage = () => {
   return (
-    <div className='container'>
-      <LoginCard />
-    </div>
-  )
-}
+    <Layout>
+      <div className="container">
+        <LoginCard />
+      </div>
+    </Layout>
+  );
+};
 
-export default LoginPage
+export default LoginPage;

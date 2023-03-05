@@ -1,18 +1,25 @@
-import imagenPrubea from '../../assets/imagenesPrueba/boba.png'
-import corazon from '../../assets/imagenesPrueba/corazon.svg'
-import corazon2 from '../../assets/imagenesPrueba/corazon2.svg'
-import carrito from '../../assets/imagenesPrueba/cart.svg'
+//Componentes
 import Link from 'next/link'
 import Image from 'next/image'
 import style from "../styles/CardFunko.module.css"
 
-import { useState } from 'react';
+//Funciones
+import { useSession } from "next-auth/react"
+import { useEffect, useState } from 'react';
+import getDataUser from '../../Utils/getDataUser';
+
+
+//Assets
+import imagenPrubea from '../../assets/imagenesPrueba/boba.png'
+import corazon from '../../assets/imagenesPrueba/corazon.svg'
+import corazon2 from '../../assets/imagenesPrueba/corazon2.svg'
+import carrito from '../../assets/imagenesPrueba/cart.svg'
+
+
 
 const CardFunko = ({ producto }) => {
 
   const [fav, setfav] = useState(false)
-
-
   const handlePressFav = () => {
     setfav(!fav);
   }

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "esLint": "npm:eslint@^8.26.0",
     "mercadopago": "^1.5.14",
     "next": "13.0.2",
     "next-auth": "^4.16.4",
@@ -19,7 +20,6 @@
     "react-super-responsive-table": "^5.2.1"
   },
   "devDependencies": {
-    "eslint": "8.26.0",
-    "eslint-config-next": "13.0.2"
+    "eslint": "8.26.0"
   }
 }
