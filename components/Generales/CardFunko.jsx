@@ -2,12 +2,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import style from "../styles/CardFunko.module.css"
+import Swal from "sweetalert2";
 
 //Funciones
 import { useSession } from "next-auth/react"
-import { useEffect, useState } from 'react';
-import getDataUser from '../../Utils/getDataUser';
-
+import { useState } from 'react';
+import addToCartFunko from '../../Utils/Crud_Carrito/addToCartFunko';
 
 //Assets
 import imagenPrubea from '../../assets/imagenesPrueba/boba.png'
@@ -19,9 +19,53 @@ import carrito from '../../assets/imagenesPrueba/cart.svg'
 
 const CardFunko = ({ producto }) => {
 
+  const { data: session, status } = useSession()
+  const Toast = Swal.mixin({
+    width:'32em',
+    heightAuto: true,
+    toast: false,
+    text: "50px",
+    position: 'center',
+    showConfirmButton: true,
+    timer: 1000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  })
+
   const [fav, setfav] = useState(false)
   const handlePressFav = () => {
     setfav(!fav);
+  }
+
+  const handleAddToCart = async () => {
+    if(status === "authenticated"){
+    const email = session.user.email;
+    const res = await addToCartFunko(1, producto.idprod, producto.precio, email)
+    if(res === "success"){
+      Toast.fire({
+        title: "Añadido al carrito",
+        text: `Se agrego el Funko ${producto.nombre}`,
+        icon: "success",
+    });
+    }
+    else{
+      Toast.fire({
+        title: "Error al cargar el carrito",
+        text: `No se pudo agregar al funko`,
+        icon: "error",
+    });
+    }}
+    else{
+      Toast.fire({
+        title: "Error al cargar el carrito",
+        text: `Ingrese a su cuenta para realizar la operacion`,
+        icon: "error",
+    });
+    }
+    
   }
   return (
     <div className={style.Card_container}>
@@ -50,7 +94,7 @@ const CardFunko = ({ producto }) => {
           <h2 className={style.categoria_funko}>{producto.categoriaByIdcat.nombrecat}</h2>
         </div>
         <div className={style.Button_Compra_container}>
-          <button className={style.button_addCarrito}>
+          <button className={style.button_addCarrito} onClick={handleAddToCart}>
             <Image className={style.cart} src={carrito} alt="Carrito" />
             <p className={style.price_funko}>${producto.precio}</p>
           </button>

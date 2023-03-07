@@ -14,10 +14,11 @@
     "next": "13.0.2",
     "next-auth": "^4.16.4",
     "react": "18.2.0",
+    "react-awesome-stars-rating": "^0.13.5",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
-    "react-responsive-modal": "^6.4.1",
-    "react-super-responsive-table": "^5.2.1"
+    "react-super-responsive-table": "^5.2.1",
+    "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
     "eslint": "8.26.0"

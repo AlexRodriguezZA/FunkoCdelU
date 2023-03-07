@@ -1,7 +1,6 @@
 //Componentes
 import CardFunkoDetalle from "../../components/Generales/CardFunkoDetalle";
 import Seccion_comentarios from "../../components/Generales/Comentarios/Seccion_comentarios";
-import FunkoSimilares from "../../components/Generales/FunkoSimilares";
 import style from "../../styles/Funko_detalle_page.module.css";
 import Layout from "../../components/Generales/Layout";
 
@@ -15,9 +14,6 @@ const index = ({ FunkoDetalle }) => {
       <div className={style.Funko_detalle_page}>
         <CardFunkoDetalle FunkoDetalle={FunkoDetalle} />
         <Seccion_comentarios ComentariosFunko={FunkoDetalle} />
-
-        {/*NO anda el funko similares 
-    <FunkoSimilares FunkosSimilar={FunkoDetalle}/>*/}
       </div>
     </Layout>
   );

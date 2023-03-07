@@ -3,7 +3,7 @@ import Image from 'next/image'
 import imagenPrueba from '../../assets/imagenesPrueba/boba.png'
 import style from "../styles/CardCarrito.module.css"
 
-const CardCarrito = () => {
+const CardCarrito = ({nombre,precio,categoria,cantidad,subtotal}) => {
   return (
     <div className={style.Card_carrito_container}>
       <section >
@@ -15,19 +15,19 @@ const CardCarrito = () => {
       </section>
 
       <section className={style.seccion_data}>
-        <h3>Hulk</h3>
-        <p className={style.seccion_data_price}>$3000</p>
-        <p className={style.seccion_data_categoria}>Marvel</p>
+        <h3>{nombre}</h3>
+        <p className={style.seccion_data_price}>${precio}</p>
+        <p className={style.seccion_data_categoria}>{categoria}</p>
       </section>
 
       <section className={style.seccion_buttons}>
         <button className={style.button}>+</button>
-        <span className={style.total_producto}>4</span>
+        <span className={style.total_producto}>{cantidad}</span>
         <button className={style.button}>-</button>
       </section>
 
       <section className={style.seccion_subtotal}>
-        <p>$12000</p>
+        <p>${subtotal}</p>
       </section>
     </div>
   )

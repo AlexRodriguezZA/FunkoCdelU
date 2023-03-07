@@ -3,7 +3,6 @@ import Header from "../../components/Generales/Header";
 import ListCardsProd from "../../components/Generales/ListCardsProd";
 import style from "../../styles/tienda.module.css";
 import Layout from "../../components/Generales/Layout";
-
 //Funciones
 import getAllProducts from "../../Utils/StoreProducts";
 
