@@ -3,11 +3,20 @@ import Image from 'next/image'
 import imagenPrueba from '../../assets/imagenesPrueba/boba.png'
 import style from "../styles/CardCarrito.module.css"
 
-const CardCarrito = ({nombre,precio,categoria,cantidad,subtotal}) => {
+//Funciones
+import DeleteLineaCarrito from '../../Utils/Crud_Carrito/DeleteLineaCarrito'
+
+const CardCarrito = ({nombre,precio,categoria,cantidad,subtotal,IdLineaCarrito}) => {
+
+  
+  const handleDeleteLineaCarrito = async ()=>{
+    window.location.replace(''); //Reiniciamos la página
+    await DeleteLineaCarrito(IdLineaCarrito)
+  }
   return (
     <div className={style.Card_carrito_container}>
       <section >
-        <button className={style.button_remove}>x</button>
+        <button className={style.button_remove} onClick={handleDeleteLineaCarrito}>x</button>
       </section>
 
       <section className={style.seccion_imagen}>

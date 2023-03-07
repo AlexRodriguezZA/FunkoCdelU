@@ -7,6 +7,7 @@ import Layout from "../../components/Generales/Layout";
 import getAllProducts from "../../Utils/StoreProducts";
 
 const tienda = ({ productos }) => {
+  
   return (
     <Layout>
       <div className={style.tienda_container}>

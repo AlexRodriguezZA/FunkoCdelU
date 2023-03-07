@@ -136,7 +136,7 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
             </label>
             <input
               className={style.detalle_cantidad_input}
-              min="0"
+              min="1"
               max={FunkoDetalle.stock}
               type="number"
               value={Cantidad}
