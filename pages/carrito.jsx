@@ -49,7 +49,7 @@ const Carrito = ({ LineaCarrito, idCarrito }) => {
           <div className={style.linea_divisora}></div>
           <section className={style.cards_carrito_container}>
             {LineaCarrito.length === 0 ? (
-              <div>No hay productos en el carrito</div>
+              <div>Carrito vacío :p</div> 
             ) : (
               LineaCarrito.map((linea) => (
                 <CardCarrito

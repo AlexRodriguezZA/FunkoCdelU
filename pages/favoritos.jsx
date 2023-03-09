@@ -21,6 +21,7 @@ const Favoritos = ({ favoritos }) => {
   const CrearObjetoNuevo = () => {
     const resultado = favoritos.map((fav) => {
       const NewObjFunko = {
+        idfav: fav.idfavoritos,
         idprod: fav.productoByIdprod.idprod,
         nombre: fav.productoByIdprod.nombre,
         numerofunko: fav.productoByIdprod.numerofunko,
@@ -46,7 +47,7 @@ const Favoritos = ({ favoritos }) => {
         </div>
         <section className={style.funko_container}>
           {NewArrayFunkosFav.length > 0 ? (
-            <ListCardsProd productos={NewArrayFunkosFav} />
+            <ListCardsProd productos={NewArrayFunkosFav} isFavorite={true}/>
           ) : (
             <div>No hay favoritos aun</div>
           )}

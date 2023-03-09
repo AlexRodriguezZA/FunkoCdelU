@@ -8,6 +8,7 @@ async function getFavoritosUser(dni) {
             query: `query MyQuery {
                 allFavoritos(condition: {dni: ${dni}}) {
                   nodes {
+                    idfavoritos
                     productoByIdprod {
                       nombre
                       numerofunko

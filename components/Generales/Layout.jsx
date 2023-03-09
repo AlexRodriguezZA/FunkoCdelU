@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from "../Generales/Navbar"
 import Footer from './Footer'
 import Head from 'next/head'

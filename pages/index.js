@@ -39,6 +39,16 @@ export async function getServerSideProps(context) {
     const emailEncontrado = emails.find(
       (e) => e.email.toLowerCase() === session.user.email
     );
+
+    //Nos permite que el usuario admin pueda entrar el panel 
+    if (session.user.email === "funkocdelu@gmail.com"){
+      return {
+        redirect: {
+          destination: "/Dashboard",
+          permanent: true,
+        },
+      };
+    }
     //Una vez evaluado si el usuario inicío sesión verificamos si está cargado en la BBDD
     if (emailEncontrado) {
       console.log("Logead@");

@@ -1,4 +1,4 @@
-async function setFavoritos(dni,idprod) {
+async function deleteFavoritos(idfavoritos) {
     const response = await fetch('http://localhost:5000/graphql', {
         method: 'POST',
         headers: {
@@ -6,7 +6,7 @@ async function setFavoritos(dni,idprod) {
         },
         body: JSON.stringify({
             query: `mutation {
-              createFavorito(input: {favorito: {dni: ${dni}, idprod: ${idprod}}}) {
+              deleteFavoritoByIdfavoritos(input: {idfavoritos: ${idfavoritos}}) {
                 clientMutationId
               }
             }
@@ -16,7 +16,9 @@ async function setFavoritos(dni,idprod) {
       })
 
       const respuesta = await response.json()
-      return respuesta;
+      if (Object.keys(respuesta).length === 1) {
+          return "success"
+        } 
 
   }
-export default setFavoritos;
+export default deleteFavoritos;
