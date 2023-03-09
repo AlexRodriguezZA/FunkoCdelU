@@ -11,6 +11,7 @@
     transition: all 0.3s ease;
     justify-content: center;
     box-shadow: 1px 3px 6px 1px rgba(0,0,0,0.45);
+
 }
 
 .Card_container:hover{
@@ -292,32 +293,15 @@
 }
 
 .estrellas_container{
-    display: flex;
-    justify-content: center;
+   display: flex;
+   flex-direction: column;
+    height: 50px;
     align-items: center;
-
 }
 
-.estrella{
-    text-decoration: none;
-    float: right;
-    width: 25px;
-    height: 20px;
-    line-height: 20px;
-    font-size: 35px;
-    color: #777d7e;
-    font-weight: 900;
 
-    text-align: center;
-    transition: color .3s;
-    transition: all .3s;
-}
-
-.estrella:hover {
-    color: #F39C12;
-    font-size: 45px;
-
-
+.parrafo_valorar{
+    margin-top: 10px;
 }
 .detalle_cantidad{
     display: flex;
@@ -424,17 +408,7 @@
     
     }
     
-    .estrella{
-        font-size: 24px;
-        
-    }
     
-    .estrella:hover {
-        color: #F39C12;
-        font-size: 35px;
-    
-    
-    }
     .detalle_cantidad{
         margin-top: 10px;
         gap: 10px;
@@ -527,17 +501,7 @@
     
     }
     
-    .estrella{
-        font-size: 24px;
-        
-    }
-    
-    .estrella:hover {
-        color: #F39C12;
-        font-size: 35px;
-    
-    
-    }
+   
     .detalle_cantidad{
         margin-top: 10px;
         gap: 10px;

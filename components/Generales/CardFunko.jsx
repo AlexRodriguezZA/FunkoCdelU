@@ -12,9 +12,9 @@ import addFavoritos from '../../Utils/addFavoritos';
 import deleteFavoritos from '../../Utils/deleteFavoritos';
 //Assets
 import imagenPrubea from '../../assets/imagenesPrueba/boba.png'
-import corazon from '../../assets/imagenesPrueba/corazon.svg'
-import corazon2 from '../../assets/imagenesPrueba/corazon2.svg'
-import carrito from '../../assets/imagenesPrueba/cart.svg'
+import corazon from '../../assets/Icons/corazon.svg'
+import corazon2 from '../../assets/Icons/corazon2.svg'
+import carrito from "../../assets/Icons/cart.svg"
 
 
 
@@ -128,14 +128,14 @@ const CardFunko = ({ producto,isFavorite }) => {
             isFavorite === true ?
             <button className={style.Button_corazon_fav} onClick={() => handleDeleteFav()}>
             {
-              fav ? <Image className={style.corazon_fav} src={corazon2} alt="Corazon de favoritos" />
+              fav ? <Image className={style.corazon_fav} width={28}  src={corazon2} alt="Corazon de favoritos" />
                 : <Image className={style.corazon_fav} src={corazon} alt="Corazon de favoritos" />
             }
             </button> 
             :
             <button className={style.Button_corazon_fav} onClick={() => handlePressFav()}>
             {
-              fav ? <Image className={style.corazon_fav} src={corazon2} alt="Corazon de favoritos" />
+              fav ? <Image className={style.corazon_fav} width={28} src={corazon2} alt="Corazon de favoritos" />
                 : <Image className={style.corazon_fav} src={corazon} alt="Corazon de favoritos" />
             }
           </button>

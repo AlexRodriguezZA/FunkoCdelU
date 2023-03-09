@@ -1,6 +1,6 @@
 import React from "react";
 import style from "../styles/Footer.module.css"
-import Image from "next/image";
+
 import { BsPinMapFill, BsTelephoneFill, BsEnvelopeFill } from "react-icons/bs";
 
 function Footer() {
@@ -15,7 +15,10 @@ function Footer() {
         <section className={style.item_1_seccion_redes}>
           <h3 className={style.titulo_redes}>Redes sociales</h3>
           <section className={style.seccion_redes_icon}>
-            {/*HACER ESTA SECCION DE LOS ICONOS */}
+            <p>Facebook</p>
+            <p>Twitter</p>
+            <p>Instagram</p>
+
           </section>
 
 

@@ -6,8 +6,20 @@
     width: 100%;
     height: 100vh;
     place-items: center;
+    animation-duration: 0.5s;
+    animation-name: fade;
   }
   
+  @keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .modal_body {
     background-color: white;
     width: 30%;

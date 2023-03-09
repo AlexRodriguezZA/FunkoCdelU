@@ -2,8 +2,9 @@
 import style from "../styles/CardFunko.module.css";
 import imagenPrubea from "../../assets/imagenesPrueba/boba.png";
 import Image from "next/image";
-import carrito from "../../assets/imagenesPrueba/cart.svg";
+import carrito from "../../assets/Icons/cart.svg";
 import Swal from "sweetalert2";
+import { Rating } from 'react-simple-star-rating'
 
 //Funciones
 import addToCartFunko from "../../Utils/Crud_Carrito/addToCartFunko";
@@ -12,6 +13,7 @@ import { useState } from "react";
 
 const CardFunkoDetalle = ({ FunkoDetalle }) => {
 
+ 
   const Toast = Swal.mixin({
     width:'32em',
     heightAuto: true,
@@ -29,7 +31,7 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
   
   const { data: session, status } = useSession()
 
-  const [Cantidad, setCantidad] = useState(0)  
+  const [Cantidad, setCantidad] = useState(1)  
 
   const handleChangeInput = (e)=>{
     setCantidad(e.target.value)
@@ -108,23 +110,12 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
           </p>
 
           <div className={style.detalle_valoracion}>
-            Valorar:
+            <p className={style.parrafo_valorar}>Valorar:</p>
+            
             <div className={style.estrellas_container}>
-              <a className={style.estrella} href="">
-                *
-              </a>
-              <a className={style.estrella} href="">
-                *
-              </a>
-              <a className={style.estrella} href="">
-                *
-              </a>
-              <a className={style.estrella} href="">
-                *
-              </a>
-              <a className={style.estrella} href="">
-                *
-              </a>
+            <Rating
+            style={{ height: 40 }}
+            />
             </div>
           </div>
           <div className={style.detalle_cantidad}>

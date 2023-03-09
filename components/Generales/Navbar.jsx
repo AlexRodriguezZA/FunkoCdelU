@@ -1,6 +1,5 @@
 
 import React, { useState } from "react";
-import cart from "../../assets/imagenesPrueba/cart.svg"
 import Image from "next/image";
 import Link from "next/link";
 import { useSession, signOut } from 'next-auth/react'

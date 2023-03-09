@@ -1,5 +1,5 @@
 import React from 'react'
-import google from "../../assets/imagenesPrueba/google.svg"
+import google from "../../assets/Icons/google.svg"
 import logo from '../../assets/logo.png'
 import Image from 'next/image'
 import style from "../styles/LoginCard.module.css"

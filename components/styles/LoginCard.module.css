@@ -1,6 +1,6 @@
 .loginContainer{
     width: 500px;
-    height: 600px;
+    height: 100vh;
     background-color: #fff;
     border-radius: 10px;
     display: flex;

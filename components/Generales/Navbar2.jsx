@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import cart from "../../assets/imagenesPrueba/cart.svg"
+import cart from "../../assets/Icons/cart.svg"
 import { useSession, signOut } from 'next-auth/react'
 
 function Navbar2() {
