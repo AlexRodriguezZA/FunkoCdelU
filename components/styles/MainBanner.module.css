@@ -38,7 +38,6 @@
     height: auto;
     animation-duration: 2s;
     animation-name: fade;
-    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
 }
 
 .Title {

@@ -106,15 +106,6 @@ const Layout_admin = ({ children }) => {
                   <Text>Productos</Text>
                 </Link>
               </Flex>
-              <Flex className="sidebar-items" mr={[2, 6, 0, 0, 0]}>
-                <Link
-                  href="/Dashboard/historial"
-                  _hover={{ textDecor: "none" }}
-                  display={["flex", "flex", "none", "flex", "flex"]}
-                >
-                  <Text>Historial ventas</Text>
-                </Link>
-              </Flex>
             </Flex>
           </Flex>
           <Flex flexDir="column" alignItems="center" mb={10} mt={5}>
@@ -131,7 +122,12 @@ const Layout_admin = ({ children }) => {
           </Flex>
         </Flex>
       </Flex>
-      {children}
+      <Flex h={[null, null, "100vh"]}
+            flexDir="column"
+            w="100%"
+            alignItems="center">
+        {children}
+      </Flex>
       </Flex>
     </>
   );

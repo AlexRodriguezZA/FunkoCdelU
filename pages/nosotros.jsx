@@ -1,7 +1,7 @@
 //Componentes
 import Logo from "../assets/logo.png";
 import Image from "next/image";
-import imgFunko from "../assets/funkoimagenesSlider/funko1.png";
+import imgFunko from "../assets/funkoimagenesSlider/funko2.png";
 import style from "../styles/nosotros.module.css";
 import Link from "next/link";
 import Layout from "../components/Generales/Layout";

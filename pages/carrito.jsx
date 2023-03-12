@@ -7,12 +7,14 @@ import Layout from "../components/Generales/Layout";
 import { getSession } from "next-auth/react";
 import getIDCarrito from "../Utils/Crud_Carrito/getIDCarrito";
 import getLineaCarrito from "../Utils/Crud_Carrito/getLineaCarrito";
+import CreadorDeLinkDePago from "../Utils/MercadoPago/CreadorDeLinkDePago";
 import DeleteAllFunkosCart from "../Utils/Crud_Carrito/DeleteAllFunkosCart";
+import { useRouter } from "next/router";
 import { useState,useEffect } from "react";
 
-const Carrito = ({ LineaCarrito, idCarrito }) => {
- 
+const Carrito = ({ LineaCarrito, idCarrito ,LinkMercadoPago}) => {
   const [TotalCart, setTotalCart] = useState(0)  
+  const router = useRouter()
 
   const calcularTotal = ()=>{
     const suma = LineaCarrito.reduce((a,b)=>{
@@ -23,7 +25,19 @@ const Carrito = ({ LineaCarrito, idCarrito }) => {
 
   useEffect(() => {
     calcularTotal()
+    console.log(LinkMercadoPago)
   }, [])
+
+  
+  const handleRealizarPago = () =>{
+    if (LinkMercadoPago === "Error") {
+      alert("error")
+      
+    }else{
+      router.push(LinkMercadoPago)
+    }
+
+  }
   
   const handleDeleteAllCart = async () => {
     window.location.replace(''); //Reiniciamos la página
@@ -70,7 +84,7 @@ const Carrito = ({ LineaCarrito, idCarrito }) => {
             <p className={style.total_label}>
               Total: $<span className={style.total}>{TotalCart}</span>
             </p>
-            <button className={style.button_pagar}>Pagar</button>
+            <button className={style.button_pagar} onClick={handleRealizarPago}>Pagar</button>
           </section>
         </div>
       </div>
@@ -90,10 +104,16 @@ export async function getServerSideProps(context) {
       },
     };
   } else {
+
     const idCarrito = await getIDCarrito(session.user.email);
     const LineaCarrito = await getLineaCarrito(idCarrito);
-    return {
-      props: { LineaCarrito, idCarrito },
+    const LinkMercadoPago = await CreadorDeLinkDePago(session.user.email,LineaCarrito)
+      return {
+      props: { LineaCarrito, idCarrito, LinkMercadoPago },
     };
   }
 }
+
+//TODO: 
+//Acordarme de crear el objeto para pasarlo
+//CUando me de el link redireccionar con userouter()

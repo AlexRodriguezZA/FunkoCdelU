@@ -5,9 +5,12 @@ import style from "../../styles/tienda.module.css";
 import Layout from "../../components/Generales/Layout";
 //Funciones
 import getAllProducts from "../../Utils/StoreProducts";
-
+import { useState } from "react";
 const tienda = ({ productos }) => {
   
+ 
+
+
   return (
     <Layout>
       <div className={style.tienda_container}>
@@ -18,7 +21,7 @@ const tienda = ({ productos }) => {
             <section className={style.button_seccion}>
               <button className={style.button_orden}>Low price</button>
               <button className={style.button_orden}>High price</button>
-              <button className={style.button_orden}>More recent</button>
+              <button className={style.button_orden}>None</button>
             </section>
           </section>
           <section className={style.filtro_order_select}>
@@ -26,7 +29,6 @@ const tienda = ({ productos }) => {
               <option>Ordenar por</option>
               <option>Low price</option>
               <option>High price</option>
-              <option>More recent</option>
             </select>
           </section>
         </div>

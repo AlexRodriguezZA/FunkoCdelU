@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Funko from "../../assets/Funko_Categorias/funko2.png";
+import Funko from "../../assets/Funko_Categorias/funko3.png";
 import style from "../styles/MainBanner.module.css";
 import Link from "next/link";
 function MainBanner() {

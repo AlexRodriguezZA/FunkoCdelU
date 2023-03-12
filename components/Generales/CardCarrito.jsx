@@ -31,7 +31,7 @@ const CardCarrito = ({nombre,precio,categoria,cantidad,subtotal,IdLineaCarrito})
 
       <section className={style.seccion_buttons}>
         <button className={style.button}>+</button>
-        <span className={style.total_producto}>{cantidad}</span>
+        <span type="number" v className={style.total_producto}>{cantidad}</span>
         <button className={style.button}>-</button>
       </section>
 

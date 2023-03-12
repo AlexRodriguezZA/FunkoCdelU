@@ -37,7 +37,7 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
     setCantidad(e.target.value)
   }
   const handleResetInput = ()=>{
-    setCantidad(0)
+    setCantidad(1)
   } 
   const handleAddToCart = async () => {
     if(status === "authenticated"){

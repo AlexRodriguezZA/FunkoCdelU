@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { SessionProvider ,useSession,getSession} from "next-auth/react";
 import { ChakraProvider } from '@chakra-ui/react'
+import Layout_admin from "../components/Dashboard_components/Layout_admin";
 
 function MyApp({ Component, pageProps, session }) {
   return (
@@ -9,7 +10,9 @@ function MyApp({ Component, pageProps, session }) {
         <Auth>
           {/*Colocamos el provider de chakra ui */}
           <ChakraProvider>  
-            <Component {...pageProps} />
+            <Layout_admin>
+              <Component {...pageProps} />
+            </Layout_admin>
           </ChakraProvider>
         </Auth>
       ) : (
@@ -30,7 +33,6 @@ function Auth({ children }) {
 
   // Session is being fetched, or no user.
   // If no user, useEffect() will redirect.
-  return <div>loading...</div>
 }
 export default MyApp;
 
