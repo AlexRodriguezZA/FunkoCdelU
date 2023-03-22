@@ -4,37 +4,13 @@ import {
   Flex,
   Heading,
   Avatar,
-  AvatarGroup,
   Text,
-  Icon,
-  IconButton,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  Divider,
+
   Link,
-  Box,
   Button,
-  Input,
-  InputGroup,
-  InputLeftElement,
+
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiPieChart,
-  FiDollarSign,
-  FiBox,
-  FiCalendar,
-  FiChevronDown,
-  FiChevronUp,
-  FiPlus,
-  FiCreditCard,
-  FiSearch,
-  FiBell,
-} from "react-icons/fi";
+
 import { signOut } from "next-auth/react";
 const Layout_admin = ({ children }) => {
   return (

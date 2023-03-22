@@ -1,4 +1,4 @@
-import { Flex,Heading,Button} from "@chakra-ui/react";
+import { Flex,Heading,Button, Box} from "@chakra-ui/react";
 import {
   Table,
   Thead,
@@ -31,7 +31,7 @@ const categorias = () => {
           >
           Tabla de categorias
         </Heading>
-        <TableContainer w="50%" mt={30} >
+        <Box w="50%" mt={30} as="table" overflow="scroll" >
           <Table variant="simple" w="100%" size="lg" colorScheme="teal">
             <Thead>
               <Tr>
@@ -45,12 +45,18 @@ const categorias = () => {
             <TableRowCategoria/>
             <TableRowCategoria/>
             <TableRowCategoria/>
+            <TableRowCategoria/>
+
+            <TableRowCategoria/>
+
+            <TableRowCategoria/>
+
 
             </Tbody>
           </Table>
           <Button colorScheme='blue'>Nuevo</Button>
 
-        </TableContainer>
+        </Box>
       </Flex>
       </>
   );

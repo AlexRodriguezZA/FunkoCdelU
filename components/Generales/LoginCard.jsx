@@ -10,7 +10,7 @@ const LoginCard = () => {
     return (
         <div className={style.loginContainer}>
         <div className={style.imageLogoContainer}>
-            <Image src={logo} alt="" />
+            <Image width={350} height="auto" src={logo} alt="" />
         </div>
         <p className={style.textoBienvenida}>Bienvenido!</p>
         <div className={style.lineaDivisora}></div>

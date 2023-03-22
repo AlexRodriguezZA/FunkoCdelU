@@ -9,9 +9,10 @@ import getAllCiudades from '../Utils/getCiudades'
 import setUsers from "../Utils/setUsers"
 import { useState } from 'react';
 import { useSession } from 'next-auth/react'
-
+import { useRouter } from "next/router"
 
 const formulario = ({ ciudades }) => {
+  const router = useRouter()
 
   const { data: session } = useSession()
 
@@ -35,7 +36,9 @@ const formulario = ({ ciudades }) => {
     else {
       setError(false)
       setUsers(Dni, Nombre, Apellido, session.user.email, Domicilio, codigoPostal, altura)
-      handleResetForm()
+      handleResetForm() 
+      router.push('/')
+
     }
   }
 

@@ -4,8 +4,7 @@ import MainBanner from "../components/Generales/MainBanner";
 import ListCardsProd from "../components/Generales/ListCardsProd";
 import GridLayourCategorias from "../components/Generales/GridLayourCategorias";
 import Layout from "../components/Generales/Layout";
-import wave from "../assets/Funko_Categorias/wave.svg"
-import Image from "next/image";
+
 //Funciones
 import getAllProducts from "../Utils/StoreProducts";
 import getEmailsUsers from "../Utils/getEmailsUsers";

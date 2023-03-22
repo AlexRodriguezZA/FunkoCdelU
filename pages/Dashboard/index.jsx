@@ -1,3 +1,4 @@
+//Componentes
 import { Heading, Box, Flex, Text } from "@chakra-ui/react";
 import {
   Table,
@@ -14,7 +15,11 @@ import producto from "../../assets/Icons/producto.svg";
 import ventas from "../../assets/Icons/ventas.svg";
 import user from "../../assets/Icons/user.svg";
 
-const index = () => {
+//Funciones
+import getTotales_dataAdmin from "../../Utils/getTotales_dataAdmin";
+import getAllVentas from "../../Utils/getAllVentas";
+
+const index = ({ data_totales, ventas_realizadas }) => {
   return (
     <>
       <Heading
@@ -47,14 +52,14 @@ const index = () => {
           w={["100%", "70%", 300]}
           h={120}
         >
-          <Text as='b' color="#fff" fontSize="5xl">
+          <Text as="b" color="#fff" fontSize="5xl">
             Total ventas
           </Text>
 
           <Text color="#fff" fontSize="5xl">
-            5
+            {data_totales.allVentausuarios.totalCount}
           </Text>
-          <Image width={30} height="auto" src={ventas} />
+          <Image width={30} height="auto" src={ventas} alt="Icon ventas" />
         </Box>
         <Box
           display="flex"
@@ -68,14 +73,14 @@ const index = () => {
           w={["100%", "70%", 300]}
           h={120}
         >
-          <Text as='b' color="#fff" fontSize="5xl">
+          <Text as="b" color="#fff" fontSize="5xl">
             Usuarios
           </Text>
 
           <Text color="#fff" fontSize="5xl">
-            6
+            {data_totales.allUsuarios.totalCount}
           </Text>
-          <Image width={30} height="auto" src={user} />
+          <Image width={30} height="auto" src={user} alt="icon usuario" />
         </Box>
         <Box
           display="flex"
@@ -89,29 +94,34 @@ const index = () => {
           w={["100%", "70%", 300]}
           h={120}
         >
-          <Text as='b' color="#fff" fontSize="5xl">
+          <Text as="b" color="#fff" fontSize="5xl">
             Productos
           </Text>
 
           <Text color="#fff" fontSize="5xl">
-            14
+            {data_totales.allProductos.totalCount}
           </Text>
-          <Image width={40} height="auto" src={producto} />
+          <Image width={40} height="auto" src={producto} alt="Icon product"/>
         </Box>
       </Flex>
-      <Flex w="100%" justifyContent="center" mt={30} flexDir="column" alignItems="center">
+      <Flex
+        w="100%"
+        justifyContent="center"
+        mt={30}
+        flexDir="column"
+        alignItems="center"
+      >
         <Heading
           display="flex"
           as="h3"
           size="lg"
           justifyContent="flex-start"
           marginTop={30}
-          >
+        >
           Historial de ventas
         </Heading>
-        <TableContainer w="90%" overflowX="hidden">
+        <Box w="90%" overflowY="scroll" marginTop={30}>
           <Table variant="striped" w="100%" size="lg" colorScheme="teal">
-            <TableCaption>Ventas realizadas</TableCaption>
             <Thead>
               <Tr>
                 <Th>Usuario</Th>
@@ -120,14 +130,14 @@ const index = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <TableRow/>
-              <TableRow/>
-              <TableRow/>
-              <TableRow/>
-            
+              {ventas_realizadas.length === 0 ? (
+                <div>NO hay ventas aun</div>
+              ) : 
+                ventas_realizadas.map((venta) => <TableRow key={venta.idventa} venta={venta}/>)
+              }
             </Tbody>
           </Table>
-        </TableContainer>
+        </Box>
       </Flex>
     </>
   );
@@ -136,3 +146,11 @@ const index = () => {
 export default index;
 
 index.auth = true;
+
+export async function getServerSideProps() {
+  const data_totales = await getTotales_dataAdmin();
+  const ventas_realizadas = await getAllVentas();
+  return {
+    props: { data_totales, ventas_realizadas },
+  };
+}

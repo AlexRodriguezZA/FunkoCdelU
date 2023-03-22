@@ -2,7 +2,8 @@
 import CardCarrito from "../components/Generales/CardCarrito";
 import style from "../styles/carrito.module.css";
 import Layout from "../components/Generales/Layout";
-
+import Image from "next/image";
+import carrito_vacio from "../assets/imagenesPrueba/Carritovacio.png";
 //Funciones y Hooks
 import { getSession } from "next-auth/react";
 import getIDCarrito from "../Utils/Crud_Carrito/getIDCarrito";
@@ -10,37 +11,33 @@ import getLineaCarrito from "../Utils/Crud_Carrito/getLineaCarrito";
 import CreadorDeLinkDePago from "../Utils/MercadoPago/CreadorDeLinkDePago";
 import DeleteAllFunkosCart from "../Utils/Crud_Carrito/DeleteAllFunkosCart";
 import { useRouter } from "next/router";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const Carrito = ({ LineaCarrito, idCarrito ,LinkMercadoPago}) => {
-  const [TotalCart, setTotalCart] = useState(0)  
-  const router = useRouter()
+const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
+  const [TotalCart, setTotalCart] = useState(0);
+  const router = useRouter();
 
-  const calcularTotal = ()=>{
-    const suma = LineaCarrito.reduce((a,b)=>{
+  const calcularTotal = () => {
+    const suma = LineaCarrito.reduce((a, b) => {
       return a + b.precio;
-    },0)
-    setTotalCart(suma)
-  }
+    }, 0);
+    setTotalCart(suma);
+  };
 
   useEffect(() => {
-    calcularTotal()
-    console.log(LinkMercadoPago)
-  }, [])
+    calcularTotal();
+  }, []);
 
-  
-  const handleRealizarPago = () =>{
+  const handleRealizarPago = () => {
     if (LinkMercadoPago === "Error") {
-      alert("error")
-      
-    }else{
-      router.push(LinkMercadoPago)
+      alert("error");
+    } else {
+      router.push(LinkMercadoPago);
     }
+  };
 
-  }
-  
   const handleDeleteAllCart = async () => {
-    window.location.replace(''); //Reiniciamos la página
+    window.location.replace(""); //Reiniciamos la página
     await DeleteAllFunkosCart(idCarrito);
   };
   return (
@@ -49,21 +46,25 @@ const Carrito = ({ LineaCarrito, idCarrito ,LinkMercadoPago}) => {
         <div className={style.carrito_box}>
           <div className={style.header_carrito}>
             <h2>Tú carrito</h2>
-            { 
-              LineaCarrito.length != 0 &&  
-            <button
-              className={style.button_allremove}
-              onClick={handleDeleteAllCart}
-              type="reset">
-              All remove
-            </button>
-            }
-            
+            {LineaCarrito.length != 0 && (
+              <button
+                className={style.button_allremove}
+                onClick={handleDeleteAllCart}
+                type="reset"
+              >
+                All remove
+              </button>
+            )}
           </div>
           <div className={style.linea_divisora}></div>
           <section className={style.cards_carrito_container}>
             {LineaCarrito.length === 0 ? (
-              <div>Carrito vacío :p</div> 
+              <div className={style.carrito_vacio}>
+                <p className={style.carrito_vacio_texto}>
+                  Tu carrito está vacío!
+                </p>
+                <Image width={200} height="auto" priority src={carrito_vacio} />
+              </div>
             ) : (
               LineaCarrito.map((linea) => (
                 <CardCarrito
@@ -84,7 +85,9 @@ const Carrito = ({ LineaCarrito, idCarrito ,LinkMercadoPago}) => {
             <p className={style.total_label}>
               Total: $<span className={style.total}>{TotalCart}</span>
             </p>
-            <button className={style.button_pagar} onClick={handleRealizarPago}>Pagar</button>
+            <button className={style.button_pagar} onClick={handleRealizarPago}>
+              Pagar
+            </button>
           </section>
         </div>
       </div>
@@ -104,16 +107,18 @@ export async function getServerSideProps(context) {
       },
     };
   } else {
-
     const idCarrito = await getIDCarrito(session.user.email);
     const LineaCarrito = await getLineaCarrito(idCarrito);
-    const LinkMercadoPago = await CreadorDeLinkDePago(session.user.email,LineaCarrito)
-      return {
+    const LinkMercadoPago = await CreadorDeLinkDePago(
+      session.user.email,
+      LineaCarrito
+    );
+    return {
       props: { LineaCarrito, idCarrito, LinkMercadoPago },
     };
   }
 }
 
-//TODO: 
+//TODO:
 //Acordarme de crear el objeto para pasarlo
 //CUando me de el link redireccionar con userouter()

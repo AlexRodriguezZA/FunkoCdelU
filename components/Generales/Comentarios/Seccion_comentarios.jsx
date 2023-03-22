@@ -1,24 +1,24 @@
-import { useState } from "react";
-import Comentario from "./Comentario";
-import { useSession } from "next-auth/react";
+//Componentes 
 import style from "../../styles/Seccion_comentarios.module.css";
+import Comentario from "./Comentario";
+
+
+//Funciones
+import { useState } from "react";
+import { useSession } from "next-auth/react";
 import getDataUser from "../../../Utils/getDataUser";
 import setComentario from "../../../Utils/setComentario";
 
 const Seccion_comentarios = ({ ComentariosFunko }) => {
   const { data: session } = useSession();
-
   const [Contenido, setContenido] = useState("");
-  const [Idprod, setIdprod] = useState(0);
-  const [Dni, setDni] = useState(0);
-
+  
   const handleSendComentario = async (e) => {
-    e.preventDefault();
-    //Obtenemos el dni del usuario que esta logeado
+    //Obtenemos el dni del usuario que esta logueado
     const dataUser_dni = await getDataUser(session.user.email);
-    setDni(dataUser_dni.dni);
-    setIdprod(ComentariosFunko.idprod);
-    setComentario(Contenido, Dni, Idprod);
+    const dni = dataUser_dni.dni
+    const idProd = ComentariosFunko.idprod;
+    await setComentario(Contenido, dni, idProd);
     setContenido("");
   };
 

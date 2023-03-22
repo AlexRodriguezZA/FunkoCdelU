@@ -125,10 +125,14 @@
 
  .image_container_dc{
    width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
  }
 
  .img_dc{
-   width: 100%;
+  
+   width: 52%;
    height: auto;
    transition: all .5s;
    cursor: pointer;

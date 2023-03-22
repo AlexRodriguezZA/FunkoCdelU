@@ -1,4 +1,4 @@
-async function setComentario(contenido,dni,idprod) {
+async function setCalificacion(calificacion,dni,idprod) {
     const response = await fetch('http://localhost:5000/graphql', {
         method: 'POST',
         headers: {
@@ -6,13 +6,12 @@ async function setComentario(contenido,dni,idprod) {
         },
         body: JSON.stringify({
             query: `mutation {
-                createComentario(
-                  input: {comentario: {contenido: "${contenido}", dni: ${dni},fecha: "12/05/2022", idprod: ${idprod}}}
+                createCalificacion(
+                  input: {calificacion: {calificacion: ${calificacion}, dni: ${dni}, idprod: ${idprod}}}
                 ) {
                   clientMutationId
                 }
               }
-              
               
               `
         }),
@@ -23,4 +22,4 @@ async function setComentario(contenido,dni,idprod) {
 
 }
 
-export default setComentario;
+export default setCalificacion;

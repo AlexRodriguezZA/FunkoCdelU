@@ -1,63 +1,44 @@
 //Componentes
 import Link from "next/link";
-import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table";
-import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css";
 import style from "../../styles/compras.module.css";
 import Layout from "../../components/Generales/Layout";
-
+import TablaCompras from "../../components/Generales/TablaCompras";
 //Funciones
+import getComprasUser from "../../Utils/getComprasUser";
+import { getSession } from "next-auth/react";
 
-const compras = () => {
+const compras = ({ compras_user }) => {
+
   return (
     <Layout>
       <div className={style.compras_container}>
-        <Table className={style.tabla}>
-          <Thead>
-            <Tr>
-              <Th className={style.tabla_headers}>Monto</Th>
-              <Th className={style.tabla_headers}>Fecha</Th>
-              <Th className={style.tabla_headers}>Hora</Th>
-            </Tr>
-          </Thead>
-          <Tbody>
-            <Tr>
-              <Td>$5000</Td>
-              <Td>12/2/2021</Td>
-              <Td>12:34:05</Td>
-            </Tr>
-            <Tr>
-              <Td>$5000</Td>
-              <Td>12/2/2021</Td>
-              <Td>12:34:05</Td>
-            </Tr>
-            <Tr>
-              <Td>$5000</Td>
-              <Td>12/2/2021</Td>
-              <Td>12:34:05</Td>
-            </Tr>
-            <Tr>
-              <Td>$5000</Td>
-              <Td>12/2/2021</Td>
-              <Td>12:34:05</Td>
-            </Tr>
-            <Tr>
-              <Td>$5000</Td>
-              <Td>12/2/2021</Td>
-              <Td>12:34:05</Td>
-            </Tr>
-            <Tr>
-              <Td>$5000</Td>
-              <Td>12/2/2021</Td>
-              <Td>12:34:05</Td>
-            </Tr>
-          </Tbody>
-        </Table>
         <section className={style.seccion_button}>
-          <Link href="/Perfil">Volver</Link>
+          <Link href="/Perfil" className={style.button_volver}>
+            Volver
+          </Link>
         </section>
+        <TablaCompras data={compras_user}/>
       </div>
     </Layout>
   );
 };
 
 export default compras;
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/loginPage",
+        permanent: false,
+      },
+    };
+  } else {
+    const compras_user = await getComprasUser(session.user.email);
+    //console.log(compras_user)
+    return {
+      props: { compras_user },
+    };
+  }
+}

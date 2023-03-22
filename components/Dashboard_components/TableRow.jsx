@@ -3,9 +3,9 @@ const TableRow = ({venta}) => {
   return (
     <>
       <Tr>
-        <Td>Alex Zamora</Td>
-        <Td>12/01/2023</Td>
-        <Td>$34000</Td>
+        <Td>{venta.usuarioByDni.nombre} {" "} {venta.usuarioByDni.apellido}</Td>
+        <Td>{venta.fecha}</Td>
+        <Td>$ {venta.total}</Td>
       </Tr>
     </>
   );

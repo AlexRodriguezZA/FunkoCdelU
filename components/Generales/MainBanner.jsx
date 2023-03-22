@@ -3,6 +3,8 @@ import Image from "next/image";
 import Funko from "../../assets/Funko_Categorias/funko3.png";
 import style from "../styles/MainBanner.module.css";
 import Link from "next/link";
+import { BsShop } from "react-icons/bs";
+
 function MainBanner() {
   return (
     <div className={style.banner_container}>
@@ -12,7 +14,8 @@ function MainBanner() {
           La mejor calidad en Funkos del pais desde 2018
         </p>
         <Link href="/Tienda" className={style.button_tienda}>
-            tienda
+            <BsShop/>
+            Tienda
         </Link>
 
       </div>
