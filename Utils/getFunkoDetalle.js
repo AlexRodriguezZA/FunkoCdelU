@@ -22,6 +22,7 @@ async function getDetalleFunko(idprod) {
                     fecha
                     idcomentario
                     usuarioByDni {
+                      dni
                       nombre
                       apellido
                     }

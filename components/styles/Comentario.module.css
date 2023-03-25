@@ -1,159 +1,56 @@
-.comentario_container{
-    width: 100%;
-    height: 100px;
-    display: flex;
-    border-radius: 20px;
-    background-color: #fff;
-    box-shadow: -2px 5px 14px 0px rgba(0,0,0,0.75);
+
+.user_comment_container {
+    width: 90%;
+    border: 1px solid #9b9b9b;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 
 }
 
-
-
-.comentario_card{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-
-.imagen_comentario_container{
-    border-radius: 50%;
-    height: 100%;
-    width: 20%;
-}
-
-
-.imagen_comentario{
-    width: 100%;
-    height: 100%;
-}
-.comentario_card_datos_user{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin-left: 20px;
-    justify-content: flex-start;
-    align-items: center;
-    
-}
-
-.comentario_contenido{
+.user_comment_header {
     display: flex;
     align-items: center;
-    
-    height: 100%;
-    margin-left: 20px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    margin-bottom: 8px;
+
 }
 
-.comentario_nombre_user{
-    font-style: normal;
-    font-weight: 600;
+.h3{
+    margin: 0;
     font-size: 18px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: 0.2px;
-    color: #000000;
+    font-weight: bold;
 }
 
+.span{
+    color: #999;
+    font-size: 14px;
+}
 
-.comentario_fecha{
-    font-style: normal;
-    font-weight: 700;
+.user_comment_body{
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.user_comment_body p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+
+.button_remove{
+    width: 70px;
+    height: 25px;
+    border: none;
+    background: #CD1616;
     font-size: 12px;
-    line-height: 24px;
-    text-align: center;
-    letter-spacing: 0.2px;
-    color: #837F7F;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #F3F3F3;
+    font-weight: 600;
+
 }
 
-
-@media screen and (max-width: 768px) {
-    .comentario_container{
-        width: 80%;
-        height: 70px;
-    
-    
-    }
-    
-    
-    
-    .comentario_card{
-        width: 100%;
-    }
-    
-    
-    .imagen_comentario_container{
-        border-radius: 50%;
-        height: 100%;
-        width: 20%;
-    }
-    
-    
-    .imagen_comentario{
-        width: 100%;
-        height: 100%;
-    }
- 
-
-    .comentario_nombre_user{
-        font-size: 14px;
-      
-    }
-    
-    
-    .comentario_fecha{
-    
-        font-size: 10px;
-       
-    }
-    .contenido{
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 540px) {
-    .comentario_container{
-        width: 90%;
-        height: 60px;
-    
-    
-    }
-    
-    
-    
-    .comentario_card{
-        width: 100%;
-        
-    }
-    
-    
-    .imagen_comentario_container{
-        border-radius: 50%;
-        height: 100%;
-        width: 20%;
-    }
-    
-    
-    .imagen_comentario{
-        width: 100%;
-        height: 100%;
-    }
- 
-
-    .comentario_nombre_user{
-        font-size: 14px;
-      
-    }
-    
-    
-    .comentario_fecha{
-    
-        font-size: 10px;
-       
-    }
-    .contenido{
-        font-size: 12px;
-    }
-}

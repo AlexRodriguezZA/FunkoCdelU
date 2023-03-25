@@ -15,16 +15,19 @@ import getAllCiudades from "../../Utils/getCiudades";
 import getDataUser from "../../Utils/getDataUser";
 import updateUser from "../../Utils/updateUser";
 
-const user = ({ dataUser, ciudades }) => {
-  const { data: session } = useSession();
+const user = ({ dataUser, ciudades, img_user }) => {
   const [open, setOpen] = useState(false);
 
   //Estado del formulario que contiene el modal de la actualizacion de los datos del usuario
   const [Nombre, setNombre] = useState(dataUser.nombre);
   const [Apellido, setApellido] = useState(dataUser.apellido);
   const [Direccion, setDireccion] = useState(dataUser.direccion);
-  const [AlturaDireccion, setAlturaDireccion] = useState(dataUser.alturadireccion);
-  const [codigoPostal, setcodigoPostal] = useState(dataUser.ciudadByCodigopostal.codigopostal);
+  const [AlturaDireccion, setAlturaDireccion] = useState(
+    dataUser.alturadireccion
+  );
+  const [codigoPostal, setcodigoPostal] = useState(
+    dataUser.ciudadByCodigopostal.codigopostal
+  );
 
   const handleSubmit = () => {
     updateUser(
@@ -117,7 +120,13 @@ const user = ({ dataUser, ciudades }) => {
           <div className={style.data_seccion}>
             <section className={style.seccion_1}>
               <div className={style.img_container}>
-                <img className={style.img_perfil} alt="Imagen perfil" />
+                <Image
+                  className={style.img_perfil}
+                  src={img_user}
+                  width={100}
+                  height={100}
+                  alt={`Imagen del usuario ${dataUser.nombre} ${dataUser.apellido}`}
+                />
               </div>
               <h2 className={style.name_user}>
                 {dataUser.nombre} {dataUser.apellido}
@@ -168,6 +177,7 @@ export default user;
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  const img_user = session.user.image;
   if (!session) {
     return {
       redirect: {
@@ -180,7 +190,7 @@ export async function getServerSideProps(context) {
     const ciudades = await getAllCiudades();
 
     return {
-      props: { dataUser, ciudades },
+      props: { dataUser, ciudades, img_user },
     };
   }
 }

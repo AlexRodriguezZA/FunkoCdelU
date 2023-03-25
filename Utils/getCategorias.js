@@ -6,13 +6,17 @@ async function getCategorias() {
         },
         body: JSON.stringify({
             query: `query {
-                allCategorias {
-                  nodes {
-                    idcat
-                    nombrecat
+              allCategorias(orderBy: IDCAT_DESC) {
+                nodes {
+                  idcat
+                  nombrecat
+                  productosByIdcat {
+                    totalCount
                   }
                 }
               }
+            }
+            
               
               `
         }),

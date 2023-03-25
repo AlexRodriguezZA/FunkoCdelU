@@ -1,14 +1,6 @@
 //Componentes
-import { Heading, Box, Flex, Text } from "@chakra-ui/react";
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  TableCaption,
-  TableContainer,
-} from "@chakra-ui/react";
+import { Heading, Box, Flex, Text, Button } from "@chakra-ui/react";
+import { Table, Thead, Tbody, Tr, Th } from "@chakra-ui/react";
 import Image from "next/image";
 import TableRow from "../../components/Dashboard_components/TableRow";
 import producto from "../../assets/Icons/producto.svg";
@@ -19,9 +11,14 @@ import user from "../../assets/Icons/user.svg";
 import getTotales_dataAdmin from "../../Utils/getTotales_dataAdmin";
 import getAllVentas from "../../Utils/getAllVentas";
 
+
 const index = ({ data_totales, ventas_realizadas }) => {
+
+
   return (
     <>
+      
+      {/*TITULO */}
       <Heading
         display="flex"
         as="h3"
@@ -31,6 +28,8 @@ const index = ({ data_totales, ventas_realizadas }) => {
       >
         Inicio
       </Heading>
+       
+      {/*Seccion de boxes de data*/}
 
       <Flex
         justifyContent="space-evenly"
@@ -48,9 +47,9 @@ const index = ({ data_totales, ventas_realizadas }) => {
           alignItems="center"
           bgGradient="linear(to-l, #f5af19, #f12711)"
           boxShadow="2xl"
-          borderRadius={27}
+          borderRadius={5}
           w={["100%", "70%", 300]}
-          h={120}
+          h={110}
         >
           <Text as="b" color="#fff" fontSize="5xl">
             Total ventas
@@ -69,9 +68,9 @@ const index = ({ data_totales, ventas_realizadas }) => {
           alignItems="center"
           bgGradient="linear(to-l,#71B280, #134E5E)"
           boxShadow="2xl"
-          borderRadius={27}
+          borderRadius={5}
           w={["100%", "70%", 300]}
-          h={120}
+          h={110}
         >
           <Text as="b" color="#fff" fontSize="5xl">
             Usuarios
@@ -90,9 +89,9 @@ const index = ({ data_totales, ventas_realizadas }) => {
           alignItems="center"
           bgGradient="linear(to-l, #00B4DB,#0083B0)"
           boxShadow="2xl"
-          borderRadius={27}
+          borderRadius={5}
           w={["100%", "70%", 300]}
-          h={120}
+          h={110}
         >
           <Text as="b" color="#fff" fontSize="5xl">
             Productos
@@ -101,9 +100,11 @@ const index = ({ data_totales, ventas_realizadas }) => {
           <Text color="#fff" fontSize="5xl">
             {data_totales.allProductos.totalCount}
           </Text>
-          <Image width={40} height="auto" src={producto} alt="Icon product"/>
+          <Image width={40} height="auto" src={producto} alt="Icon product" />
         </Box>
       </Flex>
+          
+      {/*Seccion de boxes de Historial de ventas*/}
       <Flex
         w="100%"
         justifyContent="center"
@@ -120,21 +121,23 @@ const index = ({ data_totales, ventas_realizadas }) => {
         >
           Historial de ventas
         </Heading>
-        <Box w="90%" overflowY="scroll" marginTop={30}>
+        <Box w="90%" height="270px" overflowY="scroll" marginTop={30}>
           <Table variant="striped" w="100%" size="lg" colorScheme="teal">
             <Thead>
               <Tr>
-                <Th>Usuario</Th>
-                <Th>Fecha</Th>
-                <Th>Total</Th>
+                <Th fontSize="12px">Usuario</Th>
+                <Th fontSize="12px">Fecha</Th>
+                <Th fontSize="12px">Total</Th>
               </Tr>
             </Thead>
             <Tbody>
               {ventas_realizadas.length === 0 ? (
                 <div>NO hay ventas aun</div>
-              ) : 
-                ventas_realizadas.map((venta) => <TableRow key={venta.idventa} venta={venta}/>)
-              }
+              ) : (
+                ventas_realizadas.map((venta) => (
+                  <TableRow key={venta.idventa} venta={venta} />
+                ))
+              )}
             </Tbody>
           </Table>
         </Box>

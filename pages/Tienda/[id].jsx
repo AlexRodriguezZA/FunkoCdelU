@@ -8,7 +8,10 @@ import Layout from "../../components/Generales/Layout";
 import getDetalleFunko from "../../Utils/getFunkoDetalle";
 import getAllProducts from "../../Utils/StoreProducts";
 
+
 const index = ({ FunkoDetalle }) => {
+
+
   return (
     <Layout>
       <div className={style.Funko_detalle_page}>

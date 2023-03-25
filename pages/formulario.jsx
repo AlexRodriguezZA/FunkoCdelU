@@ -143,7 +143,7 @@ const formulario = ({ ciudades }) => {
 
 export default formulario
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const ciudades = await getAllCiudades()
   return {
     props: { ciudades },

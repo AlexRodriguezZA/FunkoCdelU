@@ -13,6 +13,7 @@ const Seccion_comentarios = ({ ComentariosFunko }) => {
   const { data: session } = useSession();
   const [Contenido, setContenido] = useState("");
   
+  
   const handleSendComentario = async (e) => {
     //Obtenemos el dni del usuario que esta logueado
     const dataUser_dni = await getDataUser(session.user.email);
