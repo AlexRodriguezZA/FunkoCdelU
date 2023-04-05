@@ -9,7 +9,7 @@ async function getAllProducts() {
         },
         body: JSON.stringify({
             query: `query MyQuery {
-                allProductos {
+                allProductos (orderBy: IDPROD_DESC) {
                   nodes {
                     idprod
                     idcat
@@ -21,6 +21,7 @@ async function getAllProducts() {
                     precio
                     promediocalificacion
                     stock
+                    imagen
                   }
                 }
               }

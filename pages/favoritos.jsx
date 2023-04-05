@@ -26,6 +26,7 @@ const Favoritos = ({ favoritos }) => {
         nombre: fav.productoByIdprod.nombre,
         numerofunko: fav.productoByIdprod.numerofunko,
         precio: fav.productoByIdprod.precio,
+        stock: fav.productoByIdprod.stock,
         categoriaByIdcat: {
           nombrecat: fav.productoByIdprod.categoriaByIdcat.nombrecat,
         },
@@ -61,6 +62,7 @@ export default Favoritos;
 
 export async function getServerSideProps(context) {
   const session = await getSession(context);
+  
   if (!session) {
     return {
       redirect: {

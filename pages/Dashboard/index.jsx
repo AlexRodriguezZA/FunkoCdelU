@@ -128,6 +128,7 @@ const index = ({ data_totales, ventas_realizadas }) => {
                 <Th fontSize="12px">Usuario</Th>
                 <Th fontSize="12px">Fecha</Th>
                 <Th fontSize="12px">Total</Th>
+                <Th fontSize="12px">Detalle</Th>
               </Tr>
             </Thead>
             <Tbody>

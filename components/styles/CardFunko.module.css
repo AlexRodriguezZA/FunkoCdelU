@@ -78,6 +78,16 @@
     color: #000000;
 }
 
+.title_funko_agotado{
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #000000;
+    text-decoration-line: line-through;
+}
+
 .categoria_funko{
     margin-top: 20px;
     font-style: normal;
@@ -98,28 +108,64 @@
     border-radius: 10px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    border-style: none;
+    cursor: pointer;
+
+
+}
+
+.button_addCarrito:hover{
+    background-color: #000000;
+}
+
+.button_addCarrito_sin_stock{
+    cursor: not-allowed;
+    width: 250px;
+    height: 40px;
+    margin-bottom: 5px;
+    background-color: #CD1616;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 30px;
     transition: all 0.3s ease;
     border-style: none;
 
 }
 
-.button_addCarrito:hover{
-    cursor: pointer;
-    background-color: #000000;
-}
-
-.cart{
-    
-    padding-left: 45px;
-}
 .price_funko{
     color: #ffff;
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    padding-left: 45px;
+
+
+}
+
+.funko_text_add_to_cart{
+    color: #ffff;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    animation-duration: 0.9s;
+    animation-name: fade;
+}
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @media all and (max-width: 380px) {
@@ -213,6 +259,9 @@
 
 
 .seccion_1_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
 
 }
@@ -248,7 +297,16 @@
     color: #000000;
 }
 
-
+.titulo_funko_sin_stock{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #000000;
+    text-decoration: line-through;
+}
 .detalle_funko_container{
     width: 100%;
     margin-top: 50px;
@@ -363,20 +421,46 @@
     background-color: #000000;
 }
 
+.button_compra_sin_stock{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    cursor: not-allowed;
+    width: 70%;
+    height: 40px;
+    background: #CD1616;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    border: none;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
 @media screen and (max-width: 768px) {
     .card_detalle_container{
-        width: 90%;
+        width: 100%;
         height: 300px;
     }
    
+    .seccion_1_container{
+        width: 100%;
+        height: 50%;
+    
+    }
     .Imagen_funko_container{
         width: 100%;
+        height: 50%;
     }
     
     
     .Image_funko{
         width: 100%;
-        height: 300px;
+        height: auto;
     }
     
     

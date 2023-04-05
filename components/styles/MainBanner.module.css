@@ -5,8 +5,8 @@
     margin-top: -10px;
     justify-content: space-around;
     align-items: center;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 26, 121, 1) 52%);
+    background: #020024;
+    background: linear-gradient(90deg, #020024 0%, #091a79 52%);
 }
 
 .textos_container {

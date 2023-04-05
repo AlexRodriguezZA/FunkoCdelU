@@ -24,6 +24,7 @@ async function getAllProductsAdmin() {
                     nodes {
                       contenido
                       fecha
+                      idcomentario
                       usuarioByDni {
                         nombre
                         apellido

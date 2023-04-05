@@ -1,0 +1,20 @@
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading_spinner_mini {
+    width: 20px;
+    height: 20px;
+    border: 8px solid #f3f3f3 ;
+    /* Light grey */
+    border-top: 8px solid #5765ac;
+    /* Black */
+    border-radius: 50%;
+    animation: spinner 1s linear infinite;
+}

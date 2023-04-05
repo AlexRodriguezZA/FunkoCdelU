@@ -1,4 +1,4 @@
-import { Tr, Td, Button } from "@chakra-ui/react";
+import { Tr, Td, Button, Box } from "@chakra-ui/react";
 import {
   AlertDialog,
   AlertDialogBody,
@@ -21,11 +21,17 @@ import {
 import deleteCategoria from "../../Utils/deleteCategoria";
 import { useState } from "react";
 import updateCategoria from "../../Utils/updateCategoria";
+import { useRouter } from "next/router";
 
 const TableRowCategoria = ({ categoria }) => {
   const [showAlertDialog, setShowAlertDialog] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [NombreCategoria, setNombreCategoria] = useState(categoria.nombrecat);
+  const router = useRouter();
+
+  const refreshData = () => {
+    router.replace(router.asPath);
+  };
 
   const handleOpenAlertDialog = () => {
     setShowAlertDialog(true);
@@ -48,7 +54,7 @@ const TableRowCategoria = ({ categoria }) => {
     const res = await deleteCategoria(categoria.idcat);
     console.log(res);
     handleCloseAlertDialog();
-    window.location.replace(""); //Reiniciamos la página
+    refreshData();
   };
 
   const handleEditCategoria = async () => {
@@ -58,45 +64,6 @@ const TableRowCategoria = ({ categoria }) => {
 
   return (
     <>
-      {/* Modal de edición de la tabla categoria */}
-
-      <Modal size="5xl" isOpen={showModal} onClose={handleCloseModal}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader fontSize="25px" textAlign="center">
-            Editar categoria
-          </ModalHeader>
-          <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel fontSize="18px">Edite categoria</FormLabel>
-              <Input
-                placeholder="Nombre Categoria"
-                required
-                size="md"
-                height="40px"
-                fontSize="15px"
-                value={NombreCategoria}
-                onChange={(e) => setNombreCategoria(e.target.value)}
-              />
-            </FormControl>
-          </ModalBody>
-
-          <ModalFooter>
-            <Button
-              colorScheme="blue"
-              mr={3}
-              size="lg"
-              onClick={handleEditCategoria}
-            >
-              Guardar
-            </Button>
-            <Button size="lg" onClick={handleCloseModal}>
-              Cerrar
-            </Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
-
       {/* Alerta de eliminacion de la tabla categoria */}
 
       <AlertDialog
@@ -138,14 +105,59 @@ const TableRowCategoria = ({ categoria }) => {
         <Td>{categoria.productosByIdcat.totalCount}</Td>
 
         <Td>
-          <Button colorScheme="teal" marginRight={10} onClick={handleOpenModal}>
-            Editar
-          </Button>
-          {categoria.productosByIdcat.totalCount === 0 ? (
-            <Button colorScheme="red" onClick={handleOpenAlertDialog}>
-              Eliminar
+          <Box display="flex">
+            {/* Modal de edición de la tabla categoria */}
+            {showModal && (
+              <Modal size="5xl" isOpen={showModal} onClose={handleCloseModal}>
+                <ModalOverlay />
+                <ModalContent>
+                  <ModalHeader fontSize="25px" textAlign="center">
+                    Editar categoria
+                  </ModalHeader>
+                  <ModalBody pb={6}>
+                    <FormControl>
+                      <FormLabel fontSize="18px">Edite categoria</FormLabel>
+                      <Input
+                        placeholder="Nombre Categoria"
+                        required
+                        size="md"
+                        height="40px"
+                        fontSize="15px"
+                        value={NombreCategoria}
+                        onChange={(e) => setNombreCategoria(e.target.value)}
+                      />
+                    </FormControl>
+                  </ModalBody>
+
+                  <ModalFooter>
+                    <Button
+                      colorScheme="blue"
+                      mr={3}
+                      size="lg"
+                      onClick={handleEditCategoria}
+                    >
+                      Guardar
+                    </Button>
+                    <Button size="lg" onClick={handleCloseModal}>
+                      Cerrar
+                    </Button>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
+            )}
+            <Button
+              colorScheme="teal"
+              marginRight={10}
+              onClick={handleOpenModal}
+            >
+              Editar
             </Button>
-          ) : null}
+            {categoria.productosByIdcat.totalCount === 0 ? (
+              <Button colorScheme="red" onClick={handleOpenAlertDialog}>
+                Eliminar
+              </Button>
+            ) : null}
+          </Box>
         </Td>
       </Tr>
     </>

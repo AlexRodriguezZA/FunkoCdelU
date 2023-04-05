@@ -15,24 +15,29 @@ import {
   FormLabel,
   Input,
 } from "@chakra-ui/react";
-import { Alert, AlertIcon } from "@chakra-ui/react";
+import { Alert, AlertIcon,AddIcon } from "@chakra-ui/react";
 import Image from "next/image";
 import Img_info from "../../assets/Img_info.png";
-
 import TableRowCategoria from "../../components/Dashboard_components/TableRowCategoria";
+
 
 //Funciones
 import { useDisclosure } from "@chakra-ui/react";
 import getCategorias from "../../Utils/getCategorias";
 import setCategoria from "../../Utils/setCategoria";
 import { useState } from "react";
+import { useRouter } from 'next/router';
 
 const categorias = ({ categorias }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [NombreCategoria, setNombreCategoria] = useState("");
   const [SuccessDataSave, setSuccessDataSave] = useState(false);
   const [showModalInfo, setshowModalInfo] = useState(false);
-
+  const router = useRouter();
+  
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
   const handleOpenModalInfo = () => {
     setshowModalInfo(true);
   };
@@ -54,7 +59,7 @@ const categorias = ({ categorias }) => {
     setSuccessDataSave(false);
     setNombreCategoria("");
     onClose();
-    window.location.replace(""); //Reiniciamos la página
+    refreshData()
   };
 
   return (

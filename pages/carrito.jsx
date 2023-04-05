@@ -4,6 +4,7 @@ import style from "../styles/carrito.module.css";
 import Layout from "../components/Generales/Layout";
 import Image from "next/image";
 import carrito_vacio from "../assets/imagenesPrueba/Carritovacio.png";
+import LoadingSpinner from "../components/Generales/Loading_Spinner";
 //Funciones y Hooks
 import { getSession } from "next-auth/react";
 import getIDCarrito from "../Utils/Crud_Carrito/getIDCarrito";
@@ -15,7 +16,13 @@ import { useState, useEffect } from "react";
 
 const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
   const [TotalCart, setTotalCart] = useState(0);
+  
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+    setIsRefreshing(true)
+  }
 
   const calcularTotal = () => {
     const suma = LineaCarrito.reduce((a, b) => {
@@ -26,7 +33,8 @@ const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
 
   useEffect(() => {
     calcularTotal();
-  }, []);
+    setIsRefreshing(false)
+  }, [LineaCarrito]);
 
   const handleRealizarPago = () => {
     if (LinkMercadoPago === "Error") {
@@ -37,15 +45,19 @@ const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
   };
 
   const handleDeleteAllCart = async () => {
-    window.location.replace(""); //Reiniciamos la página
+    refreshData();
     await DeleteAllFunkosCart(idCarrito);
   };
   return (
     <Layout>
       <div className={style.carrito_page}>
+        
         <div className={style.carrito_box}>
           <div className={style.header_carrito}>
             <h2>Tú carrito</h2>
+            {
+              isRefreshing && <LoadingSpinner/>
+            }
             {LineaCarrito.length != 0 && (
               <button
                 className={style.button_allremove}
@@ -107,6 +119,14 @@ export async function getServerSideProps(context) {
       },
     };
   } else {
+    if (session.user.email === "funkocdelu@gmail.com"){
+      return {
+        redirect: {
+          destination: "/Dashboard",
+          permanent: true,
+        },
+      };
+    }
     const idCarrito = await getIDCarrito(session.user.email);
     const LineaCarrito = await getLineaCarrito(idCarrito);
     const LinkMercadoPago = await CreadorDeLinkDePago(

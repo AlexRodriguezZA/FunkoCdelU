@@ -40,17 +40,38 @@
     line-height: 1.5;
   }
 
-
+.input_edit{
+    border-radius: 5px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.button_container{
+    display: flex;
+}
 .button_remove{
-    width: 70px;
+    width: 30px;
     height: 25px;
     border: none;
     background: #CD1616;
-    font-size: 12px;
+    font-size: 15px;
     cursor: pointer;
     border-radius: 5px;
     color: #F3F3F3;
     font-weight: 600;
+    margin-left: 5px;
 
+}
+.button_edit{
+    width: 30px;
+    height: 25px;
+    border: none;
+    background: #165fcd;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #F3F3F3;
+    font-weight: 800;
+    margin-left: 10px;
 }
 

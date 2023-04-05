@@ -14,14 +14,16 @@ async function getDetalleFunko(idprod) {
                 stock
                 idprod
                 idcat
+                imagen
                 descripcion
-                comentariosByIdprod {
+                comentariosByIdprod(orderBy: IDCOMENTARIO_DESC) {
                   nodes {
                     contenido
                     dni
                     fecha
                     idcomentario
                     usuarioByDni {
+                      email
                       dni
                       nombre
                       apellido

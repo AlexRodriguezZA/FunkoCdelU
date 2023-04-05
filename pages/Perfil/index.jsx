@@ -186,6 +186,14 @@ export async function getServerSideProps(context) {
       },
     };
   } else {
+    if (session.user.email === "funkocdelu@gmail.com"){
+      return {
+        redirect: {
+          destination: "/Dashboard",
+          permanent: true,
+        },
+      };
+    }
     const dataUser = await getDataUser(session.user.email);
     const ciudades = await getAllCiudades();
 

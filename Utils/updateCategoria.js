@@ -16,7 +16,6 @@ async function updateCategoria(idcat,nombrecat) {
       })
 
       const respuesta = await response.json()
-      console.log(respuesta)
 
 }
 

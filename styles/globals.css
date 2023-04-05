@@ -187,10 +187,6 @@ body {
   margin-left: 1em;
 }
 
-.sidebar-items:hover svg {
-  color: #B57295;
-}
-
 .sidebar-items:hover p {
   color: #fff;
 }

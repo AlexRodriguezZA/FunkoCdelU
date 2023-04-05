@@ -1,22 +1,44 @@
 import React from 'react'
 import Image from 'next/image'
-import imagenPrueba from '../../assets/imagenesPrueba/boba.png'
+import imagenPrueba from '../../assets/imagenesPrueba/boba2.jpg'
 import style from "../styles/CardCarrito.module.css"
-
+import Loading_Spinner_mini from './Loading_Spinner_mini'
+import Seccion_updateCantidad from './Seccion_updateCantidad'
 //Funciones
 import DeleteLineaCarrito from '../../Utils/Crud_Carrito/DeleteLineaCarrito'
+import { useRouter } from 'next/router';
+import { useEffect,useState } from 'react'
 
 const CardCarrito = ({nombre,precio,categoria,cantidad,subtotal,IdLineaCarrito}) => {
-
+  const [isRefreshing, setIsRefreshing] = useState(false);
   
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+    setIsRefreshing(true)
+
+  }
+
+ 
+  useEffect(() => {
+    setIsRefreshing(false)
+  }, []);
+
   const handleDeleteLineaCarrito = async ()=>{
-    window.location.replace(''); //Reiniciamos la página
     await DeleteLineaCarrito(IdLineaCarrito)
+    refreshData();
+
   }
   return (
     <div className={style.Card_carrito_container}>
-      <section >
-        <button className={style.button_remove} onClick={handleDeleteLineaCarrito}>x</button>
+      <section style={{display: "flex"}}>  
+      <div>
+      {
+          isRefreshing ? <Loading_Spinner_mini/> : <button className={style.button_remove} onClick={handleDeleteLineaCarrito}>x</button>
+
+      } 
+
+      </div>
       </section>
 
       <section className={style.seccion_imagen}>
@@ -30,9 +52,7 @@ const CardCarrito = ({nombre,precio,categoria,cantidad,subtotal,IdLineaCarrito})
       </section>
 
       <section className={style.seccion_buttons}>
-        <button className={style.button}>+</button>
-        <span type="number" v className={style.total_producto}>{cantidad}</span>
-        <button className={style.button}>-</button>
+       <Seccion_updateCantidad cantidad={cantidad} IdLineaCarrito={IdLineaCarrito}/>
       </section>
 
       <section className={style.seccion_subtotal}>

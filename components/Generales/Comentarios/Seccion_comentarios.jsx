@@ -1,26 +1,45 @@
-//Componentes 
+//Componentes
 import style from "../../styles/Seccion_comentarios.module.css";
 import Comentario from "./Comentario";
-
 
 //Funciones
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import getDataUser from "../../../Utils/getDataUser";
 import setComentario from "../../../Utils/setComentario";
+import { useEffect } from "react";
+import { useRouter } from 'next/router';
 
 const Seccion_comentarios = ({ ComentariosFunko }) => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [Contenido, setContenido] = useState("");
+  const [DniUserComent, setDniUserComent] = useState(null);
+
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
+
   
-  
+  useEffect(() => {
+    if (status === "authenticated") {
+      const hadleIsUserComent = async () => {
+        const { dni } = await getDataUser(session.user.email);
+        setDniUserComent(dni);
+      };
+      hadleIsUserComent();
+    }
+  }, [status, session]);
+
   const handleSendComentario = async (e) => {
+    e.preventDefault()
     //Obtenemos el dni del usuario que esta logueado
     const dataUser_dni = await getDataUser(session.user.email);
-    const dni = dataUser_dni.dni
+    const dni = dataUser_dni.dni;
     const idProd = ComentariosFunko.idprod;
     await setComentario(Contenido, dni, idProd);
     setContenido("");
+    refreshData();
   };
 
   const handleResetTextArea = () => {
@@ -67,6 +86,7 @@ const Seccion_comentarios = ({ ComentariosFunko }) => {
       <section className={style.seccion_comentarios_totales}>
         {ComentariosFunko.comentariosByIdprod.nodes.map((comentario) => (
           <Comentario
+            Dni_user_coment={DniUserComent}
             key={comentario.idcomentario}
             comentarioData={comentario}
           />

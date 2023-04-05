@@ -17,7 +17,9 @@ const compras = ({ compras_user }) => {
             Volver
           </Link>
         </section>
-        <TablaCompras data={compras_user}/>
+        <div className={style.table_container}>
+            <TablaCompras data={compras_user}/>
+        </div>
       </div>
     </Layout>
   );
@@ -35,6 +37,14 @@ export async function getServerSideProps(context) {
       },
     };
   } else {
+    if (session.user.email === "funkocdelu@gmail.com"){
+      return {
+        redirect: {
+          destination: "/Dashboard",
+          permanent: true,
+        },
+      };
+    }
     const compras_user = await getComprasUser(session.user.email);
     //console.log(compras_user)
     return {
