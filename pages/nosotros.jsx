@@ -31,7 +31,7 @@ const Nosotros = () => {
             </p>
           </article>
           <Link href="/Tienda" className={style.button_tienda}>
-            Ir la tienda
+            Ir la tienda jajja
           </Link>
         </section>
 
