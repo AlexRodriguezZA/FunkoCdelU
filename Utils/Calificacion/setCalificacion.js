@@ -18,7 +18,7 @@ async function setCalificacion(calificacion,dni,idprod) {
       })
 
       const respuesta = await response.json()
-      
+      return respuesta;
 
 }
 

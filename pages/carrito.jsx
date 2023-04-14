@@ -81,11 +81,13 @@ const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
               LineaCarrito.map((linea) => (
                 <CardCarrito
                   key={linea.idprod}
+                  imagen={linea.productoByIdprod.imagen}
                   nombre={linea.productoByIdprod.nombre}
                   precio={linea.productoByIdprod.precio}
                   categoria={linea.productoByIdprod.categoriaByIdcat.nombrecat}
                   cantidad={linea.cantidaddecadaprod}
                   subtotal={linea.precio}
+                  stock={linea.productoByIdprod.stock}
                   IdLineaCarrito={linea.idlineapedido}
                 />
               ))

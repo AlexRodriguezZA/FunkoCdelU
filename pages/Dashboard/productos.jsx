@@ -21,14 +21,14 @@ import TableRowProductos from "../../components/Dashboard_components/TableRowPro
 import Modal_add_Funko from "../../components/Dashboard_components/Modal_add_Funko";
 //Funciones
 import getAllProductsAdmin from "../../Utils/Crud_productos_admin/getAllProductsAdmin";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import getCategorias from "../../Utils/getCategorias";
 const productos = ({ productos, categorias }) => {
   const [Productos, setProductos] = useState(productos);
   const [showModalComentarios, setshowModalComentarios] = useState(false);
   const [OpenModalAddFunko, setOpenModalAddFunko] = useState(false);
   const [IdprodComent, setIdprodComent] = useState(null);
- 
+
   let Comentarios = [];
 
   const handleOpenModalComentarios = (idprod) => {
@@ -67,23 +67,45 @@ const productos = ({ productos, categorias }) => {
     }
   };
 
+  const handleFiltrar = (clave) => {
+    if (clave === "promediocalificacion") {
+      const Productos_filtrados = [...productos].sort((a, b) =>
+        a[clave] < b[clave] ? 1 : -1
+      );
+      setProductos(Productos_filtrados);
+    } else {
+      const Productos_filtrados = [...productos].sort((a, b) =>
+        a[clave] > b[clave] ? 1 : -1
+      );
+      setProductos(Productos_filtrados);
+    }
+  };
+
+  const handleFiltrarCategorias = () => {
+    const Productos_filtrados_categoria = [...productos].sort((a, b) =>
+      a.categoriaByIdcat.nombrecat > b.categoriaByIdcat.nombrecat ? 1 : -1
+    );
+    setProductos(Productos_filtrados_categoria);
+  };
+
   //Con estas funciones manejamos el modal (abrir y cerrar) de agregar un nuevo funko al sistema
-  const handleOpenModalAddFunko = ()=>{
-    setOpenModalAddFunko(true)
-  }
-  const handleCloseModalAddFunko = ()=>{
-    setOpenModalAddFunko(false)
+  const handleOpenModalAddFunko = () => {
+    setOpenModalAddFunko(true);
+  };
+  const handleCloseModalAddFunko = () => {
+    setOpenModalAddFunko(false);
     window.location.replace(""); //Reiniciamos la página
-  }
+  };
   return (
     <>
       {/*Modal para agregar funko*/}
 
-      <Modal_add_Funko 
-        isOpen={OpenModalAddFunko} 
-        onClose={handleCloseModalAddFunko} 
-        categorias={categorias}/>
-      
+      <Modal_add_Funko
+        isOpen={OpenModalAddFunko}
+        onClose={handleCloseModalAddFunko}
+        categorias={categorias}
+      />
+
       {/*Comentarios modal */}
       <Modal
         size="5xl"
@@ -96,23 +118,23 @@ const productos = ({ productos, categorias }) => {
             Comentarios
           </ModalHeader>
           <ModalBody pb={6} mb={10}>
-           {IdprodComent &&
-            productos.map((prod) => {
-              if (prod.idprod === IdprodComent) {
-                prod.comentariosByIdprod.nodes.map((comentario) =>
-                  Comentarios.push(comentario)
-                );
-              }
-            })}
-          {Comentarios &&
-            Comentarios.map((comentario) => (
-              <Comentario_Admin
-                key={comentario.idcomentario}
-                comentario={comentario}
-              />
-            ))} 
+            {IdprodComent &&
+              productos.map((prod) => {
+                if (prod.idprod === IdprodComent) {
+                  prod.comentariosByIdprod.nodes.map((comentario) =>
+                    Comentarios.push(comentario)
+                  );
+                }
+              })}
+            {Comentarios &&
+              Comentarios.map((comentario) => (
+                <Comentario_Admin
+                  key={comentario.idcomentario}
+                  comentario={comentario}
+                />
+              ))}
           </ModalBody>
-          
+
           <ModalFooter>
             <Button size="lg" onClick={handleCloseModalComentarios}>
               Cerrar
@@ -132,16 +154,28 @@ const productos = ({ productos, categorias }) => {
           as="h1"
           size="xl"
           justifyContent="flex-start"
-          marginTop={20}
+          marginTop={10}
         >
           Tabla de Productos
         </Heading>
 
-        <InputGroup width={500} mt={10}>
-          <InputLeftElement pointerEvents="none">
-            <SearchIcon />
+        <InputGroup
+          w={{ base: "80%", md: "50%" }}
+          mt={20}
+          display="flex"
+          justifyContent="center"
+        >
+          <InputLeftElement
+            pointerEvents="none"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <SearchIcon fontSize={15} />
           </InputLeftElement>
           <Input
+            h={30}
+            shadow="md"
             variant="filled"
             type="text"
             placeholder="Search..."
@@ -150,12 +184,16 @@ const productos = ({ productos, categorias }) => {
           />
         </InputGroup>
 
-        <Box w={["90%", "97%"]} h="450px" mt={20} overflowY="scroll">
+        <Box w={["90%", "97%"]} h="430px" mt={20} overflowY="scroll">
           <Table variant="simple" w="100%" size="lg" colorScheme="teal">
             <Thead>
               <Tr>
                 <Th>
-                  <Button colorScheme="blue" size="lg" onClick={handleOpenModalAddFunko}>
+                  <Button
+                    colorScheme="blue"
+                    size="lg"
+                    onClick={handleOpenModalAddFunko}
+                  >
                     <Text fontSize="14px" fontWeight="bold">
                       +
                     </Text>
@@ -163,13 +201,56 @@ const productos = ({ productos, categorias }) => {
                   </Button>
                 </Th>
 
-                <Th fontSize="10px">Cat.</Th>
-                <Th fontSize="10px">Nombre</Th>
+                <Th
+                  fontSize="10px"
+                  _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  cursor="pointer"
+                  onClick={() => handleFiltrarCategorias()}
+                >
+                  Cat.
+                </Th>
+                <Th
+                  fontSize="10px"
+                  _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  cursor="pointer"
+                  onClick={() => handleFiltrar("nombre")}
+                >
+                  Nombre
+                </Th>
                 <Th fontSize="10px">Imagen</Th>
-                <Th fontSize="10px">Stock</Th>
-                <Th fontSize="10px">Número Funko</Th>
-                <Th fontSize="10px">Precio</Th>
-                <Th fontSize="10px">Validación</Th>
+                <Th
+                  fontSize="10px"
+                  _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  cursor="pointer"
+                  onClick={() => handleFiltrar("stock")}
+                >
+                  Stock
+                </Th>
+                <Th
+                  fontSize="10px"
+                  textAlign="center"
+                  _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  cursor="pointer"
+                  onClick={() => handleFiltrar("numerofunko")}
+                >
+                  Número Funko
+                </Th>
+                <Th
+                  fontSize="10px"
+                  _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  cursor="pointer"
+                  onClick={() => handleFiltrar("precio")}
+                >
+                  Precio
+                </Th>
+                <Th
+                  fontSize="10px"
+                  _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  cursor="pointer"
+                  onClick={() => handleFiltrar("promediocalificacion")}
+                >
+                  Valoración
+                </Th>
                 <Th fontSize="10px">Comentarios</Th>
                 <Th fontSize="10px">Herramienta</Th>
               </Tr>
@@ -199,6 +280,6 @@ export async function getServerSideProps() {
   const productos = await getAllProductsAdmin();
   const categorias = await getCategorias();
   return {
-    props: { productos,categorias },
+    props: { productos, categorias },
   };
 }

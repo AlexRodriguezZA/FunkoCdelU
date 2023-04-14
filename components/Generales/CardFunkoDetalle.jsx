@@ -1,6 +1,7 @@
 //Componentes / assets
 import style from "../styles/CardFunko.module.css";
 import imagenPrubea from "../../assets/imagenesPrueba/boba2.jpg";
+import star from "../../assets/Icons/star.svg"
 import Image from "next/image";
 import carrito from "../../assets/Icons/cart.svg";
 import Swal from "sweetalert2";
@@ -8,15 +9,17 @@ import { Rating } from "react-simple-star-rating";
 
 //Funciones
 import addToCartFunko from "../../Utils/Crud_Carrito/addToCartFunko";
+import addCalificacion from "../../Utils/Calificacion/addCalificacion";
+import getDataUser from "../../Utils/getDataUser";
+
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
-
+import { useRouter } from "next/router";
 const CardFunkoDetalle = ({ FunkoDetalle }) => {
   const Toast = Swal.mixin({
     width: "32em",
     heightAuto: true,
     toast: false,
-    text: "50px",
     position: "center",
     showConfirmButton: true,
     timer: 1000,
@@ -26,11 +29,65 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
       toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
   });
-
+  
   const { data: session, status } = useSession();
 
   const [Cantidad, setCantidad] = useState(1);
   const [imageUrl, setImageUrl] = useState(`http://localhost:5000/public_funko_img/${FunkoDetalle.imagen}`);
+  const [DniUser, setDniUser] = useState(null)
+
+  const router = useRouter();
+
+  const refreshData = () => {
+    router.replace(router.asPath);
+  };
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      const handleGetDni = async () => {
+        const { dni } = await getDataUser(session.user.email);
+        setDniUser(dni);
+      };
+
+      handleGetDni()
+    }
+
+  }, [status, session,FunkoDetalle]);
+
+  const handleRating = async (numero) => {
+    Toast.fire({
+      title: `¿Desea dar ${numero} estrellas a ${FunkoDetalle.nombre}?`,
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: `Dar ${numero}`
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const res = await addCalificacion(numero,DniUser,FunkoDetalle.idprod)
+        console.log(res)
+        //Evaluamos si existe un error, si es asi lo que debemos hacer es mandar el mensaje al usuario
+        if (res?.errors){
+          Toast.fire(
+            `Primero debe comprar el funko! `,
+            '',
+            'error'
+          )
+        }
+        else {
+           Toast.fire(
+           `Ha dado ${numero} estrellas a ${FunkoDetalle.nombre}!`,
+            '',
+            'success'
+          )  
+          refreshData()
+
+        }
+       
+
+      }
+    })
+  }
 
   const handleChangeInput = (e) => {
     setCantidad(e.target.value);
@@ -38,6 +95,7 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
   const handleResetInput = () => {
     setCantidad(1);
   };
+
   const handleAddToCart = async () => {
     if (status === "authenticated") {
       const email = session.user.email;
@@ -70,6 +128,7 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
     }
   };
 
+   
   return (
     <div className={style.card_detalle_container}>
       <section className={style.seccion_1_container}>
@@ -108,11 +167,15 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
             <span className={style.detalle_dato}>
               {FunkoDetalle.categoriaByIdcat.nombrecat}
             </span>
+          
           </p>
           <p className={style.detalle}>
             Valoración:{" "}
             <span className={style.detalle_dato}>
               {FunkoDetalle.promediocalificacion}
+            </span>
+            <span  className={style.detalle_dato}>
+              <Image alt="estrellita" width={18} src={star}/>
             </span>
           </p>
           <p className={style.detalle}>
@@ -126,7 +189,10 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
             <p className={style.parrafo_valorar}>Valorar:</p>
 
             <div className={style.estrellas_container}>
-              <Rating style={{ height: 40 }} />
+              {
+                status === "authenticated" ? <Rating size={37}  onClick={handleRating} />
+                : <Rating size={37} readonly={true}/>
+              }
             </div>
           </div>
           <div className={style.detalle_cantidad}>
@@ -135,7 +201,7 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
             </label>
             <input
               className={style.detalle_cantidad_input}
-              min="1"
+              min={1}
               max={FunkoDetalle.stock}
               type="number"
               value={Cantidad}

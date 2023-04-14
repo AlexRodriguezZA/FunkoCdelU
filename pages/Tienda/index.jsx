@@ -7,7 +7,7 @@ import Layout from "../../components/Generales/Layout";
 import getAllProducts from "../../Utils/StoreProducts";
 import getCategorias from "../../Utils/getCategorias";
 import { useState } from "react";
-
+import useDebounce from "../../hooks/useDebounce";
 const tienda = ({ productos, categorias }) => {
   const [Productos, setProductos] = useState(productos);
 
@@ -49,6 +49,7 @@ const tienda = ({ productos, categorias }) => {
   const handlerSearch = (search) => {
     if (!search) {
       setProductos(productos);
+
 
     } else {
       const filteredData = productos.filter((item) => {

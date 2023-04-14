@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import No_image from "../../../0_FunkoImagenesPrueba/no_image.webp";
 import ImagenFunko from "./ImagenFunko";
+import star from "../../assets/Icons/star.svg";
 //Funciones
 import deleteProducto from "../../Utils/Crud_productos_admin/deleteProducto";
 import { useEffect, useState } from "react";
@@ -121,7 +122,17 @@ const TableRowProductos = ({ producto, OpenModalComentarios, categorias }) => {
         </Td>
         <Td>#{producto.numerofunko}</Td>
         <Td>${producto.precio}</Td>
-        <Td textAlign="center">{producto.promediocalificacion}</Td>
+        <Td>
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            gap={3}
+          >
+            {producto.promediocalificacion}
+            <Image src={star} width={14} alt="Imagen de rating start" />
+          </Box>
+        </Td>
         <Td>
           <Button
             colorScheme="telegram"

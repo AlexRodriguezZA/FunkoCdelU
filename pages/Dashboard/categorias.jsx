@@ -1,4 +1,6 @@
 import { Flex, Heading, Button, Box, Text } from "@chakra-ui/react";
+import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 import {
   Table,
   Thead,
@@ -12,32 +14,31 @@ import {
   ModalContent,
   ModalHeader,
   FormControl,
-  FormLabel,
-  Input,
+  FormLabel
 } from "@chakra-ui/react";
-import { Alert, AlertIcon,AddIcon } from "@chakra-ui/react";
+import { Alert, AlertIcon, AddIcon } from "@chakra-ui/react";
 import Image from "next/image";
 import Img_info from "../../assets/Img_info.png";
 import TableRowCategoria from "../../components/Dashboard_components/TableRowCategoria";
-
 
 //Funciones
 import { useDisclosure } from "@chakra-ui/react";
 import getCategorias from "../../Utils/getCategorias";
 import setCategoria from "../../Utils/setCategoria";
 import { useState } from "react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 const categorias = ({ categorias }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [NombreCategoria, setNombreCategoria] = useState("");
+  const [Categorias, setCategorias] = useState(categorias);
   const [SuccessDataSave, setSuccessDataSave] = useState(false);
   const [showModalInfo, setshowModalInfo] = useState(false);
   const router = useRouter();
-  
+
   const refreshData = () => {
     router.replace(router.asPath);
-  }
+  };
   const handleOpenModalInfo = () => {
     setshowModalInfo(true);
   };
@@ -59,7 +60,40 @@ const categorias = ({ categorias }) => {
     setSuccessDataSave(false);
     setNombreCategoria("");
     onClose();
-    refreshData()
+    refreshData();
+  };
+
+  const handlerSearch = (search) => {
+    if (!search) {
+      setCategorias(categorias);
+    } else {
+      const filteredData = categorias.filter((item) => {
+        const array_de_valores_funko = Object.values(item);
+        delete array_de_valores_funko[0];
+        delete array_de_valores_funko[2];
+
+
+        return array_de_valores_funko
+          .join("")
+          .toLowerCase()
+          .includes(search.toLowerCase());
+      });
+
+      setCategorias(filteredData);
+    }
+  };
+
+  const handleOrdenarCategorias = () => {
+    const categoriasOrdenadas = [...categorias].sort((a, b) =>
+      a.nombrecat > b.nombrecat ? 1 : -1
+    );
+    setCategorias(categoriasOrdenadas);
+  };
+  const handleOrdenarCategorias_total_products = () => {
+    const categoriasOrdenadas_total_products = [...categorias].sort((a, b) =>
+      a.productosByIdcat.totalCount > b.productosByIdcat.totalCount ? 1 : -1
+    );
+    setCategorias(categoriasOrdenadas_total_products);
   };
 
   return (
@@ -144,20 +178,42 @@ const categorias = ({ categorias }) => {
           </ModalContent>
         </Modal>
 
-
         <Heading
           display="flex"
           as="h1"
           size="xl"
           justifyContent="flex-start"
-          marginTop={20}
+          marginTop={10}
         >
           Tabla de categorias
         </Heading>
-                
-                
-        {/*Tabla */}
 
+        <InputGroup
+          w={{ base: "80%", md: "50%" }}
+          mt={20}
+          display="flex"
+          justifyContent="center"
+        >
+          <InputLeftElement
+            pointerEvents="none"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <SearchIcon fontSize={15} />
+          </InputLeftElement>
+          <Input
+            h={30}
+            shadow="md"
+            variant="filled"
+            type="text"
+            placeholder="Search..."
+            fontSize="15px"
+            onChange={(e) => handlerSearch(e.target.value)}
+          />
+        </InputGroup>
+
+        {/*Tabla */}
         <Box w={["90%", "90%"]} h="450px" mt={20} overflowY="scroll">
           <Table variant="simple" w="100%" size="lg" colorScheme="teal">
             <Thead>
@@ -171,8 +227,22 @@ const categorias = ({ categorias }) => {
                   </Button>
                 </Th>
 
-                <Th fontSize="12px">Nombre</Th>
-                <Th fontSize="12px">Cant. Prod.</Th>
+                <Th
+                  fontSize="12px"
+                  _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  onClick={() => handleOrdenarCategorias()}
+                  cursor="pointer"
+                >
+                  Nombre
+                </Th>
+                <Th
+                  fontSize="12px"
+                  _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  onClick={() => handleOrdenarCategorias_total_products()}
+                  cursor="pointer"
+                >
+                  Cant. Prod.
+                </Th>
                 <Th fontSize="12px">
                   Herramienta
                   <Button
@@ -187,8 +257,8 @@ const categorias = ({ categorias }) => {
               </Tr>
             </Thead>
             <Tbody>
-              {categorias &&
-                categorias.map((categoria) => (
+              {Categorias &&
+                Categorias.map((categoria) => (
                   <TableRowCategoria
                     key={categoria.idcat}
                     categoria={categoria}

@@ -21,6 +21,7 @@ const Favoritos = ({ favoritos }) => {
   const CrearObjetoNuevo = () => {
     const resultado = favoritos.map((fav) => {
       const NewObjFunko = {
+        imagen: fav.productoByIdprod.imagen,
         idfav: fav.idfavoritos,
         idprod: fav.productoByIdprod.idprod,
         nombre: fav.productoByIdprod.nombre,

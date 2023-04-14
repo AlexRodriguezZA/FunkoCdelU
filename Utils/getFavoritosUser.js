@@ -10,6 +10,7 @@ async function getFavoritosUser(dni) {
                   nodes {
                     idfavoritos
                     productoByIdprod {
+                      imagen
                       nombre
                       numerofunko
                       precio

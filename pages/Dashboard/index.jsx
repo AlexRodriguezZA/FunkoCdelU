@@ -1,6 +1,8 @@
 //Componentes
 import { Heading, Box, Flex, Text, Button } from "@chakra-ui/react";
 import { Table, Thead, Tbody, Tr, Th } from "@chakra-ui/react";
+import { IconButton } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import TableRow from "../../components/Dashboard_components/TableRow";
 import producto from "../../assets/Icons/producto.svg";
@@ -10,25 +12,46 @@ import user from "../../assets/Icons/user.svg";
 //Funciones
 import getTotales_dataAdmin from "../../Utils/getTotales_dataAdmin";
 import getAllVentas from "../../Utils/getAllVentas";
-
-
+import { useState } from "react";
 const index = ({ data_totales, ventas_realizadas }) => {
+const [Ventas, setVentas] = useState(ventas_realizadas)
+const [Fecha1, setFecha1] = useState("")
+const [Fecha2, setFecha2] = useState("")
 
+  const handleFiltradoVentas = () =>{
+    if (Fecha2 === "") {
+      const fechas_filtradas = ventas_realizadas.filter( venta => venta.fecha >= Fecha1 )
+      setVentas(fechas_filtradas)
+    }
+    else if (Fecha1 === "") {
+      const fechas_filtradas = ventas_realizadas.filter( venta => venta.fecha <= Fecha2 )
+      setVentas(fechas_filtradas)
+    }
+    else{
+      const fechas_filtradas_2 = ventas_realizadas.filter( venta => venta.fecha >= Fecha1 && venta.fecha <= Fecha2)
+      setVentas(fechas_filtradas_2)
+    }
+  }
+
+  const handleAllVentas = ()=>{
+    setFecha1("")
+    setFecha2("")
+    setVentas(ventas_realizadas) 
+  }
 
   return (
     <>
-      
       {/*TITULO */}
       <Heading
         display="flex"
         as="h3"
         size="lg"
         justifyContent="flex-start"
-        marginTop={30}
+        marginTop={10}
       >
         Inicio
       </Heading>
-       
+
       {/*Seccion de boxes de data*/}
 
       <Flex
@@ -103,12 +126,12 @@ const index = ({ data_totales, ventas_realizadas }) => {
           <Image width={40} height="auto" src={producto} alt="Icon product" />
         </Box>
       </Flex>
-          
+
       {/*Seccion de boxes de Historial de ventas*/}
       <Flex
         w="100%"
         justifyContent="center"
-        mt={30}
+        mt={10}
         flexDir="column"
         alignItems="center"
       >
@@ -121,7 +144,27 @@ const index = ({ data_totales, ventas_realizadas }) => {
         >
           Historial de ventas
         </Heading>
-        <Box w="90%" height="270px" overflowY="scroll" marginTop={30}>
+        <Box display="flex" gap={10} mt={15}>
+          <Box display="flex" gap={5}>
+            <Text>Desde:</Text>
+            <input type="date" name="fecha" value={Fecha1}  onChange={(e) => setFecha1(e.target.value)}/>
+          </Box>
+
+          <Box display="flex" gap={5}>
+            <Text>Hasta:</Text>
+            <input type="date" name="fecha" value={Fecha2}  onChange={(e) => setFecha2(e.target.value)}/>
+          </Box>  
+          <IconButton
+          colorScheme="linkedin"
+            aria-label="Buscar"
+            icon={<SearchIcon />}
+            size="md"
+            onClick={handleFiltradoVentas}
+          />
+          <Button colorScheme="linkedin" onClick={handleAllVentas}>Todas</Button>
+        </Box>
+
+        <Box w="90%" height="280px" overflowY="scroll" marginTop={10}>
           <Table variant="striped" w="100%" size="lg" colorScheme="teal">
             <Thead>
               <Tr>
@@ -132,10 +175,10 @@ const index = ({ data_totales, ventas_realizadas }) => {
               </Tr>
             </Thead>
             <Tbody>
-              {ventas_realizadas.length === 0 ? (
+              {Ventas.length === 0 ? (
                 <div>NO hay ventas aun</div>
               ) : (
-                ventas_realizadas.map((venta) => (
+                Ventas.map((venta) => (
                   <TableRow key={venta.idventa} venta={venta} />
                 ))
               )}

@@ -9,12 +9,15 @@ function MainBanner() {
   return (
     <div className={style.banner_container}>
       <div className={style.textos_container}>
-        <h1 className={style.Title}>Funko C del U</h1>
+        <div className={style.titulos_container}>
+          <h1 className={style.Title}>FUNKO</h1>
+          <h2 className={style.titulo_2}>C del U</h2>
+        </div>
         <p className={style.parrafo}>
-          La mejor calidad en Funkos del pais desde 2018
+          "La mejor calidad en Funkos del pais desde 2018."
         </p>
         <Link href="/Tienda" className={style.button_tienda}>
-            <BsShop/>
+            <BsShop/>{""}
             Tienda
         </Link>
 

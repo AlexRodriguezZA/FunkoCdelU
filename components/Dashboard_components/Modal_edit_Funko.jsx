@@ -18,6 +18,7 @@ import {
   InputLeftElement,
   Image,
   Divider,
+  NumberInput,
 } from "@chakra-ui/react";
 import {
   Alert,
@@ -57,12 +58,12 @@ function Modal_edit_Funko({ isOpen, onClose, categorias, producto }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Nombre:", name);
+    /*console.log("Nombre:", name);
     console.log("Numero Funko:", NumberFunko);
     console.log("Categoría:", category);
     console.log("Stock:", stock);
     console.log("Precio:", price);
-    console.log("Imagen:", producto.imagen);
+    console.log("Imagen:", producto.imagen);*/
     if (
       name === null ||
       NumberFunko === null ||
@@ -74,6 +75,9 @@ function Modal_edit_Funko({ isOpen, onClose, categorias, producto }) {
     } else {
       setError(false)
       setSendInfo(true);
+      //Aca evaluamos si el usuario cargó una nueva imagen, si no la subio, guardamos la imagen que tenia
+      //de lo contrario guardamos la nueva imagen -> 
+      //-> el nombre de la imagen nueva (ImagenEnvio.name) y mandamos el archivo al backend (ImagenEnvio)
       if (!image) {
           await EditFunko(name,price,NumberFunko,stock,producto.imagen,category,producto.idprod)        
       }

@@ -116,7 +116,7 @@ const CardFunko = ({ producto, isFavorite }) => {
           
           {
             producto.imagen === null ? <Image className={style.img} src={imagenPrubea} alt="Imagen de funko"/>
-            :   <Image src={imageUrl} width={250} height={200} alt={`Imagen del funko ${producto.nombre}`} />
+            :   <Image src={imageUrl} width={250} height={200}  alt={`Imagen del funko ${producto.nombre}`} />
           }
          
         </div>

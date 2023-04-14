@@ -5,7 +5,7 @@ import Loading_Spinner_mini from "./Loading_Spinner_mini";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import add_and_Rest_OneFunko from "../../Utils/Crud_Carrito/addOneFunko";
-const Seccion_updateCantidad = ({ cantidad, IdLineaCarrito }) => {
+const Seccion_updateCantidad = ({ cantidad, IdLineaCarrito, stock }) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   const router = useRouter();
@@ -28,12 +28,16 @@ const Seccion_updateCantidad = ({ cantidad, IdLineaCarrito }) => {
   };
   return (
     <>
-      <button
-        className={style.button}
-        onClick={() => HandleAddOneFunko(IdLineaCarrito)}
-      >
-        +
-      </button>
+      {cantidad === stock ? (
+        <button className={style.button}> + </button>
+      ) : (
+        <button
+          className={style.button}
+          onClick={() => HandleAddOneFunko(IdLineaCarrito)}
+        >
+          +
+        </button>
+      )}
 
       {isRefreshing ? (
         <Loading_Spinner_mini />
@@ -42,6 +46,8 @@ const Seccion_updateCantidad = ({ cantidad, IdLineaCarrito }) => {
           {cantidad}
         </span>
       )}
+      
+      {cantidad === stock ? <span style={{color: "red", fontSize: "10px"}}>Máx.</span> : null}
 
       {cantidad === 1 ? (
         <button className={style.button}>-</button>

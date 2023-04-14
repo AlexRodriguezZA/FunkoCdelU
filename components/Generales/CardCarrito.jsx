@@ -9,9 +9,9 @@ import DeleteLineaCarrito from '../../Utils/Crud_Carrito/DeleteLineaCarrito'
 import { useRouter } from 'next/router';
 import { useEffect,useState } from 'react'
 
-const CardCarrito = ({nombre,precio,categoria,cantidad,subtotal,IdLineaCarrito}) => {
+const CardCarrito = ({nombre,precio,categoria,stock,cantidad,subtotal,imagen,IdLineaCarrito}) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
-  
+  const [imageUrl, setImageUrl] = useState(`http://localhost:5000/public_funko_img/${imagen}`);
   const router = useRouter();
   const refreshData = () => {
     router.replace(router.asPath);
@@ -35,14 +35,13 @@ const CardCarrito = ({nombre,precio,categoria,cantidad,subtotal,IdLineaCarrito})
       <div>
       {
           isRefreshing ? <Loading_Spinner_mini/> : <button className={style.button_remove} onClick={handleDeleteLineaCarrito}>x</button>
-
       } 
 
       </div>
       </section>
 
       <section className={style.seccion_imagen}>
-        <Image alt="Imagen funko" className={style.imagen} src={imagenPrueba} />
+        <Image alt="Imagen funko" width={70} height={60}  src={imageUrl} />
       </section>
 
       <section className={style.seccion_data}>
@@ -52,7 +51,7 @@ const CardCarrito = ({nombre,precio,categoria,cantidad,subtotal,IdLineaCarrito})
       </section>
 
       <section className={style.seccion_buttons}>
-       <Seccion_updateCantidad cantidad={cantidad} IdLineaCarrito={IdLineaCarrito}/>
+       <Seccion_updateCantidad cantidad={cantidad} stock={stock} IdLineaCarrito={IdLineaCarrito}/>
       </section>
 
       <section className={style.seccion_subtotal}>

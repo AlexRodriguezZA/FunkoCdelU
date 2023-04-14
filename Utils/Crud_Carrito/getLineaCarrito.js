@@ -14,6 +14,7 @@ async function getLineaCarrito(idcarrito) {
                 idlineapedido
                 cantidaddecadaprod
                 productoByIdprod {
+                  imagen
                   nombre
                   precio
                   stock

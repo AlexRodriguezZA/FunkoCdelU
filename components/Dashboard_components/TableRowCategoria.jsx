@@ -64,40 +64,6 @@ const TableRowCategoria = ({ categoria }) => {
 
   return (
     <>
-      {/* Alerta de eliminacion de la tabla categoria */}
-
-      <AlertDialog
-        size="5xl"
-        isOpen={showAlertDialog}
-        onClose={handleCloseAlertDialog}
-      >
-        <AlertDialogOverlay>
-          <AlertDialogContent>
-            <AlertDialogHeader fontWeight="bold" fontSize="25px">
-              Eliminar categoria
-            </AlertDialogHeader>
-
-            <AlertDialogBody fontSize="18px">
-              ¿Seguro que desea eliminar la categoria {categoria.nombrecat}?
-            </AlertDialogBody>
-
-            <AlertDialogFooter>
-              <Button onClick={handleCloseAlertDialog} size="lg">
-                Cancel
-              </Button>
-              <Button
-                colorScheme="red"
-                size="lg"
-                onClick={handleDeleteCategoria}
-                ml={3}
-              >
-                Delete
-              </Button>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialogOverlay>
-      </AlertDialog>
-
       {/* FIlas de la tabla categoria */}
       <Tr>
         <Td>-</Td>
@@ -152,6 +118,41 @@ const TableRowCategoria = ({ categoria }) => {
             >
               Editar
             </Button>
+            {/* Alerta de eliminacion de la tabla categoria */}
+            {showAlertDialog && (
+              <AlertDialog
+                size="5xl"
+                isOpen={showAlertDialog}
+                onClose={handleCloseAlertDialog}
+              >
+                <AlertDialogOverlay>
+                  <AlertDialogContent>
+                    <AlertDialogHeader fontWeight="bold" fontSize="25px">
+                      Eliminar categoria
+                    </AlertDialogHeader>
+
+                    <AlertDialogBody fontSize="18px">
+                      ¿Seguro que desea eliminar la categoria{" "}
+                      {categoria.nombrecat}?
+                    </AlertDialogBody>
+
+                    <AlertDialogFooter>
+                      <Button onClick={handleCloseAlertDialog} size="lg">
+                        Cancel
+                      </Button>
+                      <Button
+                        colorScheme="red"
+                        size="lg"
+                        onClick={handleDeleteCategoria}
+                        ml={3}
+                      >
+                        Delete
+                      </Button>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialogOverlay>
+              </AlertDialog>
+            )}
             {categoria.productosByIdcat.totalCount === 0 ? (
               <Button colorScheme="red" onClick={handleOpenAlertDialog}>
                 Eliminar
