@@ -1,14 +1,13 @@
 import { Flex, Heading, Button, Box, Text } from "@chakra-ui/react";
 import Bars from "../../components/Dashboard_components/Charts/Bar";
 import Pies from "../../components/Dashboard_components/Charts/Pie";
-import Porcentajes from "../../components/Dashboard_components/Porcentajes";
 import Tabla_Funkos_masVendidos from "../../components/Dashboard_components/Tabla_Funkos_masVendidos";
 import Tabla_usuarioMasCompras from "../../components/Dashboard_components/Tabla_usuarioMasCompras";
 import Top3Funkos_masVendidos from "../../Utils/Top3Funkos_masVendidos";
 import Top3usuarios_masCompras from "../../Utils/Top3usuarios_masCompras";
+import CrearArrayVentas from "../../Utils/Funciones Charts/CrearArrayVentas";
 
-
-const estadisticas = ({Top3_Funkos,Top3_Usuarios}) => {
+const estadisticas = ({Top3_Funkos,Top3_Usuarios,array_ventas}) => {
   return (
     <>
       <Flex
@@ -30,7 +29,7 @@ const estadisticas = ({Top3_Funkos,Top3_Usuarios}) => {
 
       <Box width="100%" display="flex" justifyContent="center" mt={5} gap={10}>
         <Box width="45%" display="flex" justifyContent="center"  borderWidth="3px" p="4" >
-            <Bars/>
+            <Bars array_ventas={array_ventas}/>
         </Box>
         <Box  width="45%" display="flex" justifyContent="center"  borderWidth="3px" p="4" >
           <Tabla_usuarioMasCompras Top3_usuarios={Top3_Usuarios}/>
@@ -58,7 +57,8 @@ export default estadisticas;
 export async function getServerSideProps() {
   const Top3_Funkos = await Top3Funkos_masVendidos();
   const Top3_Usuarios = await Top3usuarios_masCompras();
+  const array_ventas = await CrearArrayVentas()
   return {
-    props: { Top3_Funkos,Top3_Usuarios },
+    props: { Top3_Funkos,Top3_Usuarios, array_ventas },
   };
 }

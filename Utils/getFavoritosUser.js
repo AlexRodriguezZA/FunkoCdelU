@@ -11,6 +11,7 @@ async function getFavoritosUser(dni) {
                     idfavoritos
                     productoByIdprod {
                       imagen
+                      stock
                       nombre
                       numerofunko
                       precio
