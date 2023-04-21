@@ -18,7 +18,6 @@ async function CrearArrayVentas() {
     //el valor se va a guardar en la posición -> 2 
     array_ventas[numero_mes_entero-1] = array_ventas[numero_mes_entero-1] + 1;
     
-    
   });
 
   return array_ventas;
