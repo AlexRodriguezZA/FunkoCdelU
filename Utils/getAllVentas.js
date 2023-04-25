@@ -6,19 +6,30 @@ async function getAllVentas() {
         },
         body: JSON.stringify({
             query: `query {
-                allVentausuarios(orderBy: FECHA_DESC) {
-                  nodes {
-                    usuarioByDni {
-                      nombre
-                      apellido
+              allVentausuarios(orderBy: FECHA_DESC) {
+                nodes {
+                  usuarioByDni {
+                    nombre
+                    apellido
+                  }
+                  fecha
+                  total
+                  idventa
+                  lineaventasByIdventa {
+                    nodes {
+                      idlinea
+                      cantproduc
+                      totalprod
+                      productoByIdprod {
+                        nombre
+                        precio
+                      }
                     }
-                    fecha
-                    total
-                    idventa
                   }
                 }
               }
-              
+            }
+            
               `
         }),
       })

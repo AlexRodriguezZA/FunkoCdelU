@@ -12,7 +12,7 @@ async function getTotales_dataAdmin() {
               allProductos {
                 totalCount
               }
-              allUsuarios {
+              allUsuarios (condition: {esadmin: false}) {
                 totalCount
               }
             }

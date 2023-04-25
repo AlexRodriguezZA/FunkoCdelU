@@ -1,4 +1,4 @@
-async function updateUser(email,nombre,apellido,direccion,codigopostal,alturadireccion) {
+async function updateUser(email,nombre,apellido,direccion,codigopostal,alturadireccion,telefono) {
     const response = await fetch('http://localhost:5000/graphql', {
         method: 'POST',
         headers: {
@@ -8,6 +8,7 @@ async function updateUser(email,nombre,apellido,direccion,codigopostal,alturadir
             query: `mutation {
                     updateUsuarioByEmail(
                       input: {usuarioPatch: {nombre: "${nombre}", 
+                                            telefono: "${telefono}",
                                             apellido: "${apellido}", 
                                             codigopostal: ${codigopostal}, 
                                             direccion: "${direccion}", 

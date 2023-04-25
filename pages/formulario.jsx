@@ -5,6 +5,8 @@ import imagen_logo from "../assets/logo.png"
 import Error_formulario from '../components/Generales/Error_formulario'
 
 //Funciones
+
+//TODO: ARREGLAR EL FORMULARIO
 import getAllCiudades from '../Utils/getCiudades'
 import setUsers from "../Utils/setUsers"
 import { useState } from 'react';
@@ -18,6 +20,7 @@ const formulario = ({ ciudades }) => {
 
 
   const [Nombre, setNombre] = useState("")
+  const [Telefono, setTelefono] = useState("")
   const [Apellido, setApellido] = useState("")
   const [Dni, setDni] = useState(0)
   const [Domicilio, setDomicilio] = useState("")
@@ -35,7 +38,7 @@ const formulario = ({ ciudades }) => {
     }
     else {
       setError(false)
-      setUsers(Dni, Nombre, Apellido, session.user.email, Domicilio, codigoPostal, altura)
+      setUsers(Dni, Nombre, Apellido, session.user.email, Domicilio, codigoPostal, altura, Telefono)
       handleResetForm() 
       router.push('/')
 
@@ -45,6 +48,7 @@ const formulario = ({ ciudades }) => {
   const handleResetForm = () => {
     //Resetear los formularios
     setNombre('')
+    setTelefono('')
     setApellido('')
     setDni(0)
     setDomicilio('')
@@ -101,12 +105,21 @@ const formulario = ({ ciudades }) => {
 
 
         <div className={style.conteiner_input_ciudad}>
-          <label htmlFor="">Ciudad:</label>
-          <select className={style.input_ciudad} onChange={(e) => setcodigoPostal(e.target.value)} >
+          <label htmlFor="">Ciudad / tel:</label>
+          <div>
+           <select className={style.input_ciudad} onChange={(e) => setcodigoPostal(e.target.value)} >
             <option aria-disabled>Ingrese su ciudad</option>
             {ciudades.map((ciudad) => <option key={ciudad.codigopostal}
               value={ciudad.codigopostal}>{ciudad.ciudad}</option>)}
           </select>
+          <input className={style.input_domicilio}
+                placeholder='Telefono'
+                type="text"
+                required
+                id="telefono"
+                value={Telefono}
+                onChange={(e) => setTelefono(e.target.value)} /> 
+          </div>
         </div>
 
 
@@ -130,6 +143,9 @@ const formulario = ({ ciudades }) => {
               onChange={(e) => setAltura(e.target.value)} />
           </div>
         </div>
+
+
+        
 
         <div className={style.contenedor_button}>
           <button className={style.button_submit} type="submit">Enviar</button>

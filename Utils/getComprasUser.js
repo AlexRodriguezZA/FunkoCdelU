@@ -10,8 +10,8 @@ async function getComprasUser(email) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            query: `{
-              allVentausuarios(condition: {dni: ${data_user.dni}}) {
+            query: `query{
+              allVentausuarios(condition: {dni: ${data_user.dni}}, orderBy: IDVENTA_DESC) {
                 nodes {
                   fecha
                   total

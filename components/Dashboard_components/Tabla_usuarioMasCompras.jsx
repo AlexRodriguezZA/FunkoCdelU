@@ -24,7 +24,7 @@ function Tabla_usuarioMasCompras({ Top3_usuarios }) {
         <Tbody>
         {
           Top3_usuarios &&
-          Top3_usuarios.map( usuario => <TableRow_usuariosMascompras usuario={usuario}/>)
+          Top3_usuarios.map( usuario => <TableRow_usuariosMascompras key={usuario.email} usuario={usuario}/>)
         }
 
         </Tbody>

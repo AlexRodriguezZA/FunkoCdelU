@@ -161,7 +161,7 @@ const productos = ({ productos, categorias }) => {
 
         <InputGroup
           w={{ base: "80%", md: "50%" }}
-          mt={20}
+          mt={10}
           display="flex"
           justifyContent="center"
         >
@@ -184,7 +184,7 @@ const productos = ({ productos, categorias }) => {
           />
         </InputGroup>
 
-        <Box w={["90%", "97%"]} h="430px" mt={20} overflowY="scroll">
+        <Box w={["90%", "97%"]} h="465px"boxShadow="xl"  mt={10} overflowY="scroll">
           <Table variant="simple" w="100%" size="lg" colorScheme="teal">
             <Thead>
               <Tr>

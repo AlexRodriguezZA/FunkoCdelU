@@ -51,7 +51,7 @@ const Favoritos = ({ favoritos }) => {
           {NewArrayFunkosFav.length > 0 ? (
             <ListCardsProd productos={NewArrayFunkosFav} isFavorite={true}/>
           ) : (
-            <div>No hay favoritos aun</div>
+            <div style={{height: "90vh"}}></div>
           )}
         </section>
       </div>

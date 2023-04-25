@@ -11,6 +11,7 @@ async function getDataUser(email) {
                   direccion
                   dni
                   nombre
+                  telefono
                   apellido
                   email
                   ciudadByCodigopostal {

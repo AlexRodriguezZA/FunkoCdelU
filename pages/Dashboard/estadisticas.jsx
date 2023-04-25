@@ -6,16 +6,17 @@ import Tabla_usuarioMasCompras from "../../components/Dashboard_components/Tabla
 import Top3Funkos_masVendidos from "../../Utils/Top3Funkos_masVendidos";
 import Top3usuarios_masCompras from "../../Utils/Top3usuarios_masCompras";
 import CrearArrayVentas from "../../Utils/Funciones Charts/CrearArrayVentas";
-
-const estadisticas = ({Top3_Funkos,Top3_Usuarios,array_ventas}) => {
+import CrearArray_porcentajesCategorias from "../../Utils/Funciones Charts/CrearArray_porcentajesCategorias";
+const estadisticas = ({Top3_Funkos,Top3_Usuarios,array_ventas,objeto_categorias_porcentajes}) => {
   return (
     <>
       <Flex
         w="100%"
         justifyContent="center"
         mt={5}
-        flexDir="column"
         alignItems="center"
+        flexDir={["column", "column", "column"]}
+
       >
         <Heading
           display="flex"
@@ -27,21 +28,21 @@ const estadisticas = ({Top3_Funkos,Top3_Usuarios,array_ventas}) => {
           Estadisticas
         </Heading>
 
-      <Box width="100%" display="flex" justifyContent="center" mt={5} gap={10}>
-        <Box width="45%" display="flex" justifyContent="center"  borderWidth="3px" p="4" >
+      <Box width="100%" display="flex" justifyContent="center" mt={5} gap={10} flexDir={["column","column", "column", "row"]}>
+        <Box display="flex" justifyContent="center"  borderWidth="3px" p="4" width={["100%","100%", "100%", "45%"]}>
             <Bars array_ventas={array_ventas}/>
         </Box>
-        <Box  width="45%" display="flex" justifyContent="center"  borderWidth="3px" p="4" >
+        <Box display="flex" justifyContent="center"  borderWidth="3px" p="4" width={["100%","100%", "100%", "45%"]}>
           <Tabla_usuarioMasCompras Top3_usuarios={Top3_Usuarios}/>
         </Box>
       </Box>
 
-      <Box width="100%" display="flex" justifyContent="center" mt={5} gap={10}>
-        <Box width="45%" display="flex" justifyContent="center"  borderWidth="3px" p="4" >
+      <Box width="100%" display="flex" justifyContent="center" mt={5} mb={5} gap={10} flexDir={["column","column", "column", "row"]}>
+        <Box width={["100%","100%", "100%", "45%"]} display="flex" justifyContent="center"  borderWidth="3px" p="4"  >
           <Tabla_Funkos_masVendidos Top3_Funkos={Top3_Funkos}/>
         </Box>
-        <Box  width="45%" display="flex" justifyContent="center"  borderWidth="3px" p="4" >
-          <Pies/>
+        <Box width={["100%","100%", "100%", "45%"]} display="flex" justifyContent="center"  borderWidth="3px" p="4" >
+          <Pies data_categoria={objeto_categorias_porcentajes}/>
         </Box>
       </Box>
       
@@ -57,8 +58,9 @@ export default estadisticas;
 export async function getServerSideProps() {
   const Top3_Funkos = await Top3Funkos_masVendidos();
   const Top3_Usuarios = await Top3usuarios_masCompras();
-  const array_ventas = await CrearArrayVentas()
+  const array_ventas = await CrearArrayVentas();
+  const objeto_categorias_porcentajes = await CrearArray_porcentajesCategorias();
   return {
-    props: { Top3_Funkos,Top3_Usuarios, array_ventas },
+    props: { Top3_Funkos,Top3_Usuarios, array_ventas, objeto_categorias_porcentajes },
   };
 }

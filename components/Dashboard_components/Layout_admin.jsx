@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { Flex, Heading, Avatar, Text, Link, Button } from "@chakra-ui/react";
+import { Flex, Heading, Avatar, Text, Link, Button,AvatarBadge  } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { useRouter } from "next/router";
 import path from "path";
@@ -7,11 +8,28 @@ import path from "path";
 
 import { signOut } from "next-auth/react";
 const Layout_admin = ({ children }) => {
+
+  const [estaEnLinea, setEstaEnLinea] = useState(true);
+
+  useEffect(() => {
+    function actualizarEstadoConexion() {
+      setEstaEnLinea(navigator.onLine);
+    }
+
+    window.addEventListener('online', actualizarEstadoConexion);
+    window.addEventListener('offline', actualizarEstadoConexion);
+
+    return () => {
+      window.removeEventListener('online', actualizarEstadoConexion);
+      window.removeEventListener('offline', actualizarEstadoConexion);
+    };
+  }, []);
   const router = useRouter();
   const { pathname } = router;
   const pagina_name = path.basename(pathname);
 
   return (
+
     <>
       <Head>
         <title>Funko C del U - {pagina_name}</title>
@@ -98,11 +116,24 @@ const Layout_admin = ({ children }) => {
                 </Flex>
                 <Flex className="sidebar-items" mr={[2, 6, 0, 0, 0]}>
                   <Link
+                    href="/Dashboard/clientes"
+                    _hover={{ textDecor: "none" }}
+                    display={["flex", "flex", "none", "flex", "flex"]}
+                  >
+                     {pagina_name === "clientes" ? (
+                      <Text className="active">Clientes <ChevronRightIcon boxSize={8}/></Text>
+                    ) : (
+                      <Text>Clientes <ChevronRightIcon boxSize={8}/></Text>
+                    )}
+                  </Link>
+                </Flex>
+                <Flex className="sidebar-items" mr={[2, 6, 0, 0, 0]}>
+                  <Link
                     href="/Dashboard/estadisticas"
                     _hover={{ textDecor: "none" }}
                     display={["flex", "flex", "none", "flex", "flex"]}
                   >
-                     {pagina_name === "estadiscas" ? (
+                     {pagina_name === "estadisticas" ? (
                       <Text className="active">Estadisticas <ChevronRightIcon boxSize={8}/></Text>
                     ) : (
                       <Text>Estadisticas <ChevronRightIcon boxSize={8}/></Text>
@@ -112,7 +143,17 @@ const Layout_admin = ({ children }) => {
               </Flex>
             </Flex>
             <Flex flexDir="column" alignItems="center" mb={10} mt={5}>
-              <Avatar my={2} src="avatar-1.jpg" />
+              {
+                estaEnLinea ? <Avatar my={2} size='lg' src="https://moldesde.com/wp-content/uploads/2012/02/letra_31.png.jpg">
+                                <AvatarBadge boxSize='13px' bg='green.400' />
+                              </Avatar> 
+                              :
+                              <Avatar my={2} size='lg' src="https://moldesde.com/wp-content/uploads/2012/02/letra_31.png.jpg">
+                                <AvatarBadge boxSize='13px' bg='red.400' />
+                              </Avatar>  
+
+              }
+              
               <Text textAlign="center">Funko C del U</Text>
               <Button
                 onClick={() =>

@@ -132,6 +132,7 @@ export async function getServerSideProps(context) {
     const idCarrito = await getIDCarrito(session.user.email);
     const LineaCarrito = await getLineaCarrito(idCarrito);
     const LinkMercadoPago = await CreadorDeLinkDePago(session.user.email,LineaCarrito);
+    
 
     return {
       props: { LineaCarrito, idCarrito, LinkMercadoPago },

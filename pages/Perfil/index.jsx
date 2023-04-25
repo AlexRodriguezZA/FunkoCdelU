@@ -1,4 +1,3 @@
-import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { getSession } from "next-auth/react";
 
@@ -22,6 +21,8 @@ const user = ({ dataUser, ciudades, img_user }) => {
   const [Nombre, setNombre] = useState(dataUser.nombre);
   const [Apellido, setApellido] = useState(dataUser.apellido);
   const [Direccion, setDireccion] = useState(dataUser.direccion);
+  const [Telefono, setTelefono] = useState(dataUser.telefono);
+
   const [AlturaDireccion, setAlturaDireccion] = useState(
     dataUser.alturadireccion
   );
@@ -36,7 +37,8 @@ const user = ({ dataUser, ciudades, img_user }) => {
       Apellido,
       Direccion,
       codigoPostal,
-      AlturaDireccion
+      AlturaDireccion,
+      Telefono,
     );
   };
   return (
@@ -90,6 +92,16 @@ const user = ({ dataUser, ciudades, img_user }) => {
                 type="number"
                 value={AlturaDireccion}
                 onChange={(e) => setAlturaDireccion(e.target.value)}
+              />
+            </div>
+            <div className={style.input_container}>
+              <label className={style.label_input} htmlFor="">
+                Tel.:
+              </label>
+              <input
+                type="text"
+                value={Telefono}
+                onChange={(e) => setTelefono(e.target.value)}
               />
             </div>
             <div className={style.input_container}>
@@ -148,6 +160,12 @@ const user = ({ dataUser, ciudades, img_user }) => {
                 Ciudad:{" "}
                 <span className={style.data_user_info}>
                   {dataUser.ciudadByCodigopostal.ciudad}
+                </span>
+              </p>
+              <p className={style.data_user}>
+                Tel.:{" "}
+                <span className={style.data_user_info}>
+                  {dataUser.telefono}
                 </span>
               </p>
               <p className={style.data_user}>
