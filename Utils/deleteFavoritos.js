@@ -16,6 +16,7 @@ async function deleteFavoritos(idfavoritos) {
       })
 
       const respuesta = await response.json()
+      console.log(respuesta)
       if (Object.keys(respuesta).length === 1) {
           return "success"
         } 

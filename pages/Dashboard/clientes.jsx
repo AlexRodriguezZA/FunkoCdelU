@@ -13,6 +13,27 @@ import {
 import getAllClientes from '../../Utils/getAllClientes';
 import Table_rowClientes from '../../components/Dashboard_components/Table_rowClientes';
 const clientes = ({clientes}) => {
+
+  const handlerSearch = (termino) => {
+    const clientesEncontrados = clientes.filter(cliente => {
+      return Object.values(cliente).some(valor => {
+        if (typeof valor === 'string') {
+          return valor.toLowerCase().includes(termino.toLowerCase());
+        } else if (typeof valor === 'number') {
+          return valor === parseInt(termino);
+        } else {
+          return false;
+        }
+      });
+    });
+  
+    if (clientesEncontrados.length > 0) {
+      console.log('Clientes encontrados:', clientesEncontrados);
+    } else {
+      console.log('Clientes no encontrados');
+    }
+  }
+  
   return (
     <>
      <Flex
@@ -51,82 +72,66 @@ const clientes = ({clientes}) => {
             shadow="md"
             variant="filled"
             type="text"
-            placeholder="Search..."
+            placeholder="DNI, Nombre, Apellido, email..."
             fontSize="15px"
             onChange={(e) => handlerSearch(e.target.value)}
           />
         </InputGroup>
 
         <Box w={["90%", "97%"]} h="465px"boxShadow="xl"  mt={10} overflowY="scroll">
-          <Table variant="simple" w="100%" size="lg" colorScheme="teal">
+          <Table variant="striped" w="100%" size="lg" colorScheme="teal">
             <Thead>
               <Tr>
                 <Th
                   color="black"
-                  bg="whatsapp.100"
                   fontSize="10px"
-
-                  _hover={{ backgroundColor: "blue.500", color: "white" }}
                   >
                   Dni   
                 </Th>
                 <Th
                  color="black"
-                 bg="whatsapp.100"
                   fontSize="10px"
-                  _hover={{ backgroundColor: "blue.500", color: "white" }}
                 >
                   Nombre
                 </Th>
                 <Th
                  color="black"
-                 bg="whatsapp.100"
                   fontSize="10px"
-                  _hover={{ backgroundColor: "blue.500", color: "white" }}
                 >
                   Apellido
                 </Th>
               
                 <Th
                  color="black"
-                 bg="whatsapp.100"
                   fontSize="10px"
-                  _hover={{ backgroundColor: "blue.500", color: "white" }}
                 >
-                  Tel.
+                  Telefono
                 </Th>
                 <Th
                  color="black"
-                 bg="whatsapp.100"
                   fontSize="10px"
-                  _hover={{ backgroundColor: "blue.500", color: "white" }}
                 >
                   Ciudad
                 </Th>
                 <Th
                  color="black"
-                 bg="whatsapp.100"
                   fontSize="10px"
-                  _hover={{ backgroundColor: "blue.500", color: "white" }}
                 >
                   Cod. postal
                 </Th>
                 <Th
                  color="black"
-                 bg="whatsapp.100"
                   fontSize="10px"
-                  _hover={{ backgroundColor: "blue.500", color: "white" }}
                 >
                   Dirección
                 </Th>
                 <Th
                  color="black"
-                 bg="whatsapp.100"
                   fontSize="10px"
-                  _hover={{ backgroundColor: "blue.500", color: "white" }}
                 >
                   Email
                 </Th>
+              
               </Tr>
             </Thead>
             <Tbody>

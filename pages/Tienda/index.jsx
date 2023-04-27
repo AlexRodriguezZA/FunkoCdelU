@@ -7,7 +7,9 @@ import Layout from "../../components/Generales/Layout";
 import getAllProducts from "../../Utils/StoreProducts";
 import getCategorias from "../../Utils/getCategorias";
 import { useState } from "react";
-import useDebounce from "../../hooks/useDebounce";
+import { getSession } from "next-auth/react";
+
+
 const tienda = ({ productos, categorias }) => {
   const [Productos, setProductos] = useState(productos);
 
@@ -98,7 +100,7 @@ const tienda = ({ productos, categorias }) => {
           </section>
         </div>
         { Productos.length === 0 ? (
-          <div>No hay resultados</div>
+          <div style={{height: "50vh"}}>No hay resultados</div>
         ) : (
           <ListCardsProd productos={Productos} />
         )}
@@ -108,9 +110,14 @@ const tienda = ({ productos, categorias }) => {
 };
 export default tienda;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
+
   const productos = await getAllProducts();
   const categorias = await getCategorias();
+
+
+
+  
   if (!productos) {
     return {
       redirect: {
@@ -121,6 +128,5 @@ export async function getStaticProps() {
   }
   return {
     props: { productos, categorias },
-    revalidate: 20,
   };
 }

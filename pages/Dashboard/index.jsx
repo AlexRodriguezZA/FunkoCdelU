@@ -178,7 +178,7 @@ const index = ({ data_totales, ventas_realizadas }) => {
           flexDir="row"
           justifyContent="center"
           alignItems="center"
-          bgGradient="linear(to-l, #00B4DB,#0083B0)"
+          bgGradient="linear(to-l, #00B4DB,#19008f)"
           boxShadow="2xl"
           borderRadius={5}
           w={["100%", "70%", 300]}
@@ -262,7 +262,7 @@ const index = ({ data_totales, ventas_realizadas }) => {
                 <Th fontSize="12px">Usuario</Th>
                 <Th fontSize="12px">Fecha</Th>
                 <Th fontSize="12px">Total</Th>
-                <Th fontSize="12px">Detalle</Th>
+                <Th fontSize="12px">Detalle</Th>    
               </Tr>
             </Thead>
             <Tbody>

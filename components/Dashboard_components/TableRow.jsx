@@ -9,8 +9,7 @@ const TableRow = ({ venta,handleOpenModal }) => {
       </Td>
       <Td>{venta.fecha}</Td>
       <Td>${venta.total}</Td>
-      <Td>
-        
+      <Td> 
         <Button size="md" w={20} colorScheme="green" onClick={()=>handleOpenModal(venta.idventa)}>
           Ver
         </Button>

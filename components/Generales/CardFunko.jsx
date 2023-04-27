@@ -6,10 +6,13 @@ import Swal from "sweetalert2";
 
 //Funciones
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import addToCartFunko from "../../Utils/Crud_Carrito/addToCartFunko";
 import addFavoritos from "../../Utils/addFavoritos";
 import deleteFavoritos from "../../Utils/deleteFavoritos";
+import IsFavoriteUser from "../../Utils/IsFavoriteUser";
+import DeleteFav from "../../Utils/DeleteFav";
 //Assets
 
 import imagenPrubea from "../../assets/imagenesPrueba/boba2.jpg";
@@ -30,10 +33,12 @@ const CardFunko = ({ producto, isFavorite }) => {
       toast.addEventListener("mouseleave", Swal.resumeTimer);
     },
   });
+
   const { data: session, status } = useSession();
   const [fav, setfav] = useState(true);
   const [text, settext] = useState();
   const [imageUrl, setImageUrl] = useState(`http://localhost:5000/public_funko_img/${producto.imagen}`);
+  const [isUserFav, setisUserFav] = useState(false)
 
   const handle_event_mouseOver = () => {
     settext("Add to cart");
@@ -41,24 +46,66 @@ const CardFunko = ({ producto, isFavorite }) => {
   const handle_event_mouseOut = () => {
     settext("");
   };
+
+ 
   useEffect(() => {
+    const favorito_del_usuario = async() =>{
+      const resp = await IsFavoriteUser(session.user.email, producto.idprod)
+      return resp
+    }
+
+    const checkFavorite = async () => {
+
+      if (session) {
+        const isFavUser = await favorito_del_usuario();
+        
+        if (isFavUser === true) {
+            setisUserFav(true)
+            setfav(false)
+
+        }
+        
+      }
+    };
+    
     if (isFavorite === true) {
       setfav(false);
     }
-  }, []);
+    checkFavorite();
+  }, [status]);
 
   const handleDeleteFav = async () => {
-    const res = await deleteFavoritos(producto.idfav);
-    if (res === "success") {
+    console.log(producto)
+
+
+    console.log(isFavorite)
+
+    //Evaluamos si esta en la seccion de favoritos
+    if (isFavorite) {
+      const res = await deleteFavoritos(producto.idfav);
+      console.log(res)
       setfav(true);
-      window.location.replace(""); //Reiniciamos la página
+
+      if (res === "success") {
+        window.location.replace(""); //Reiniciamos la página
     }
+    }
+    else{
+      console.log(session)
+      console.log("Esta en otra seccion que no la de favoritos")
+      await DeleteFav(session.user.email,producto)
+      window.location.replace(""); //Reiniciamos la página
+
+
+    }
+   
   };
 
   const handlePressFav = async () => {
     if (status === "authenticated") {
       const email = session.user.email;
       const res = await addFavoritos(email, producto.idprod);
+      console.log(res)
       if (res === "success") {
         setfav(!fav); //cambiamos el icono
         Toast.fire({
@@ -66,6 +113,10 @@ const CardFunko = ({ producto, isFavorite }) => {
                   Se agregó el Funko de "${producto.nombre}"`,
           icon: "success",
         });
+        setTimeout(function() {
+          window.location.replace(""); //Reiniciamos la página
+
+        }, 1000);
       } else {
         Toast.fire({
           title: "Ya tiene este funko cargado en favoritos",
@@ -133,7 +184,8 @@ const CardFunko = ({ producto, isFavorite }) => {
             <h1 className={style.title_funko}>{producto.nombre}</h1>
           )}
 
-          {isFavorite === true ? (
+          
+          {isUserFav === true ? (
             <button
               className={style.Button_corazon_fav}
               onClick={() => handleDeleteFav()}

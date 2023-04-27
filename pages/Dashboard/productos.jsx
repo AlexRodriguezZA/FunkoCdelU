@@ -28,6 +28,7 @@ const productos = ({ productos, categorias }) => {
   const [showModalComentarios, setshowModalComentarios] = useState(false);
   const [OpenModalAddFunko, setOpenModalAddFunko] = useState(false);
   const [IdprodComent, setIdprodComent] = useState(null);
+  const [selectedTh, setSelectedTh] = useState(null);
 
   let Comentarios = [];
 
@@ -62,12 +63,13 @@ const productos = ({ productos, categorias }) => {
           .toLowerCase()
           .includes(search.toLowerCase());
       });
-
+      setSelectedTh(null)
       setProductos(filteredData);
     }
   };
 
   const handleFiltrar = (clave) => {
+    setSelectedTh(clave)
     if (clave === "promediocalificacion") {
       const Productos_filtrados = [...productos].sort((a, b) =>
         a[clave] < b[clave] ? 1 : -1
@@ -82,6 +84,8 @@ const productos = ({ productos, categorias }) => {
   };
 
   const handleFiltrarCategorias = () => {
+    const clave = "nombrecat"
+    setSelectedTh(clave)
     const Productos_filtrados_categoria = [...productos].sort((a, b) =>
       a.categoriaByIdcat.nombrecat > b.categoriaByIdcat.nombrecat ? 1 : -1
     );
@@ -205,6 +209,8 @@ const productos = ({ productos, categorias }) => {
                   fontSize="10px"
                   _hover={{ backgroundColor: "blue.500", color: "white" }}
                   cursor="pointer"
+                  backgroundColor={selectedTh === "nombrecat" ? "blue.500" : ""}
+                  color={selectedTh === "nombrecat" ? "white" : ""}
                   onClick={() => handleFiltrarCategorias()}
                 >
                   Cat.
@@ -213,6 +219,8 @@ const productos = ({ productos, categorias }) => {
                   fontSize="10px"
                   _hover={{ backgroundColor: "blue.500", color: "white" }}
                   cursor="pointer"
+                  backgroundColor={selectedTh === "nombre" ? "blue.500" : ""}
+                  color={selectedTh === "nombre" ? "white" : ""}
                   onClick={() => handleFiltrar("nombre")}
                 >
                   Nombre
@@ -222,6 +230,8 @@ const productos = ({ productos, categorias }) => {
                   fontSize="10px"
                   _hover={{ backgroundColor: "blue.500", color: "white" }}
                   cursor="pointer"
+                  backgroundColor={selectedTh === "stock" ? "blue.500" : ""}
+                  color={selectedTh === "stock" ? "white" : ""}
                   onClick={() => handleFiltrar("stock")}
                 >
                   Stock
@@ -231,6 +241,8 @@ const productos = ({ productos, categorias }) => {
                   textAlign="center"
                   _hover={{ backgroundColor: "blue.500", color: "white" }}
                   cursor="pointer"
+                  backgroundColor={selectedTh === "numerofunko" ? "blue.500" : ""}
+                  color={selectedTh === "numerofunko" ? "white" : ""}
                   onClick={() => handleFiltrar("numerofunko")}
                 >
                   Número Funko
@@ -239,6 +251,8 @@ const productos = ({ productos, categorias }) => {
                   fontSize="10px"
                   _hover={{ backgroundColor: "blue.500", color: "white" }}
                   cursor="pointer"
+                  backgroundColor={selectedTh === "precio" ? "blue.500" : ""}
+                  color={selectedTh === "precio" ? "white" : ""}
                   onClick={() => handleFiltrar("precio")}
                 >
                   Precio
@@ -247,6 +261,8 @@ const productos = ({ productos, categorias }) => {
                   fontSize="10px"
                   _hover={{ backgroundColor: "blue.500", color: "white" }}
                   cursor="pointer"
+                  backgroundColor={selectedTh === "promediocalificacion" ? "blue.500" : ""}
+                  color={selectedTh === "promediocalificacion" ? "white" : ""}
                   onClick={() => handleFiltrar("promediocalificacion")}
                 >
                   Valoración

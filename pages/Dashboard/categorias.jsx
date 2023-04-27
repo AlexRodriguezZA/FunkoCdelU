@@ -34,12 +34,16 @@ const categorias = ({ categorias }) => {
   const [Categorias, setCategorias] = useState(categorias);
   const [SuccessDataSave, setSuccessDataSave] = useState(false);
   const [showModalInfo, setshowModalInfo] = useState(false);
+  const [selectedTh, setSelectedTh] = useState(null);
+
   const router = useRouter();
 
   const refreshData = () => {
     router.replace(router.asPath);
   };
   const handleOpenModalInfo = () => {
+    setSelectedTh(null)
+
     setshowModalInfo(true);
   };
 
@@ -48,6 +52,8 @@ const categorias = ({ categorias }) => {
   };
 
   const handleAddCategoria = async () => {
+    setSelectedTh(null)
+
     const data = await setCategoria(NombreCategoria);
     console.log(data);
     if (data) {
@@ -78,18 +84,20 @@ const categorias = ({ categorias }) => {
           .toLowerCase()
           .includes(search.toLowerCase());
       });
-
+      setSelectedTh(null)
       setCategorias(filteredData);
     }
   };
 
   const handleOrdenarCategorias = () => {
+    setSelectedTh("nombre_categoria")
     const categoriasOrdenadas = [...categorias].sort((a, b) =>
       a.nombrecat > b.nombrecat ? 1 : -1
     );
     setCategorias(categoriasOrdenadas);
   };
   const handleOrdenarCategorias_total_products = () => {
+    setSelectedTh("total_productos")
     const categoriasOrdenadas_total_products = [...categorias].sort((a, b) =>
       a.productosByIdcat.totalCount > b.productosByIdcat.totalCount ? 1 : -1
     );
@@ -230,6 +238,8 @@ const categorias = ({ categorias }) => {
                 <Th
                   fontSize="12px"
                   _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  backgroundColor={selectedTh === "nombre_categoria" ? "blue.500" : ""}
+                  color={selectedTh === "nombre_categoria" ? "white" : ""}
                   onClick={() => handleOrdenarCategorias()}
                   cursor="pointer"
                 >
@@ -238,6 +248,8 @@ const categorias = ({ categorias }) => {
                 <Th
                   fontSize="12px"
                   _hover={{ backgroundColor: "blue.500", color: "white" }}
+                  backgroundColor={selectedTh === "total_productos" ? "blue.500" : ""}
+                  color={selectedTh === "total_productos" ? "white" : ""}
                   onClick={() => handleOrdenarCategorias_total_products()}
                   cursor="pointer"
                 >

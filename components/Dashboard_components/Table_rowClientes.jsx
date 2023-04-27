@@ -1,5 +1,5 @@
 import React from "react";
-import { Tr, Td } from "@chakra-ui/react";
+import { Tr, Td,Button } from "@chakra-ui/react";
 
 const Table_rowClientes = ({ data_cliente }) => {
   return (
@@ -16,6 +16,8 @@ const Table_rowClientes = ({ data_cliente }) => {
         </Td>
 
         <Td>{data_cliente.email}</Td>
+    
+
       </Tr>
     </>
   );

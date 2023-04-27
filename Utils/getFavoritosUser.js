@@ -20,6 +20,7 @@ async function getFavoritosUser(dni) {
                         nombrecat
                       }
                     }
+                    dni
                   }
                 }
               }

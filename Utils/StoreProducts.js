@@ -9,22 +9,29 @@ async function getAllProducts() {
         },
         body: JSON.stringify({
             query: `query MyQuery {
-                allProductos (orderBy: IDPROD_DESC) {
-                  nodes {
-                    idprod
-                    idcat
-                    categoriaByIdcat {
-                      nombrecat
+              allProductos(orderBy: IDPROD_DESC) {
+                nodes {
+                  idprod
+                  idcat
+                  categoriaByIdcat {
+                    nombrecat
+                  }
+                  nombre
+                  numerofunko
+                  precio
+                  promediocalificacion
+                  stock
+                  imagen
+                  favoritosByIdprod {
+                    nodes {
+                      idfavoritos
+                      dni
                     }
-                    nombre
-                    numerofunko
-                    precio
-                    promediocalificacion
-                    stock
-                    imagen
                   }
                 }
               }
+            }
+            
               `
         }),
       })

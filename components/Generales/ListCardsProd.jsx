@@ -5,7 +5,7 @@ const ListCardsProd = ({ productos, isFavorite }) => {
   return (
     <div className={style.CardsList_container}>
       {productos.map((producto) => (
-        <CardFunko key={producto.idprod} producto={producto} isFavorite={isFavorite}/>
+        <CardFunko key={producto.idprod} producto={producto} isFavorite={isFavorite} />
       ))}
     </div>
   );
