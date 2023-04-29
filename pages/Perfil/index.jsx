@@ -176,6 +176,11 @@ const user = ({ dataUser, ciudades, img_user }) => {
           </div>
           <div className={style.seccion_3}>
             <button
+              className={style.button_eliminar}
+            >
+              Eliminar 
+            </button>
+            <button
               className={style.button_editar}
               onClick={() => setOpen(true)}
             >

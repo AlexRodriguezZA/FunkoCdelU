@@ -81,6 +81,23 @@
 
 }
 
+.button_eliminar{
+    cursor: pointer;
+    border-radius: 20px;
+    border-style: none;
+    width: 100px;
+    height: 30px;
+    margin-right: 30px;
+    background-color:  #CD1616;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #FFFFFF;
+
+}
 .button_editar{
     cursor: pointer;
     border-radius: 20px;
@@ -241,12 +258,17 @@
     }
 
     .button_editar{
-        font-size: 13px;
+        font-size: 12px;
+
+    }
+
+    .button_eliminar{
+        font-size: 12px;
 
     }
 
     .button_compras{
-        font-size: 13px;
+        font-size: 12px;
     
     }
 

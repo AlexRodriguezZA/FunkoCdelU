@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 //Componentes
 import { Flex, Heading, Box} from "@chakra-ui/react";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
@@ -14,24 +14,25 @@ import getAllClientes from '../../Utils/getAllClientes';
 import Table_rowClientes from '../../components/Dashboard_components/Table_rowClientes';
 const clientes = ({clientes}) => {
 
-  const handlerSearch = (termino) => {
+  const [Clientes, setClientes] = useState(clientes)
+
+  const handlerSearch = (search) => {
     const clientesEncontrados = clientes.filter(cliente => {
       return Object.values(cliente).some(valor => {
         if (typeof valor === 'string') {
-          return valor.toLowerCase().includes(termino.toLowerCase());
-        } else if (typeof valor === 'number') {
-          return valor === parseInt(termino);
+          return valor.toLowerCase().includes(search.toLowerCase());
+        } else if (typeof valor === 'number') {  
+          const numero_string = valor.toString()         
+          return numero_string.toLowerCase().includes(search.toLowerCase());;
+          
         } else {
           return false;
         }
       });
     });
-  
-    if (clientesEncontrados.length > 0) {
-      console.log('Clientes encontrados:', clientesEncontrados);
-    } else {
-      console.log('Clientes no encontrados');
-    }
+    
+    clientesEncontrados.length > 0 ? setClientes(clientesEncontrados) : setClientes(clientes)
+    
   }
   
   return (
@@ -72,7 +73,7 @@ const clientes = ({clientes}) => {
             shadow="md"
             variant="filled"
             type="text"
-            placeholder="DNI, Nombre, Apellido, email..."
+            placeholder="DNI, Nombre, Apellido, telefono, email..."
             fontSize="15px"
             onChange={(e) => handlerSearch(e.target.value)}
           />
@@ -135,7 +136,7 @@ const clientes = ({clientes}) => {
               </Tr>
             </Thead>
             <Tbody>
-              {clientes && clientes.map( cliente => <Table_rowClientes key={cliente.dni} data_cliente={cliente}/>)}
+              {Clientes && Clientes.map( cliente => <Table_rowClientes key={cliente.dni} data_cliente={cliente}/>)}
             </Tbody>
           </Table>
         </Box>
