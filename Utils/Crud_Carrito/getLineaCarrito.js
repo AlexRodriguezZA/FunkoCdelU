@@ -22,6 +22,7 @@ async function getLineaCarrito(idcarrito) {
                     nombrecat
                   }
                 }
+              
               }
             }
           }

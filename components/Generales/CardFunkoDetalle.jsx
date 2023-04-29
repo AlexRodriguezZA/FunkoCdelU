@@ -108,8 +108,7 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
       handleResetInput();
       if (res === "success") {
         Toast.fire({
-          title: "Añadido al carrito",
-          text: `Se agrego el Funko ${FunkoDetalle.nombre}`,
+          title: `Añadido al carrito el Funko ${FunkoDetalle.nombre}`,
           icon: "success",
         });
       } else {
@@ -135,7 +134,7 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
         <div className={style.Imagen_funko_container}>
           {
             FunkoDetalle.imagen === null ?  <Image alt="Imagen del funkopop" className={style.Image_funko} src={imageUrl}/>
-            :  <Image alt="Imagen del funkopop" width={450} height={350} loading="lazy" src={imageUrl}/>
+            :  <Image alt="Imagen del funkopop" width={450} height={350} layout="responsive" loading="lazy" src={imageUrl}/>
           }
          
         </div>

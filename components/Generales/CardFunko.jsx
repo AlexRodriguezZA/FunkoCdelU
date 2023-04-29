@@ -20,6 +20,7 @@ import corazon from "../../assets/Icons/corazon.svg";
 import corazon2 from "../../assets/Icons/corazon2.svg";
 
 const CardFunko = ({ producto, isFavorite }) => {
+
   const Toast = Swal.mixin({
     width: "32em",
     heightAuto: true,
@@ -48,6 +49,7 @@ const CardFunko = ({ producto, isFavorite }) => {
   };
 
  
+
   useEffect(() => {
     const favorito_del_usuario = async() =>{
       const resp = await IsFavoriteUser(session.user.email, producto.idprod)
@@ -75,12 +77,7 @@ const CardFunko = ({ producto, isFavorite }) => {
   }, [status]);
 
   const handleDeleteFav = async () => {
-    console.log(producto)
-
-
-    console.log(isFavorite)
-
-    //Evaluamos si esta en la seccion de favoritos
+    //Evaluamos si está en la seccion de favoritos
     if (isFavorite) {
       const res = await deleteFavoritos(producto.idfav);
       console.log(res)
@@ -95,7 +92,6 @@ const CardFunko = ({ producto, isFavorite }) => {
       console.log("Esta en otra seccion que no la de favoritos")
       await DeleteFav(session.user.email,producto)
       window.location.replace(""); //Reiniciamos la página
-
 
     }
    
@@ -167,7 +163,7 @@ const CardFunko = ({ producto, isFavorite }) => {
           
           {
             producto.imagen === null ? <Image className={style.img} src={imagenPrubea} alt="Imagen de funko"/>
-            :   <Image src={imageUrl} width={250} height={200}  alt={`Imagen del funko ${producto.nombre}`} />
+            :   <Image src={imageUrl} width={250} height={200}   loading="lazy"  alt={`Imagen del funko ${producto.nombre}`} />
           }
          
         </div>

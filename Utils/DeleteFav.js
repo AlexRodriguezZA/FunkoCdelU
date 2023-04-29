@@ -15,7 +15,6 @@ async function DeleteFav(email,producto) {
     const { dni } = await getDataUser(email)
 
     const favorito = producto.favoritosByIdprod.nodes.filter( fav => fav.dni === dni)
-    console.log(favorito)
 
     await deleteFavoritos(favorito[0].idfavoritos)
   

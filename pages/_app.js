@@ -2,8 +2,8 @@ import "../styles/globals.css";
 import { SessionProvider ,useSession,getSession} from "next-auth/react";
 import { ChakraProvider } from '@chakra-ui/react'
 import Layout_admin from "../components/Dashboard_components/Layout_admin";
-
 function MyApp({ Component, pageProps, session }) {
+
   return (
     <SessionProvider session={session}>
       {Component.auth ? (
@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps, session }) {
           </ChakraProvider>
         </Auth>
       ) : (
-        <Component {...pageProps} />
+          <Component {...pageProps} />
       )}
     </SessionProvider>
   );

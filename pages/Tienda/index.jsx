@@ -7,7 +7,6 @@ import Layout from "../../components/Generales/Layout";
 import getAllProducts from "../../Utils/StoreProducts";
 import getCategorias from "../../Utils/getCategorias";
 import { useState } from "react";
-import { getSession } from "next-auth/react";
 
 
 const tienda = ({ productos, categorias }) => {
@@ -24,27 +23,23 @@ const tienda = ({ productos, categorias }) => {
     setProductos(filtrado);
   };
 
-  const handlerOrderPrice = (order) => {
+  const handlerOrderNombre = (order) => {
     if (order === "all") {
       setProductos(productos);
       return;
     }
-    if(order === "LowPrice") {
-      const OrdenProductosPreciosBajos = productos.sort((a, b) => {
-        return a.precio - b.precio;
+    if(order === "AZ") {
+      const OrdenProductosAZ = [...productos].sort((a, b) => {
+        return a.nombre.localeCompare(b.nombre);
       });
-      console.log("Precio bajos",OrdenProductosPreciosBajos)
-      setProductos(OrdenProductosPreciosBajos);
+      setProductos(OrdenProductosAZ);
 
     }
-    if (order === "HighPrice") {
-      const OrdenProductosPreciosAltos = productos
-        .sort((a, b) => {
-          return a.precio - b.precio;
-        })
-        .reverse();
-      console.log("Precio altos")
-      setProductos(OrdenProductosPreciosAltos);
+    if (order === "ZA") {
+      const OrdenProductosZA = [...productos].sort((a, b) => {
+        return b.nombre.localeCompare(a.nombre);
+      });
+      setProductos(OrdenProductosZA);
     }
   };
 
@@ -54,20 +49,20 @@ const tienda = ({ productos, categorias }) => {
 
 
     } else {
-      const filteredData = productos.filter((item) => {
-        
-        const array_de_valores_funko = Object.values(item)
-        //ELiminamos los valores que no necesitamos para la busqueda -> categoria, stock, 
-        //idprod, valoración
-        delete(array_de_valores_funko[0])
-        delete(array_de_valores_funko[1])
-        delete(array_de_valores_funko[2])
-        delete(array_de_valores_funko[6])
-        delete(array_de_valores_funko[7])
-        return array_de_valores_funko.join("").toLowerCase().includes(search.toLowerCase());
-      });
-      
-      setProductos(filteredData);
+      setTimeout(() => {
+        const filteredData = productos.filter((item) => {
+          const array_de_valores_funko = Object.values(item);
+          // Eliminamos los valores que no necesitamos para la búsqueda -> categoría, stock, idprod, valoración
+          delete array_de_valores_funko[0];
+          delete array_de_valores_funko[1];
+          delete array_de_valores_funko[2];
+          delete array_de_valores_funko[6];
+          delete array_de_valores_funko[7];
+          return array_de_valores_funko.join("").toLowerCase().includes(search.toLowerCase());
+        });
+    
+        setProductos(filteredData);
+      }, 500); 
     }
   };
   return (
@@ -75,13 +70,13 @@ const tienda = ({ productos, categorias }) => {
       <div className={style.tienda_container}>
         <Header search={handlerSearch} />
         <div className={style.seccion_fitro}>
+
           <section className={style.filtro_orden}>
             <p className={style.texto}>Ordenar por: </p>
-              <select className={style.select_order} onChange={ (e) => handlerOrderPrice(e.target.value)}>
-                <option value="all">All</option>
-                <option value="LowPrice">Low price</option>
-                <option value="HighPrice">High price</option>
-              </select>
+             <button className={style.Button_order} onClick={()=>handlerOrderNombre("AZ")}>A-Z</button>
+             <button className={style.Button_order} onClick={()=>handlerOrderNombre("ZA")}>Z-A</button>
+             <button className={style.Button_order} onClick={()=>handlerOrderNombre("all")}>All</button>
+
           </section>
 
           <section className={style.conteiner_input_cateogoria}>

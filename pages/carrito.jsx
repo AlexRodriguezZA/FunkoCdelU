@@ -64,7 +64,7 @@ const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
                 onClick={handleDeleteAllCart}
                 type="reset"
               >
-                All remove
+                Eliminar carrito
               </button>
             )}
           </div>
