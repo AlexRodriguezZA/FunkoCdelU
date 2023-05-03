@@ -25,7 +25,7 @@ const estadisticas = ({Top3_Funkos,Top3_Usuarios,array_ventas,objeto_categorias_
           justifyContent="flex-start"
           marginTop={10}
         >
-          Estadisticas
+          Estadísticas
         </Heading>
 
       <Box width="100%" display="flex" justifyContent="center" mt={5} gap={10} flexDir={["column","column", "column", "row"]}>

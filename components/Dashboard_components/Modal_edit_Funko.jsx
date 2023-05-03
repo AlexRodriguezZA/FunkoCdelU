@@ -265,7 +265,7 @@ function Modal_edit_Funko({ isOpen, onClose, categorias, producto }) {
                       colorScheme="blue"
                       onClick={handleSaveNewCategoria}
                     >
-                      Guardar categoria
+                      Guardar categoría
                     </Button>
                   ) : (
                     <Button
@@ -275,7 +275,7 @@ function Modal_edit_Funko({ isOpen, onClose, categorias, producto }) {
                       colorScheme="green"
                       onClick={handleOpenAddNewCategoria}
                     >
-                      Agregar categoria
+                      Agregar categoría
                     </Button>
                   )}
                 </Box>

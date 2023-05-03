@@ -73,7 +73,7 @@ const clientes = ({clientes}) => {
             shadow="md"
             variant="filled"
             type="text"
-            placeholder="DNI, Nombre, Apellido, telefono, email..."
+            placeholder="DNI, Nombre, Apellido, teléfono, email..."
             fontSize="15px"
             onChange={(e) => handlerSearch(e.target.value)}
           />
@@ -106,7 +106,7 @@ const clientes = ({clientes}) => {
                  color="black"
                   fontSize="10px"
                 >
-                  Telefono
+                  Teléfono
                 </Th>
                 <Th
                  color="black"

@@ -40,7 +40,7 @@ export default function Pies({ data_categoria }) {
     labels: array_nombre,
     datasets: [
       {
-        label: "Ventas de la categoria %",
+        label: "Ventas de la categoría %",
         data: array_porcentaje,
         backgroundColor: array_colores,
         borderColor: array_colores,

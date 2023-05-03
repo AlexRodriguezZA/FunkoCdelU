@@ -52,7 +52,7 @@ function Navbar2() {
               session && <Link href="/Perfil" className="link">Perfil</Link>
             }
             {
-              session && <Link href="#" className="link" onClick={() => signOut({callbackUrl: 'http://localhost:3000/' })}>Cerrar sesion</Link>
+              session && <Link href="#" className="link" onClick={() => signOut({callbackUrl: 'http://localhost:3000/' })}>Cerrar sesión</Link>
             }
 
           </div>

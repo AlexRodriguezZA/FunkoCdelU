@@ -29,9 +29,17 @@ async function addToCartFunko(cantidad, idprod, precio, email) {
       let NuevaCantidad = Prod_Encontrado.cantidaddecadaprod + cantidad;
       let NuevoPrecio = NuevaCantidad * precio;
       let LineaPedidoId = Prod_Encontrado.idlineapedido;
-      await updateFunkoCart(NuevaCantidad, NuevoPrecio, LineaPedidoId);
+      var respuesta =  await updateFunkoCart(NuevaCantidad, NuevoPrecio, LineaPedidoId);
+      console.log(respuesta)
+      
     }
-    return "success";
+    if (respuesta?.errors) {
+      console.log(respuesta.errors)
+      return "no_Cart"      
+    }
+    else{
+      return "success"
+    }
   } catch (error) {
     return error;
   }

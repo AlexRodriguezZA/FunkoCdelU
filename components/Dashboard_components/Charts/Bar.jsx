@@ -51,7 +51,7 @@ export default function Bars({array_ventas}) {
     scales: {
       y: {
         min: 0,
-        max: 20,
+        max: 40,
       },
       x: {
         ticks: { color: "rgba(0, 0, 0)" },

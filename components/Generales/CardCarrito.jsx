@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import imagenPrueba from '../../assets/imagenesPrueba/boba2.jpg'
+import Link from 'next/link'
 import style from "../styles/CardCarrito.module.css"
 import Loading_Spinner_mini from './Loading_Spinner_mini'
 import Seccion_updateCantidad from './Seccion_updateCantidad'
@@ -9,7 +10,7 @@ import DeleteLineaCarrito from '../../Utils/Crud_Carrito/DeleteLineaCarrito'
 import { useRouter } from 'next/router';
 import { useEffect,useState } from 'react'
 
-const CardCarrito = ({nombre,precio,categoria,stock,cantidad,subtotal,imagen,IdLineaCarrito}) => {
+const CardCarrito = ({nombre,idprod,precio,categoria,stock,cantidad,subtotal,imagen,IdLineaCarrito}) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [imageUrl, setImageUrl] = useState(`http://localhost:5000/public_funko_img/${imagen}`);
   const router = useRouter();
@@ -39,10 +40,12 @@ const CardCarrito = ({nombre,precio,categoria,stock,cantidad,subtotal,imagen,IdL
 
       </div>
       </section>
-
-      <section className={style.seccion_imagen}>
-        <Image alt="Imagen funko" width={70} height={60}  src={imageUrl} />
-      </section>
+      <Link href={`/Tienda/${idprod}`}>
+        <section className={style.seccion_imagen}>
+          <Image alt="Imagen funko" width={70} height={60}  src={imageUrl} />
+        </section>
+      </Link>
+      
 
       <section className={style.seccion_data}>
         <h3>{nombre}</h3>

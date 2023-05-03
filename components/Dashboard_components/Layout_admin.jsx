@@ -95,9 +95,9 @@ const Layout_admin = ({ children }) => {
                     display={["flex", "flex", "none", "flex", "flex"]}
                   >
                     {pagina_name === "categorias" ? (
-                      <Text className="active">Categorias <ChevronRightIcon boxSize={8}/></Text>
+                      <Text className="active">Categorías <ChevronRightIcon boxSize={8}/></Text>
                     ) : (
-                      <Text>Categorias <ChevronRightIcon boxSize={8}/></Text>
+                      <Text>Categorías <ChevronRightIcon boxSize={8}/></Text>
                     )}
                   </Link>
                 </Flex>
@@ -134,9 +134,9 @@ const Layout_admin = ({ children }) => {
                     display={["flex", "flex", "none", "flex", "flex"]}
                   >
                      {pagina_name === "estadisticas" ? (
-                      <Text className="active">Estadisticas <ChevronRightIcon boxSize={8}/></Text>
+                      <Text className="active">Estadísticas <ChevronRightIcon boxSize={8}/></Text>
                     ) : (
-                      <Text>Estadisticas <ChevronRightIcon boxSize={8}/></Text>
+                      <Text>Estadísticas <ChevronRightIcon boxSize={8}/></Text>
                     )}
                   </Link>
                 </Flex>

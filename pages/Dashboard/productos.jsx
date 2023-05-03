@@ -51,9 +51,9 @@ const productos = ({ productos, categorias }) => {
         delete array_de_valores_funko[0];
         delete array_de_valores_funko[1];
         delete array_de_valores_funko[2];
-        delete array_de_valores_funko[4];
         delete array_de_valores_funko[5];
         delete array_de_valores_funko[6];
+
         delete array_de_valores_funko[7];
         delete array_de_valores_funko[8];
         delete array_de_valores_funko[9];
@@ -182,7 +182,7 @@ const productos = ({ productos, categorias }) => {
             shadow="md"
             variant="filled"
             type="text"
-            placeholder="Search..."
+            placeholder="Nombre, Número funko..."
             fontSize="15px"
             onChange={(e) => handlerSearch(e.target.value)}
           />

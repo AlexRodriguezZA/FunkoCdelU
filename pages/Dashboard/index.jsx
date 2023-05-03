@@ -14,7 +14,7 @@ import { IconButton } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import Image from "next/image";
 import TableRow from "../../components/Dashboard_components/TableRow";
-import producto from "../../assets/Icons/producto.svg";
+import producto from "../../assets/Icons/productos.svg";
 import ventas from "../../assets/Icons/ventas.svg";
 import user from "../../assets/Icons/user.svg";
 
@@ -191,7 +191,7 @@ const index = ({ data_totales, ventas_realizadas }) => {
           <Text color="#fff" fontSize="5xl">
             {data_totales.allProductos.totalCount}
           </Text>
-          <Image width={40} height="auto" src={producto} alt="Icon product" />
+          <Image width={30} height="auto" src={producto} alt="Icon product" />
         </Box>
       </Flex>
 
@@ -251,10 +251,11 @@ const index = ({ data_totales, ventas_realizadas }) => {
 
         <Box
           w="90%"
+          boxShadow="2xl" 
           overflowY="scroll"
           marginTop={5}
           mb={10}
-          height={["450px", "400px"]}
+          height={["420px", "350px"]}
         >
           <Table variant="striped" w="100%" size="lg" colorScheme="teal">
             <Thead>

@@ -193,7 +193,7 @@ const categorias = ({ categorias }) => {
           justifyContent="flex-start"
           marginTop={10}
         >
-          Tabla de categorias
+          Tabla de categorías
         </Heading>
 
         <InputGroup

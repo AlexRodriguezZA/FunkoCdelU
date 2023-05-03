@@ -2,7 +2,7 @@ import Footer from './Footer'
 import Head from 'next/head'
 import style from "../styles/Layout.module.css"
 import Navbar2 from './Navbar2'
-
+import WhatsAppButton from './WhatsAppButton'
 const Layout = ({children}) => {
   return (
     <>
@@ -16,6 +16,7 @@ const Layout = ({children}) => {
       <div className={style.LayoutContent}>
         {children}
       </div>
+      <WhatsAppButton/>
       <Footer/>
     </>
   )

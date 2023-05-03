@@ -22,6 +22,7 @@ async function updateFunkoCart(cantidad, precio,idlineaPedido) {
   });
 
   const respuesta = await response.json();
+  return respuesta;
 }
 
 export default updateFunkoCart;

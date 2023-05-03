@@ -111,10 +111,9 @@ const CardFunkoDetalle = ({ FunkoDetalle }) => {
           title: `Añadido al carrito el Funko ${FunkoDetalle.nombre}`,
           icon: "success",
         });
-      } else {
+      } else if (res === "no_Cart"){
         Toast.fire({
-          title: "Error al cargar el carrito",
-          text: `No se pudo agregar al funko`,
+          title: `Error al cargar el carrito, no puedo cargar mas del stock disponible, stock: ${FunkoDetalle.stock}`,
           icon: "error",
         });
       }

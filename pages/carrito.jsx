@@ -3,7 +3,7 @@ import CardCarrito from "../components/Generales/CardCarrito";
 import style from "../styles/carrito.module.css";
 import Layout from "../components/Generales/Layout";
 import Image from "next/image";
-import carrito_vacio from "../assets/imagenesPrueba/Carritovacio.png";
+import carrito_vacio from "../assets/imgCart.jpg";
 import LoadingSpinner from "../components/Generales/Loading_Spinner";
 //Funciones y Hooks
 import { getSession } from "next-auth/react";
@@ -73,14 +73,15 @@ const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
             {LineaCarrito.length === 0 ? (
               <div className={style.carrito_vacio}>
                 <p className={style.carrito_vacio_texto}>
-                  Tu carrito está vacío!
+                  Tú carrito está vacío!
                 </p>
-                <Image width={200} height="auto" priority src={carrito_vacio} />
+                <Image width={300} height="auto" style={{marginBottom:"30px", marginTop: "30px"}}  priority src={carrito_vacio} />
               </div>
             ) : (
               LineaCarrito.map((linea) => (
                 <CardCarrito
                   key={linea.idprod}
+                  idprod={linea.idprod}
                   imagen={linea.productoByIdprod.imagen}
                   nombre={linea.productoByIdprod.nombre}
                   precio={linea.productoByIdprod.precio}
