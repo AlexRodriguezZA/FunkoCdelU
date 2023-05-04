@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "../../assets/logo.png";
 import Layout from "../../components/Generales/Layout";
+import Swal from "sweetalert2";
 
 //Funciones
 import getAllCiudades from "../../Utils/getCiudades";
@@ -30,6 +31,45 @@ const user = ({ dataUser, ciudades, img_user }) => {
     dataUser.ciudadByCodigopostal.codigopostal
   );
 
+
+
+  const handleDeleteCuenta = async () => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+    swalWithBootstrapButtons
+      .fire({
+        title: "Estas seguro de eliminar tú cuenta en Funko C del U?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Eliminar cuenta",
+        cancelButtonText: "Cancelar",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Deleted!",
+            "Your file has been deleted.",
+            "success"
+          );
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            "Cancelled",
+            "Your imaginary file is safe :)",
+            "error"
+          );
+        }
+      });
+  };
+
   const handleSubmit = () => {
     updateUser(
       dataUser.email,
@@ -38,7 +78,7 @@ const user = ({ dataUser, ciudades, img_user }) => {
       Direccion,
       codigoPostal,
       AlturaDireccion,
-      Telefono,
+      Telefono
     );
   };
   return (
@@ -147,7 +187,7 @@ const user = ({ dataUser, ciudades, img_user }) => {
 
             <section className={style.seccion_2}>
               <p className={style.data_user}>
-                Direccion:{" "}
+                Dirección:{" "}
                 <span className={style.data_user_info}>
                   {dataUser.direccion} {dataUser.alturadireccion}
                 </span>
@@ -175,11 +215,7 @@ const user = ({ dataUser, ciudades, img_user }) => {
             </section>
           </div>
           <div className={style.seccion_3}>
-            <button
-              className={style.button_eliminar}
-            >
-              Eliminar 
-            </button>
+            <button className={style.button_eliminar} onClick={handleDeleteCuenta}>Eliminar</button>
             <button
               className={style.button_editar}
               onClick={() => setOpen(true)}
@@ -209,7 +245,7 @@ export async function getServerSideProps(context) {
       },
     };
   } else {
-    if (session.user.email === "funkocdelu@gmail.com"){
+    if (session.user.email === "funkocdelu@gmail.com") {
       return {
         redirect: {
           destination: "/Dashboard",

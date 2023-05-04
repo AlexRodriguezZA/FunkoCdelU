@@ -3,7 +3,6 @@ import Image from "next/image";
 import Funko from "../../assets/Funko_Categorias/funko3.png";
 import style from "../styles/MainBanner.module.css";
 import Link from "next/link";
-import { BsShop } from "react-icons/bs";
 
 function MainBanner() {
   return (
@@ -14,10 +13,9 @@ function MainBanner() {
           <h2 className={style.titulo_2}>C del U</h2>
         </div>
         <p className={style.parrafo}>
-          "La mejor calidad en Funkos del pais desde 2018."
+          "La mejor calidad en Funkos del país desde 2018".
         </p>
         <Link href="/Tienda" className={style.button_tienda}>
-            <BsShop/>{""}
             Tienda
         </Link>
 

@@ -16,13 +16,13 @@ import { useState, useEffect } from "react";
 
 const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
   const [TotalCart, setTotalCart] = useState(0);
-  
+
   const [isRefreshing, setIsRefreshing] = useState(false);
   const router = useRouter();
   const refreshData = () => {
     router.replace(router.asPath);
-    setIsRefreshing(true)
-  }
+    setIsRefreshing(true);
+  };
 
   const calcularTotal = () => {
     const suma = LineaCarrito.reduce((a, b) => {
@@ -33,7 +33,7 @@ const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
 
   useEffect(() => {
     calcularTotal();
-    setIsRefreshing(false)
+    setIsRefreshing(false);
   }, [LineaCarrito]);
 
   const handleRealizarPago = () => {
@@ -51,13 +51,10 @@ const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
   return (
     <Layout>
       <div className={style.carrito_page}>
-        
         <div className={style.carrito_box}>
           <div className={style.header_carrito}>
             <h2>Tú carrito</h2>
-            {
-              isRefreshing && <LoadingSpinner/>
-            }
+            {isRefreshing && <LoadingSpinner />}
             {LineaCarrito.length != 0 && (
               <button
                 className={style.button_allremove}
@@ -75,7 +72,14 @@ const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
                 <p className={style.carrito_vacio_texto}>
                   Tú carrito está vacío!
                 </p>
-                <Image width={300} height="auto" style={{marginBottom:"30px", marginTop: "30px"}}  priority src={carrito_vacio} />
+                <Image
+                  width={300}
+                  alt="Imagen_no_lineacarrito"
+                  height="auto"
+                  style={{ marginBottom: "30px", marginTop: "30px" }}
+                  priority
+                  src={carrito_vacio}
+                />
               </div>
             ) : (
               LineaCarrito.map((linea) => (
@@ -122,7 +126,7 @@ export async function getServerSideProps(context) {
       },
     };
   } else {
-    if (session.user.email === "funkocdelu@gmail.com"){
+    if (session.user.email === "funkocdelu@gmail.com") {
       return {
         redirect: {
           destination: "/Dashboard",
@@ -132,8 +136,10 @@ export async function getServerSideProps(context) {
     }
     const idCarrito = await getIDCarrito(session.user.email);
     const LineaCarrito = await getLineaCarrito(idCarrito);
-    const LinkMercadoPago = await CreadorDeLinkDePago(session.user.email,LineaCarrito);
-    
+    const LinkMercadoPago = await CreadorDeLinkDePago(
+      session.user.email,
+      LineaCarrito
+    );
 
     return {
       props: { LineaCarrito, idCarrito, LinkMercadoPago },

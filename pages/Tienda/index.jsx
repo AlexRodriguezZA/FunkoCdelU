@@ -49,6 +49,7 @@ const tienda = ({ productos, categorias }) => {
 
 
     } else {
+      
       setTimeout(() => {
         const filteredData = productos.filter((item) => {
           const array_de_valores_funko = Object.values(item);

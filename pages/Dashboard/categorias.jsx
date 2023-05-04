@@ -118,17 +118,17 @@ const categorias = ({ categorias }) => {
           <ModalOverlay />
           <ModalContent>
             <ModalHeader fontSize="25px" textAlign="center">
-              Nueva categoria
+              Nueva categoría
             </ModalHeader>
             <ModalBody pb={6}>
               {SuccessDataSave && (
                 <Alert status="success">
                   <AlertIcon />
-                  Se agregó con exito la categoria!
+                  Se agregó con exito la categoría!
                 </Alert>
               )}
               <FormControl>
-                <FormLabel fontSize="18px">Ingrese categoria</FormLabel>
+                <FormLabel fontSize="18px">Ingrese categoría</FormLabel>
                 <Input
                   placeholder="Nombre Categoria"
                   required
@@ -167,7 +167,7 @@ const categorias = ({ categorias }) => {
             <ModalBody pb={6}>
               <Text marginTop={5}>
                 Para evitar una perdida de datos, la opción de ELIMINAR
-                categoria solo se mostrará cuando la categoria de un funko tenga
+                categoría solo se mostrará cuando la categoría de un funko tenga
                 asociado cero funkos.
               </Text>
               <Box width="100%" height="auto" marginTop={10}>

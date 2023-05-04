@@ -3,7 +3,6 @@ import { FaWhatsapp } from 'react-icons/fa';
 
 const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
-    // Lógica para abrir WhatsApp
     window.open('https://wa.me/xxxxxxxxxx', '_blank');
   };
 
@@ -29,7 +28,7 @@ const WhatsAppButton = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          boxShadow: "0 4px 4px rgba(0, 0, 0, 0.2)"
+          boxShadow: "0 4px 4px rgba(0, 0, 0, 0.3)"
         }}
         onClick={handleWhatsAppClick}
       >

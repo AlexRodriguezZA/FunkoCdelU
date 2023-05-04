@@ -78,13 +78,13 @@ const TableRowCategoria = ({ categoria }) => {
                 <ModalOverlay />
                 <ModalContent>
                   <ModalHeader fontSize="25px" textAlign="center">
-                    Editar categoria
+                    Editar categoría
                   </ModalHeader>
                   <ModalBody pb={6}>
                     <FormControl>
-                      <FormLabel fontSize="18px">Edite categoria</FormLabel>
+                      <FormLabel fontSize="18px">Edite categoría</FormLabel>
                       <Input
-                        placeholder="Nombre Categoria"
+                        placeholder="Nombre Categoría"
                         required
                         size="md"
                         height="40px"
@@ -128,11 +128,11 @@ const TableRowCategoria = ({ categoria }) => {
                 <AlertDialogOverlay>
                   <AlertDialogContent>
                     <AlertDialogHeader fontWeight="bold" fontSize="25px">
-                      Eliminar categoria
+                      Eliminar categoría
                     </AlertDialogHeader>
 
                     <AlertDialogBody fontSize="18px">
-                      ¿Seguro que desea eliminar la categoria{" "}
+                      ¿Seguro que desea eliminar la categoría{" "}
                       {categoria.nombrecat}?
                     </AlertDialogBody>
 
