@@ -115,8 +115,11 @@
     }
 
     .seccion_buttons{
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
         width: 100px;
-        flex-direction: row;
+        flex-direction: column;
     }
     
     .button{

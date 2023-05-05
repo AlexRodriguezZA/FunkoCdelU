@@ -1,6 +1,6 @@
+//Componentes
 import React from 'react'
 import Image from 'next/image'
-import imagenPrueba from '../../assets/imagenesPrueba/boba2.jpg'
 import Link from 'next/link'
 import style from "../styles/CardCarrito.module.css"
 import Loading_Spinner_mini from './Loading_Spinner_mini'

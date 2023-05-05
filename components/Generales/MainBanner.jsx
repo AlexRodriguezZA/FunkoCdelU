@@ -4,6 +4,8 @@ import Funko from "../../assets/Funko_Categorias/funko3.png";
 import style from "../styles/MainBanner.module.css";
 import Link from "next/link";
 
+
+
 function MainBanner() {
   return (
     <div className={style.banner_container}>

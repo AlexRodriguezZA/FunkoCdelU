@@ -2,7 +2,7 @@ const mercadopago = require('mercadopago')
 async function crearLinkDePago(usuario, items)
 {
     //TODO: cambiar siempre la url de la notificcion
-    const URL_NOTIFICACION = "https://46c7-45-70-222-63.ngrok-free.app"
+    const URL_NOTIFICACION = "https://7ac2-152-168-218-159.ngrok-free.app"
     const linkFrontEnd = 'http://localhost:3000'
     mercadopago.configure({access_token: "TEST-5873713881795945-030921-d57166b7b2e69778a0aee6a8bca9190b-1327386578"});
 
