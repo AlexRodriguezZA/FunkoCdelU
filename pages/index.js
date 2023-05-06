@@ -42,6 +42,7 @@ export async function getServerSideProps(context) {
 
     //Nos permite que el usuario admin pueda entrar el panel 
     if (session.user.email === "funkocdelu@gmail.com"){
+    	console.log("UserAdmin")
       return {
         redirect: {
           destination: "/Dashboard",

@@ -12,7 +12,7 @@ import {
   Badge,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import No_image from "../../../0_FunkoImagenesPrueba/no_image.webp";
+import No_image from "../../assets/no_image.webp";
 import ImagenFunko from "./ImagenFunko";
 import star from "../../assets/Icons/star.svg";
 //Funciones
