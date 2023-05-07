@@ -17,7 +17,7 @@ import ImagenFunko from "./ImagenFunko";
 import star from "../../assets/Icons/star.svg";
 //Funciones
 import deleteProducto from "../../Utils/Crud_productos_admin/deleteProducto";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Modal_edit_Funko from "./Modal_edit_Funko";
 
@@ -49,7 +49,8 @@ const TableRowProductos = ({ producto, OpenModalComentarios, categorias }) => {
   const handleDeleteProducto = async () => {
     const res = await deleteProducto(producto.idprod);
     console.log(res);
-    refreshData();
+    window.location.replace(""); //Reiniciamos la página
+
     handleCloseAlertDialog();
   };
 

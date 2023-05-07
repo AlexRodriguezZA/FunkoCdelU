@@ -98,7 +98,6 @@ const productos = ({ productos, categorias }) => {
   };
   const handleCloseModalAddFunko = () => {
     setOpenModalAddFunko(false);
-    window.location.replace(""); //Reiniciamos la página
   };
   return (
     <>

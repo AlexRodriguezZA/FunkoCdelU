@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import { SessionProvider ,useSession,getSession} from "next-auth/react";
+import { SessionProvider ,useSession} from "next-auth/react";
 import { ChakraProvider } from '@chakra-ui/react'
 import Layout_admin from "../components/Dashboard_components/Layout_admin";
 function MyApp({ Component, pageProps, session }) {

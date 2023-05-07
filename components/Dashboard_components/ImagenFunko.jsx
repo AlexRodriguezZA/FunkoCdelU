@@ -13,7 +13,7 @@ const ImagenFunko = ({ imagen_name, nombreFunko }) => {
       <Image
         src={imageUrl}
         width={70}
-        height={30}
+        height={50}
         alt={`Imagen del funko ${nombreFunko}`}
       />
     </>

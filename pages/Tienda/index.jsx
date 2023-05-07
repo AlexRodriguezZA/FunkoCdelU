@@ -41,6 +41,21 @@ const tienda = ({ productos, categorias }) => {
       });
       setProductos(OrdenProductosZA);
     }
+
+    //CHEKEAR ESTO
+    if (order === "mayor_precio") {
+      const OrdenProductosMayor_precio = [...productos].sort((a, b) => {
+        return b.precio - a.precio;
+      });
+      setProductos(OrdenProductosMayor_precio);
+    }
+    if (order === "menor_precio") {
+      const OrdenProductosMayor_precio = [...productos].sort((a, b) => {
+        return b.precio - a.precio;
+      });
+      const menor_precio = OrdenProductosMayor_precio.reverse()
+      setProductos(menor_precio);
+    }
   };
 
   const handlerSearch = (search) => {
@@ -76,11 +91,13 @@ const tienda = ({ productos, categorias }) => {
             <p className={style.texto}>Ordenar por: </p>
              <button className={style.Button_order} onClick={()=>handlerOrderNombre("AZ")}>A-Z</button>
              <button className={style.Button_order} onClick={()=>handlerOrderNombre("ZA")}>Z-A</button>
+             <button className={style.Button_order} onClick={()=>handlerOrderNombre("mayor_precio")}>Mayor precio</button>
+             <button className={style.Button_order} onClick={()=>handlerOrderNombre("menor_precio")}>Menor precio</button>
              <button className={style.Button_order} onClick={()=>handlerOrderNombre("all")}>All</button>
 
           </section>
 
-          <section className={style.conteiner_input_cateogoria}>
+          <section className={style.conteiner_input_cateogoria  }>
             <p className={style.texto}> Categorias: </p>
             <select
               className={style.input_categoria}

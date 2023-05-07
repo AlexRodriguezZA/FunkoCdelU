@@ -69,7 +69,7 @@ const formulario = ({ ciudades }) => {
         </div>
 
         <section className={style.leyenda_formulario}>
-          <h3>Ayudanos a facilitar el envio ingresando tus datos</h3>
+          <h3>Ayudanos a facilitar el envío ingresando tus datos</h3>
         </section>
 
         <div className={style.conteiner_input_dni}>
