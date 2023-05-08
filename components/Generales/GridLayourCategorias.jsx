@@ -6,7 +6,6 @@ import peliculas_image from "../../assets/Funko_Categorias/peliculas.png"
 import DC_image from "../../assets/Funko_Categorias/DC.png"
 import NBA_image from "../../assets/Funko_Categorias/NBA.png"
 
-//TODO:ACOMODAR LAS IMAGENES Y PONES OTRAS
 const GridLayourCategorias = () => {
   return (
     <div className={style.angry_grid}>

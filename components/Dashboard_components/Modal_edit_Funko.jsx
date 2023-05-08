@@ -1,3 +1,4 @@
+//Componentes
 import {
   Grid,
   Modal,
@@ -17,24 +18,26 @@ import {
   Center,
   InputLeftElement,
   Image,
-  Divider,
-  NumberInput,
 } from "@chakra-ui/react";
+
 import {
   Alert,
   AlertIcon,
   AlertTitle,
   AlertDescription,
 } from "@chakra-ui/react";
-
 import { CloseIcon } from "@chakra-ui/icons";
 
+
+//Funciones
 import setCategoria from "../../Utils/setCategoria";
 import EditFunko from "../../Utils/Crud_productos_admin/EditFunko";
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import setFunko from "../../Utils/setFunko";
+
+
+
+
 function Modal_edit_Funko({ isOpen, onClose, categorias, producto }) {
   const [name, setName] = useState(producto.nombre);
   const [NumberFunko, setNumberFunko] = useState(producto.numerofunko);

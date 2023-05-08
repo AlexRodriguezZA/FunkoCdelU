@@ -1,10 +1,13 @@
-import React from "react";
+//Componentes
 import style from "../styles/CardCarrito.module.css";
 import Loading_Spinner_mini from "./Loading_Spinner_mini";
 
+
+//Funciones
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import add_and_Rest_OneFunko from "../../Utils/Crud_Carrito/addOneFunko";
+
 const Seccion_updateCantidad = ({ cantidad, IdLineaCarrito, stock }) => {
   const [isRefreshing, setIsRefreshing] = useState(false);
 

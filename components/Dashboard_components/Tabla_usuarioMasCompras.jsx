@@ -1,3 +1,4 @@
+//Componentes
 import {
   Table,
   Thead,
@@ -8,7 +9,6 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
-
 import TableRow_usuariosMascompras from "./TableRow_usuariosMascompras";
 function Tabla_usuarioMasCompras({ Top3_usuarios }) {
   return (

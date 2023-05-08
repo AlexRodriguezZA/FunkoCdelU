@@ -9,7 +9,6 @@ import {
   ModalHeader,
 } from "@chakra-ui/react";
 import { TableCaption, TableContainer } from "@chakra-ui/react";
-
 import { IconButton } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import Image from "next/image";

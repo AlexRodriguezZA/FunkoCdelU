@@ -1,12 +1,16 @@
+//Componentes
 import { Flex, Heading, Button, Box, Text } from "@chakra-ui/react";
 import Bars from "../../components/Dashboard_components/Charts/Bar";
 import Pies from "../../components/Dashboard_components/Charts/Pie";
 import Tabla_Funkos_masVendidos from "../../components/Dashboard_components/Tabla_Funkos_masVendidos";
 import Tabla_usuarioMasCompras from "../../components/Dashboard_components/Tabla_usuarioMasCompras";
+
+//Funciones
 import Top3Funkos_masVendidos from "../../Utils/Top3Funkos_masVendidos";
 import Top3usuarios_masCompras from "../../Utils/Top3usuarios_masCompras";
 import CrearArrayVentas from "../../Utils/Funciones Charts/CrearArrayVentas";
 import CrearArray_porcentajesCategorias from "../../Utils/Funciones Charts/CrearArray_porcentajesCategorias";
+
 const estadisticas = ({Top3_Funkos,Top3_Usuarios,array_ventas,objeto_categorias_porcentajes}) => {
   return (
     <>

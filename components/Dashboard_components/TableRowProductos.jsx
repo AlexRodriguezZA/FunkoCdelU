@@ -1,3 +1,4 @@
+//Componentes
 import {
   Tr,
   Td,
@@ -15,6 +16,7 @@ import Image from "next/image";
 import No_image from "../../assets/no_image.webp";
 import ImagenFunko from "./ImagenFunko";
 import star from "../../assets/Icons/star.svg";
+
 //Funciones
 import deleteProducto from "../../Utils/Crud_productos_admin/deleteProducto";
 import { useState } from "react";

@@ -1,3 +1,4 @@
+//Componentes
 import { Tr, Td, Button, Box } from "@chakra-ui/react";
 import {
   AlertDialog,

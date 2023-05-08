@@ -1,11 +1,15 @@
+//Componentes
 import style from "../../styles/Comentario.module.css";
-import deleteComentario from "../../../Utils/deleteComentario";
 import { BiEditAlt, BiTrash, BiSave } from "react-icons/bi";
 import Loading_Spinner_mini from "../Loading_Spinner_mini";
+
+//Funciones
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-
+import deleteComentario from "../../../Utils/deleteComentario";
 import EditComentario from "../../../Utils/EditComentario";
+
+
 const Comentario = ({ comentarioData, Dni_user_coment }) => {
   const [ContenidoComentario, setContenidoComentario] = useState(
     comentarioData.contenido
@@ -30,7 +34,6 @@ const Comentario = ({ comentarioData, Dni_user_coment }) => {
   };
 
   //CON ESTAS FUNCIONES LO QUE HACEMOS ES ABRIR EL INPUT DE EDICIÓN Y CERRARLO.
-
   const handleOpenEditComentario = () => {
     setIsEdit(true);
   };

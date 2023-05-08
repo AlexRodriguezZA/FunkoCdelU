@@ -1,13 +1,14 @@
-import React from 'react'
+//Componentes
 import {
   Box,
-  Avatar,
   Text,
   Flex,
   IconButton,
   useColorModeValue,
 } from '@chakra-ui/react'
 import { CloseIcon } from '@chakra-ui/icons'
+
+//Funciones
 import deleteComentario from '../../Utils/deleteComentario'
 import { useRouter } from "next/router"
 

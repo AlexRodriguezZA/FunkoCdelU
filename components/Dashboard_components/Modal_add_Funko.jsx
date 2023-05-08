@@ -1,3 +1,4 @@
+//Componentes
 import {
 Grid,
   Modal,
@@ -27,11 +28,14 @@ import {
   AlertDescription,
 } from '@chakra-ui/react'
 
-
+//Funciones
 import addNewFunko from '../../Utils/addNewFunko'
 import setCategoria from '../../Utils/setCategoria'
 import { useState,useEffect } from 'react'
 import { useRouter } from 'next/router'
+
+
+
 function Modal_add_Funko({isOpen, onClose, categorias}) {
 
   const [name, setName] = useState('')

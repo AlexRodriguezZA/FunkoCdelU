@@ -8,7 +8,6 @@ import {
   TableCaption,
   TableContainer,
 } from "@chakra-ui/react";
-
 import TableRow_FunkosMasVendidos from "./TableRow_FunkosMasVendidos";
 
 function Tabla_Funkos_masVendidos({Top3_Funkos}) {

@@ -1,4 +1,3 @@
-import React from "react";
 import { Tr, Td,Button } from "@chakra-ui/react";
 
 const Table_rowClientes = ({ data_cliente }) => {

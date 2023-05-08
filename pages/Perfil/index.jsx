@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { getSession } from "next-auth/react";
-
 //Componentes
 import Modal from "../../components/Generales/Modal";
 import style from "../../styles/user.module.css";
@@ -14,11 +11,13 @@ import Swal from "sweetalert2";
 import getAllCiudades from "../../Utils/getCiudades";
 import getDataUser from "../../Utils/getDataUser";
 import updateUser from "../../Utils/updateUser";
+import { useState } from "react";
+import { getSession } from "next-auth/react";
 
 const user = ({ dataUser, ciudades, img_user }) => {
   const [open, setOpen] = useState(false);
 
-  //Estado del formulario que contiene el modal de la actualizacion de los datos del usuario
+  //Estado del formulario que contiene el modal de la actualización de los datos del usuario
   const [Nombre, setNombre] = useState(dataUser.nombre);
   const [Apellido, setApellido] = useState(dataUser.apellido);
   const [Direccion, setDireccion] = useState(dataUser.direccion);

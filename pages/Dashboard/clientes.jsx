@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 //Componentes
 import { Flex, Heading, Box} from "@chakra-ui/react";
 import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
@@ -10,8 +9,14 @@ import {
   Tr,
   Th
 } from "@chakra-ui/react";
-import getAllClientes from '../../Utils/getAllClientes';
 import Table_rowClientes from '../../components/Dashboard_components/Table_rowClientes';
+
+//Funciones
+import React, { useState } from 'react'
+import getAllClientes from '../../Utils/getAllClientes';
+
+
+
 const clientes = ({clientes}) => {
 
   const [Clientes, setClientes] = useState(clientes)

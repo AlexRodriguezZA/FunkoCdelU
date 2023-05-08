@@ -1,12 +1,14 @@
+//Componentes
 import Head from "next/head";
 import { Flex, Heading, Avatar, Text, Link, Button,AvatarBadge  } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
 import { ChevronRightIcon } from '@chakra-ui/icons'
+
+//Funciones 
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import path from "path";
-
-
 import { signOut } from "next-auth/react";
+
 const Layout_admin = ({ children }) => {
 
   const [estaEnLinea, setEstaEnLinea] = useState(true);
@@ -163,7 +165,7 @@ const Layout_admin = ({ children }) => {
                 bg="blue.600"
                 _hover={{ textDecor: "none" }}
               >
-                Cerra Sesión
+                Cerrar Sesión
               </Button>
             </Flex>
           </Flex>

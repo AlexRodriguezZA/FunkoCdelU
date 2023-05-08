@@ -15,14 +15,17 @@ import {
   ModalContent,
   ModalHeader,
 } from "@chakra-ui/react";
-
+import Modal_add_Funko from "../../components/Dashboard_components/Modal_add_Funko";
 import Comentario_Admin from "../../components/Dashboard_components/Comentario_Admin";
 import TableRowProductos from "../../components/Dashboard_components/TableRowProductos";
-import Modal_add_Funko from "../../components/Dashboard_components/Modal_add_Funko";
+
+
 //Funciones
 import getAllProductsAdmin from "../../Utils/Crud_productos_admin/getAllProductsAdmin";
 import { useState } from "react";
 import getCategorias from "../../Utils/getCategorias";
+
+
 const productos = ({ productos, categorias }) => {
   const [Productos, setProductos] = useState(productos);
   const [showModalComentarios, setshowModalComentarios] = useState(false);
@@ -95,9 +98,13 @@ const productos = ({ productos, categorias }) => {
   //Con estas funciones manejamos el modal (abrir y cerrar) de agregar un nuevo funko al sistema
   const handleOpenModalAddFunko = () => {
     setOpenModalAddFunko(true);
+
   };
   const handleCloseModalAddFunko = () => {
     setOpenModalAddFunko(false);
+    window.location.replace(""); //Reiniciamos la página
+
+
   };
   return (
     <>
