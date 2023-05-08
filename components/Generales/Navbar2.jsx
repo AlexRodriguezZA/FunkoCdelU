@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+//Componentes
 import Link from "next/link";
 import Image from "next/image";
 import cart from "../../assets/Icons/cart.svg"
+
+//Funciones
 import { useSession, signOut } from 'next-auth/react'
+import React, { useState } from "react";
+import { useEffect } from "react";
+import getCantidadCarrito from "../../Utils/Crud_Carrito/getCantidadCarrito";
 
 function Navbar2() {
 
-  const { data: session } = useSession()
-
+  const { data: session, status } = useSession()
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
+  
   const navToggle = () => {
     if (active === "nav__menu") {
       setActive("nav__menu nav__active");
@@ -20,10 +25,14 @@ function Navbar2() {
       setIcon("nav__toggler toggle");
     } else setIcon("nav__toggler");
   };
+  
+
+
+  
   return (
     <nav className="nav">
       <Link href="/" className="nav__brand">
-        Funko C del U
+        Inicio
       </Link>
 
       <ul className={active}>
@@ -59,9 +68,9 @@ function Navbar2() {
 
         </div>
         <li className="nav__item">
-          <Link className="nav__link" href="/carrito">
-            <Image src={cart} alt="Carrito" />
-          </Link>
+            <Link className="nav__link" href="/carrito">
+              <Image src={cart} alt="Carrito" />
+            </Link> 
         </li>
       </ul>
       <div onClick={navToggle} className={icon}>
@@ -69,7 +78,6 @@ function Navbar2() {
         <div className="line2"></div>
         <div className="line3"></div>
       </div>
-
 
     </nav>
   );

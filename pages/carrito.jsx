@@ -5,6 +5,7 @@ import Layout from "../components/Generales/Layout";
 import Image from "next/image";
 import carrito_vacio from "../assets/imgCart.jpg";
 import LoadingSpinner from "../components/Generales/Loading_Spinner";
+
 //Funciones y Hooks
 import { getSession } from "next-auth/react";
 import getIDCarrito from "../Utils/Crud_Carrito/getIDCarrito";
