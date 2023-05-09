@@ -1,4 +1,4 @@
-import logo from "../../assets/logo.png"
+import logo from "../../assets/Logo_funko.png"
 import style from "../styles/Header.module.css"
 import Image from 'next/image'
 const Header = ({search}) => {
