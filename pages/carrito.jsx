@@ -50,7 +50,7 @@ const Carrito = ({ LineaCarrito, idCarrito, LinkMercadoPago }) => {
     await DeleteAllFunkosCart(idCarrito);
   };
   return (
-    <Layout>
+    <Layout title_page={"Funko C del U - Carrito"}>
       <div className={style.carrito_page}>
         <div className={style.carrito_box}>
           <div className={style.header_carrito}>

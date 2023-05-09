@@ -15,7 +15,7 @@ import IsFavoriteUser from "../../Utils/IsFavoriteUser";
 import DeleteFav from "../../Utils/DeleteFav";
 //Assets
 
-import imagenPrubea from "../../assets/imagenesPrueba/boba2.jpg";
+import imagenPrubea from "../../assets/no_image.webp";
 import corazon from "../../assets/Icons/corazon.svg";
 import corazon2 from "../../assets/Icons/corazon2.svg";
 

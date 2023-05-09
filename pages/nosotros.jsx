@@ -10,7 +10,7 @@ import Layout from "../components/Generales/Layout";
 
 const Nosotros = () => {
   return (
-    <Layout>
+    <Layout title_page={"Funko C del U - Nosotros"}>
       <div className={style.nosotros_container}>
         <section className={style.seccionUno_container}>
           <div className={style.Img_Logo_container}>

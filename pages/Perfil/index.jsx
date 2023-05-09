@@ -81,7 +81,7 @@ const user = ({ dataUser, ciudades, img_user }) => {
     );
   };
   return (
-    <Layout>
+    <Layout title_page={`Funko C del U - ${dataUser.nombre} ${dataUser.apellido} `}>
       <div className={style.page_perfil}>
         {/*//////////////////////////////////////////////////////////////////////////////////////////// */}
         <Modal openModal={open} CloseModal={() => setOpen(false)}>

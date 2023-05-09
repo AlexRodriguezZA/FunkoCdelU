@@ -42,7 +42,7 @@ const Favoritos = ({ favoritos }) => {
   }, []);
 
   return (
-    <Layout>
+    <Layout title_page={"Funko C del U - Favoritos"}>
       <div className={style.favoritos_container}>
         <div className={style.title_favoritos_container}>
           <h2 className={style.titulo_favoritos}>Tus favoritos</h2>

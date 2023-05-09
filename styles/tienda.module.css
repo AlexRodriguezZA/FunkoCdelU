@@ -56,6 +56,22 @@
     cursor: pointer;
     margin-left: 10px; 
 }
+.Button_order_invertido{
+    box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
+    width: 100px;
+    height: 30px;
+    background: #111217;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px; 
+}
 .conteiner_input_cateogoria {
     display: flex;
     flex-direction: row;

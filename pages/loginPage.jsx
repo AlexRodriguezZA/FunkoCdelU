@@ -3,7 +3,7 @@ import Layout from "../components/Generales/Layout";
 
 const LoginPage = () => {
   return (
-    <Layout>
+    <Layout title_page={"Funko C del U - Login"}>
       <div className="container">
         <LoginCard />
       </div>

@@ -11,7 +11,7 @@ function MainBanner() {
     <div className={style.banner_container}>
       <div className={style.textos_container}>
         <div className={style.titulos_container}>
-          <h1 className={style.Title}>FUNKO</h1>
+          <h1 className={style.Title} style={{ fontFamily: 'Lilita One' }}>FUNKO</h1>
           <h2 className={style.titulo_2}>C del U</h2>
         </div>
         <p className={style.parrafo}>

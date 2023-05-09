@@ -13,7 +13,7 @@ import { getSession } from "next-auth/react";
 const Home = ({ productos }) => {
   const sixProducts = productos.slice(0, 6);
   return (
-    <Layout>
+    <Layout title_page={"Funko C del U"}>
       <div className={style.home_container}>
         <MainBanner/>
         <div className={style.title_container}>

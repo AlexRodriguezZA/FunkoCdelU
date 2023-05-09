@@ -149,7 +149,6 @@ function Modal_edit_Funko({ isOpen, onClose, categorias, producto }) {
               <AlertTitle>Funko cargado correctamente!</AlertTitle>
             </Alert>
           )}
-          <Divider />
           <ModalCloseButton />
           <ModalBody>
             <Grid

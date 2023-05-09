@@ -7,7 +7,6 @@ import cart from "../../assets/Icons/cart.svg"
 import { useSession, signOut } from 'next-auth/react'
 import React, { useState } from "react";
 import { useEffect } from "react";
-import getCantidadCarrito from "../../Utils/Crud_Carrito/getCantidadCarrito";
 
 function Navbar2() {
 

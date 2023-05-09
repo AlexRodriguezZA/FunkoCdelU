@@ -10,7 +10,7 @@ import { getSession } from "next-auth/react";
 const compras = ({ compras_user }) => {
 
   return (
-    <Layout>
+    <Layout title_page={`Funko C del U - Compras`}>
       <div className={style.compras_container}>
         <section className={style.seccion_button}>
           <Link href="/Perfil" className={style.button_volver}>

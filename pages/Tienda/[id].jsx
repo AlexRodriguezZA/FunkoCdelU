@@ -10,7 +10,7 @@ import getAllProducts from "../../Utils/StoreProducts";
 const index = ({ FunkoDetalle }) => {
   
   return (
-    <Layout>
+    <Layout title_page={`Funko C del U - ${FunkoDetalle.nombre}`}>
       <div className={style.Funko_detalle_page}>
         <CardFunkoDetalle FunkoDetalle={FunkoDetalle} />
         <Seccion_comentarios ComentariosFunko={FunkoDetalle} />

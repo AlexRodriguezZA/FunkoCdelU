@@ -1,6 +1,5 @@
 //Componentes / assets
 import style from "../styles/CardFunko.module.css";
-import imagenPrubea from "../../assets/imagenesPrueba/boba2.jpg";
 import star from "../../assets/Icons/star.svg"
 import Image from "next/image";
 import carrito from "../../assets/Icons/cart.svg";

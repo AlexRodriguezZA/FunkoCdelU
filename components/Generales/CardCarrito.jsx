@@ -5,6 +5,7 @@ import Link from 'next/link'
 import style from "../styles/CardCarrito.module.css"
 import Loading_Spinner_mini from './Loading_Spinner_mini'
 import Seccion_updateCantidad from './Seccion_updateCantidad'
+
 //Funciones
 import DeleteLineaCarrito from '../../Utils/Crud_Carrito/DeleteLineaCarrito'
 import { useRouter } from 'next/router';
