@@ -50,6 +50,7 @@ const Seccion_updateCantidad = ({ cantidad, IdLineaCarrito, stock }) => {
         </span>
       )}
       
+      
       {cantidad === stock ? <span style={{color: "red", fontSize: "10px"}}>Máx.</span> : null}
 
       {cantidad === 1 ? (

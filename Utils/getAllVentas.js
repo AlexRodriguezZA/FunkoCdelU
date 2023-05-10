@@ -6,7 +6,7 @@ async function getAllVentas() {
         },
         body: JSON.stringify({
             query: `query {
-              allVentausuarios(orderBy: FECHA_DESC) {
+              allVentausuarios(orderBy: IDVENTA_DESC) {
                 nodes {
                   usuarioByDni {
                     nombre

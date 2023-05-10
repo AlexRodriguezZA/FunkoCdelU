@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import cart from "../../assets/Icons/cart.svg"
-
+import Loading_spinner_mini_navbar from "./Loading_spinner_mini_navbar";
 //Funciones
 import { useSession, signOut } from 'next-auth/react'
 import React, { useState } from "react";
@@ -51,7 +51,18 @@ function Navbar2() {
           </Link>
         </li>
         <div className="dropdown">
-          <li className="dropbtn">Cuenta</li>
+          {
+            status === "loading" && <Loading_spinner_mini_navbar/>  
+            
+          }
+          {
+            session ? <li className="dropbtn">{session.user.name.split(" ")[0]}</li> : <li className="dropbtn"></li>
+
+          }
+          {
+            !session && status === "unauthenticated" && <li className="dropbtn">Cuenta</li>
+          }
+
           <div className="dropdown_content">
             {
               !session && <Link href="/loginPage" className="link">Ingresar</Link>

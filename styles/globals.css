@@ -80,6 +80,7 @@ body {
 
 }
 .dropdown .dropbtn {
+  cursor: pointer;
   list-style: none;
   width: 100%;
   color: #FFFFFF;

@@ -29,7 +29,7 @@ function Tabla_usuarioMasCompras({ Top3_usuarios }) {
 
         </Tbody>
         <TableCaption fontSize="12px" fontWeight="bold">
-          Top 3 usuario con mas compras.
+          Top 3 usuario con más compras.
         </TableCaption>
       </Table>
     </TableContainer>

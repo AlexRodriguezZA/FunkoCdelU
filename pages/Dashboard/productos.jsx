@@ -69,6 +69,7 @@ const productos = ({ productos, categorias }) => {
       setSelectedTh(null)
       setProductos(filteredData);
     }
+
   };
 
   const handleFiltrar = (clave) => {

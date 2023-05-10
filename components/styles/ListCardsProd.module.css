@@ -1,6 +1,6 @@
 .CardsList_container{
 
-    margin-top: 25px;
+    margin-top: 50px;
     display: grid;
     gap: 50px;
     grid-template-columns: repeat(3, 1fr);

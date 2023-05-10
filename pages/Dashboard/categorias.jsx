@@ -167,9 +167,9 @@ const categorias = ({ categorias }) => {
             </ModalHeader>
             <ModalBody pb={6}>
               <Text marginTop={5}>
-                Para evitar una perdida de datos, la opción de ELIMINAR
+                Para evitar perdidas grandes de datos, la opción de ELIMINAR
                 categoría solo se mostrará cuando la categoría de un funko tenga
-                asociado cero funkos.
+                cero funkos cargados.
               </Text>
               <Box width="100%" height="auto" marginTop={10}>
                 <Image

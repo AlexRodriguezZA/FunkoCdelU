@@ -36,7 +36,7 @@ function Footer() {
           </div>
           <div className={style.item_2_icon}>
             <BsEnvelopeFill />
-            <p>FunkoCdelU@gmail.com</p>
+            <p>funkocdelu@gmail.com</p>
           </div>
         </section>
       </div>

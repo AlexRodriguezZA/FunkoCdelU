@@ -119,6 +119,7 @@
 
 
 .dropdown .dropbtn {
+  cursor: pointer;
   color: #FFFFFF;
   text-transform: uppercase;
   font-style: normal;

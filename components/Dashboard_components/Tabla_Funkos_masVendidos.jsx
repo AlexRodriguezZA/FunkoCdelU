@@ -28,7 +28,7 @@ function Tabla_Funkos_masVendidos({Top3_Funkos}) {
             Top3_Funkos.map( (funko) => <TableRow_FunkosMasVendidos key={funko.idprod} funko={funko}/> )
           }
         </Tbody>
-        <TableCaption fontSize="12px" fontWeight="bold">Top 3 Funkos mas vendidos</TableCaption>
+        <TableCaption fontSize="12px" fontWeight="bold">Top 3 Funkos más vendidos</TableCaption>
       </Table>
     </TableContainer>
   );
